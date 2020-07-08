@@ -1,0 +1,81 @@
+/* light */
+.cls-13,
+.cls-18,
+.light-unclicked {
+  fill: #defcf3
+}
+
+.light-unclicked:hover {
+  fill: #fffbd4
+}
+
+.light-clicked {
+  fill: #ffdbd4
+}
+
+/* semi-light */
+.cls-1,
+.semi-light-unclicked {
+  fill: #9bf6dc
+}
+
+.semi-light-unclicked:hover {
+  fill: #fff794
+}
+
+.semi-light-clicked {
+  fill: #ffa794
+}
+
+/* semi-dark */
+.cls-19,
+.cls-3,
+.semi-dark-unclicked {
+  fill: #6bcaaf
+}
+
+.semi-dark-unclicked:hover {
+  fill: #fff794
+}
+
+.semi-dark-clicked {
+  fill: #d77b67
+}
+
+/* dark */
+.cls-2,
+.cls-20,
+.dark-unclicked {
+  fill: #2d7863
+}
+
+.dark-unclicked:hover {
+  fill: #fff794
+}
+
+.dark-clicked {
+  fill: #853c2b
+}
+
+
+.cls-17 {
+  fill: none;
+  stroke-width: 7px;
+}
+
+.cls-17,
+.cls-18,
+.cls-19 {
+  stroke: #6bcaaf;
+}
+
+.cls-17,
+.cls-18,
+.cls-19,
+.cls-20 {
+  stroke-miterlimit: 10;
+}
+
+.cls-20 {
+  stroke: #2d7863;
+}
