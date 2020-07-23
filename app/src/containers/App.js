@@ -7,7 +7,7 @@ import Results from '../components/results'
 
 
 export default function App() {
-  const [page, setPageState] = useState(1)
+  const [page, setPageState] = useState(2)
   const [form, setForm] = useState({
     samples: [],
     gene: "",

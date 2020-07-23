@@ -4,3 +4,8 @@
   color: white;
   font-weight: bold;
 }
+.btn.btn-outline-custom{
+  border: 1px solid #ced4da;
+  color: #495057; 
+  font-weight: bold;
+}

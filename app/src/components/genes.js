@@ -9,12 +9,21 @@ export default function Genes(props) {
       <hr />
       <div className="row">
         <div className="col-sm-12">
-          <h3>Sample List</h3>
-          <div className="form-group">
-            <select multiple className="form-control" id="exampleFormControlSelect2">
-            </select>
+        <h3>Search</h3>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="gene symbol"/>
+              <div class="input-group-append" id="button-addon4">
+                <button class="btn btn-outline-custom" type="button">Search for Genes</button>
+                <button class="btn btn-outline-custom" type="button">Suggest Genes</button>
+              </div>
+              </div>
+              <hr />
+            <h3>Gene List</h3>
+            <div className="form-group">
+              <select multiple className="form-control" id="exampleFormControlSelect2">
+              </select>
+            </div>
           </div>
         </div>
-      </div>
     </React.Fragment>)
 }
