@@ -1,0 +1,57 @@
+.spacing{
+  margin-bottom:30px;
+}
+.c-button{
+  width:100%;
+  height:100%;
+  border-radius:0.25rem;
+  border: 1px solid #6bcaaf;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin:10px;
+}
+.c-button:hover{
+  width:100%;
+  height:100%;
+  border-radius:0.25rem;
+  border: 2px solid #6bcaaf;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin:10px;
+}
+.c-button-selected{
+  width:100%;
+  height:100%;
+  border-radius:0.25rem;
+  border: 2px solid #6bcaaf;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin:10px;
+}
+.dot {
+  height: 25px;
+  width: 25px;
+  margin-top: 5px;
+  margin-left: 5px;
+  border: 1px solid #6bcaaf;
+  border-radius: 50%;
+  display: inline-block;
+  float: left;
+}
+.dot-selected {
+  height: 25px;
+  width: 25px;
+  margin-top: 5px;
+  margin-left: 5px;
+  border: 1px solid #6bcaaf;
+  border-radius: 50%;
+  background-color: #6bcaaf;
+  display: inline-block;
+  float: left;
+}

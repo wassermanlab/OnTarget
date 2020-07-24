@@ -8,7 +8,7 @@ function AppRouter() {
   return (
     <Router>
         <Route path="/" exact component={Home} />
-        <Route path="/about/" component={About} />
+        <Route path="/about" component={About} />
         <Route path="/app" component={App} />
     </Router>
   );

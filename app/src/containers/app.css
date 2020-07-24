@@ -3,9 +3,13 @@
   border-color: #6bcaaf;
   color: white;
   font-weight: bold;
+  margin:5px;
+  width:70px;
+  float:right;
 }
 .btn.btn-outline-custom{
-  border: 1px solid #ced4da;
-  color: #495057; 
+  border: 1px solid #6bcaaf;
+  color: white; 
   font-weight: bold;
+  background-color: #6bcaaf;
 }

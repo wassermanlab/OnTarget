@@ -4,10 +4,10 @@ import Genes from '../components/genes'
 import Constraints from '../components/constraints'
 import Samples from '../components/samples'
 import Results from '../components/results'
-
+import Nav from '../components/nav'
 
 export default function App() {
-  const [page, setPageState] = useState(2)
+  const [page, setPageState] = useState(1)
   const [form, setForm] = useState({
     samples: [],
     gene: "",
@@ -24,13 +24,13 @@ export default function App() {
   function rendered_component() {
     switch (page) {
       case 1:
-        return (<Samples />);
+        return (<Samples next={next} back={back} page={page} />);
       case 2:
-        return (<Genes />);
+        return (<Genes next={next} back={back} page={page} />);
       case 3:
-        return (<Constraints />);
+        return (<Constraints next={next} back={back} page={page} />);
       case 4:
-        return (<Results />);
+        return (<Results next={next} back={back} page={page} />);
       default:
         return (<React.Fragment></React.Fragment>);
     }
@@ -38,12 +38,9 @@ export default function App() {
 
   return (
     <React.Fragment>
-      <div className="container-fluid">
+      <Nav />
+      <div className="navbar-fix container-fluid">
       {rendered_component()}
-      <div className="btn-group float-right" role="group" aria-label="Basic example">
-        {page!==1? <button type="button" onClick={back} className="btn btn-nav">Back</button> : <React.Fragment></React.Fragment>}
-        {page!==4? <button type="button" onClick={next} className="btn btn-nav">Next</button> : <React.Fragment></React.Fragment>}
-      </div>
-      </div>
+        </div>
     </React.Fragment>)
 }
