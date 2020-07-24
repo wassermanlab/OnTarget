@@ -50,6 +50,7 @@ export default function Constraints(props) {
         </div>
         <div className="col-sm-1"></div>
       </div>
+      <hr />
       <NavButtons next={props.next} back={props.back} page={props.page} />
     </React.Fragment>)
 }

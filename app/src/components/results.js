@@ -9,6 +9,7 @@ export default function Results(props) {
       <h1 className="text-center">Results</h1>
       <hr />
       <IGV genome={'hg19'} start={50000} end={500000} chrom={'chr1'} />
+      <hr />
       <NavButtons next={props.next} back={props.back} page={props.page} />
     </React.Fragment>)
 }

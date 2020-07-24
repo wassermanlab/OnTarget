@@ -4,10 +4,11 @@ import Genes from '../components/genes'
 import Constraints from '../components/constraints'
 import Samples from '../components/samples'
 import Results from '../components/results'
+import Design from '../components/design'
 import Nav from '../components/nav'
 
 export default function App() {
-  const [page, setPageState] = useState(1)
+  const [page, setPageState] = useState(5)
   const [form, setForm] = useState({
     samples: [],
     gene: "",
@@ -31,6 +32,8 @@ export default function App() {
         return (<Constraints next={next} back={back} page={page} />);
       case 4:
         return (<Results next={next} back={back} page={page} />);
+      case 5:
+          return (<Design next={next} back={back} page={page} />);
       default:
         return (<React.Fragment></React.Fragment>);
     }

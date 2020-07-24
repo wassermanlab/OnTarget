@@ -504,18 +504,6 @@ export default function Samples(props) {
               </select>
             </div>
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label" for="experimentsSelect">Experiments</label>
-              <select className="form-control col-sm-3" id="experimentsSelect">
-                <option>Any</option>
-                <option>ATAC-seq</option>
-                <option>CAGE</option>
-                <option>ChIP-seq</option>
-                <option>DNase-seq</option>
-                <option>Hi-C</option>
-                <option>in situ Hi-C</option>
-                <option>transgenic reporter assay</option>
-              </select>
-              <div className="col-sm-1"></div>
               <label className="col-sm-2 col-form-label" for="treatmentSelect">Treatment</label>
               <select className="form-control col-sm-3" id="treatmentSelect">
                 <option>Any</option>
@@ -551,6 +539,7 @@ export default function Samples(props) {
             <select multiple className="form-control" id="exampleFormControlSelect2">
             </select>
           </div>
+          <hr />
           <NavButtons next={props.next} back={props.back} page={props.page} />
         </div>
       </div>
