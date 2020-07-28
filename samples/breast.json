@@ -1,0 +1,500 @@
+{
+    "adipocyte (breast)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Adipocyte - breast, donor1",
+            "treatment": false,
+            "uid": 909
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Adipocyte - breast, donor2",
+            "treatment": false,
+            "uid": 910
+        }
+    ],
+    "breast": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": true,
+            "cell_line": false,
+            "name": "breast",
+            "treatment": true,
+            "uid": 2247
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "breast, adult, donor1",
+            "treatment": false,
+            "uid": 975
+        }
+    ],
+    "epithelial cell (breast)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "breast epithelium female adult (51 years)",
+            "treatment": false,
+            "uid": 80
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "breast epithelium female adult (53 years)",
+            "treatment": false,
+            "uid": 36
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "breast epithelium male adult (37 years)",
+            "treatment": false,
+            "uid": 543
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "breast epithelium male adult (54 years)",
+            "treatment": false,
+            "uid": 93
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "mammary epithelial cell female",
+            "treatment": false,
+            "uid": 620
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "mammary epithelial cell female adult (18 years)",
+            "treatment": false,
+            "uid": 578
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "mammary epithelial cell female adult (50 years)",
+            "treatment": false,
+            "uid": 817
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "HMLE",
+            "treatment": false,
+            "uid": 2368
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "HMLE",
+            "treatment": true,
+            "uid": 2369
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Mammary Epithelial Cell, donor1",
+            "treatment": false,
+            "uid": 1347
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Mammary Epithelial Cell, donor2",
+            "treatment": false,
+            "uid": 1348
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Mammary Epithelial Cell, donor3",
+            "treatment": false,
+            "uid": 1349
+        }
+    ],
+    "fibroblast (breast)" : [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "fibroblast of breast female adult (17 years)",
+            "treatment": false,
+            "uid": 841
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "fibroblast of breast female adult (26 years)",
+            "treatment": false,
+            "uid": 852
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "fibroblast of mammary gland female",
+            "treatment": false,
+            "uid": 702
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Fibroblast - Mammary, donor1",
+            "treatment": false,
+            "uid": 1211
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Fibroblast - Mammary, donor2",
+            "treatment": false,
+            "uid": 1212
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Fibroblast - Mammary, donor3",
+            "treatment": false,
+            "uid": 1213
+        }
+    ],
+    "luminal cell (mammary gland)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "luminal epithelial cell of mammary gland female adult (33 years)",
+            "treatment": false,
+            "uid": 870
+        }
+    ],
+    "mammary stem cell": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "mammary stem cell female adult (33 years)",
+            "treatment": false,
+            "uid": 872
+        }
+    ],
+    "myoepithelial cell (mammary gland)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "myoepithelial cell of mammary gland female adult (33 years)",
+            "treatment": false,
+            "uid": 868
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "myoepithelial cell of mammary gland female adult (36 years)",
+            "treatment": false,
+            "uid": 869
+        }
+    ],
+    "preadipocyte (breast)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Preadipocyte - breast, donor1",
+            "treatment": false,
+            "uid": 1559
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Preadipocyte - breast, donor2",
+            "treatment": false,
+            "uid": 1560
+        }
+    // ],
+    // "BPE": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "BPE",
+    //         "treatment": false,
+    //         "uid": 2498
+    //     },
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "BPE",
+    //         "treatment": true,
+    //         "uid": 2499
+    //     }
+    ],
+    "HCC1806": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": true,
+            "cell_line": true,
+            "name": "acantholytic squamous carcinoma cell line:HCC1806",
+            "treatment": false,
+            "uid": 882
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": true,
+            "cell_line": true,
+            "name": "HCC1806",
+            "treatment": true,
+            "uid": 2798
+        }
+    ],
+    "IMEC": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": true,
+            "name": "IMEC",
+            "treatment": false,
+            "uid": 2678
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": true,
+            "name": "IMEC",
+            "treatment": true,
+            "uid": 2792
+        }
+    ],
+    "MCF-10A": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": true,
+            "name": "MCF 10A",
+            "treatment": false,
+            "uid": 674
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": true,
+            "name": "MCF-10A",
+            "treatment": false,
+            "uid": 2196
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": true,
+            "name": "MCF-10A",
+            "treatment": true,
+            "uid": 2330
+        // },
+        // {
+        //     "X": 2,
+        //     "Y": 0,
+        //     "cancer": true,
+        //     "cell_line": true,
+        //     "name": "MCF-10AT1",
+        //     "treatment": false,
+        //     "uid": 2877
+        // },
+        // {
+        //     "X": 2,
+        //     "Y": 0,
+        //     "cancer": true,
+        //     "cell_line": true,
+        //     "name": "MCF-10CA1a",
+        //     "treatment": false,
+        //     "uid": 2878
+        // },
+        // {
+        //     "X": 2,
+        //     "Y": 0,
+        //     "cancer": false,
+        //     "cell_line": true,
+        //     "name": "MCF10A-Er-Src",
+        //     "treatment": true,
+        //     "uid": 2435
+        }
+    ],
+    "MCF-7": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": true,
+            "cell_line": true,
+            "name": "breast carcinoma cell line:MCF7",
+            "treatment": false,
+            "uid": 973
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": true,
+            "cell_line": true,
+            "name": "MCF-7",
+            "treatment": false,
+            "uid": 713
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": true,
+            "cell_line": true,
+            "name": "MCF-7",
+            "treatment": true,
+            "uid": 2264
+        // },
+        // {
+        //     "X": 2,
+        //     "Y": 0,
+        //     "cancer": true,
+        //     "cell_line": true,
+        //     "name": "MCF-7-Luc",
+        //     "treatment": true,
+        //     "uid": 2727
+        // },
+        // {
+        //     "X": 2,
+        //     "Y": 0,
+        //     "cancer": true,
+        //     "cell_line": true,
+        //     "name": "MCF-7-Luc-Y537S",
+        //     "treatment": true,
+        //     "uid": 2726
+        // },
+        // {
+        //     "X": 2,
+        //     "Y": 0,
+        //     "cancer": true,
+        //     "cell_line": true,
+        //     "name": "MCF-7-TAMR-1",
+        //     "treatment": true,
+        //     "uid": 2431
+        // },
+        // {
+        //     "X": 2,
+        //     "Y": 0,
+        //     "cancer": true,
+        //     "cell_line": true,
+        //     "name": "MCF-7-WS8",
+        //     "treatment": true,
+        //     "uid": 2432
+        // },
+        // {
+        //     "X": 2,
+        //     "Y": 0,
+        //     "cancer": true,
+        //     "cell_line": true,
+        //     "name": "MCF7-Tet-On",
+        //     "treatment": true,
+        //     "uid": 2748
+        }
+    ],
+    "MDA-MB-453": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": true,
+            "cell_line": true,
+            "name": "breast carcinoma cell line:MDA-MB-453",
+            "treatment": false,
+            "uid": 974
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": true,
+            "cell_line": true,
+            "name": "MDA-MB-453",
+            "treatment": false,
+            "uid": 2269
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": true,
+            "cell_line": true,
+            "name": "MDA-MB-453",
+            "treatment": true,
+            "uid": 2274
+        }
+    // ],
+    // "PHMLER": [
+    //     {
+    //         "X": 2,
+    //         "Y": 0,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "HMLE-Twist-ER",
+    //         "treatment": true,
+    //         "uid": 2859
+    //     }
+    ]
+}
