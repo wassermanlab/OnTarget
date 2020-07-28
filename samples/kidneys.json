@@ -9,17 +9,17 @@
             "treatment": false,
             "uid": 914
         }
-    ],
-    "clear cell renal cell carcinoma": [
-        {
-            "X": null,
-            "Y": null,
-            "cancer": true,
-            "cell_line": false,
-            "name": "ccRCC",
-            "treatment": false,
-            "uid": 2789
-        }
+    // ],
+    // "clear cell renal cell carcinoma": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": true,
+    //         "cell_line": false,
+    //         "name": "ccRCC",
+    //         "treatment": false,
+    //         "uid": 2789
+    //     }
     ],
     "endothelial cell (glomerulus)": [
         {
@@ -437,7 +437,7 @@
             "uid": 236
         }
     ],
-    "kidney (fetus)": [
+    "kidney (fetal)": [
         {
             "X": null,
             "Y": null,
@@ -683,9 +683,6 @@
             "uid": 1564
         }
     ],
-    "renal cortex (right)": [
-
-    ],
     "renal pelvis (embryo)": [
         {
             "X": 2,
@@ -846,17 +843,17 @@
             "treatment": false,
             "uid": 1605
         }
-    ],
-    "786-M1A": [
-        {
-            "X": 1,
-            "Y": 1,
-            "cancer": true,
-            "cell_line": true,
-            "name": "786-M1A",
-            "treatment": false,
-            "uid": 2867
-        }
+    // ],
+    // "786-M1A": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "786-M1A",
+    //         "treatment": false,
+    //         "uid": 2867
+    //     }
     ],
     "786-O": [
         {
@@ -886,17 +883,17 @@
             "treatment": false,
             "uid": 675
         }
-    ],
-    "A-498": [
-        {
-            "X": 1,
-            "Y": 1,
-            "cancer": true,
-            "cell_line": true,
-            "name": "A-498",
-            "treatment": true,
-            "uid": 2299
-        }
+    // ],
+    // "A-498": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "A-498",
+    //         "treatment": true,
+    //         "uid": 2299
+    //     }
     ],
     "ACHN": [
         {
@@ -1004,17 +1001,17 @@
             "treatment": true,
             "uid": 2321
         }
-    ],
-    "HEK293-FT": [
-        {
-            "X": 2,
-            "Y": 0,
-            "cancer": false,
-            "cell_line": true,
-            "name": "HEK293-FT",
-            "treatment": false,
-            "uid": 2634
-        }
+    // ],
+    // "HEK293-FT": [
+    //     {
+    //         "X": 2,
+    //         "Y": 0,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "HEK293-FT",
+    //         "treatment": false,
+    //         "uid": 2634
+    //     }
     ],
     "HEK293T": [
         {
@@ -1035,102 +1032,102 @@
             "treatment": true,
             "uid": 2483
         }
-    ],
-    "HK-2": [
-        {
-            "X": 1,
-            "Y": 1,
-            "cancer": false,
-            "cell_line": true,
-            "name": "HK-2",
-            "treatment": false,
-            "uid": 802
-        }
-    ],
-    "HFWT": [
-        {
-            "X": 1,
-            "Y": 1,
-            "cancer": true,
-            "cell_line": true,
-            "name": "Wilms' tumor cell line:HFWT",
-            "treatment": false,
-            "uid": 1811
-        }
-    ],
-    "RCC10": [
-        {
-            "X": null,
-            "Y": null,
-            "cancer": true,
-            "cell_line": true,
-            "name": "RCC10",
-            "treatment": false,
-            "uid": 2316
-        }
-    ],
-    "OS-RC-2": [
-        {
-            "X": 1,
-            "Y": 1,
-            "cancer": true,
-            "cell_line": true,
-            "name": "renal cell carcinoma cell line:OS-RC-2",
-            "treatment": false,
-            "uid": 1589
-        }
-    ],
-    "TTC-549": [
-        {
-            "X": 2,
-            "Y": 0,
-            "cancer": true,
-            "cell_line": true,
-            "name": "TTC-549",
-            "treatment": true,
-            "uid": 2691
-        }
-    ],
-    "TUHR10TKB": [
-        {
-            "X": 1,
-            "Y": 1,
-            "cancer": true,
-            "cell_line": true,
-            "name": "renal cell carcinoma cell line:TUHR10TKB",
-            "treatment": false,
-            "uid": 1590
-        }  
-    ],
-    "UM-RC-6": [
-        {
-            "X": 1,
-            "Y": 1,
-            "cancer": true,
-            "cell_line": true,
-            "name": "UM-RC-6",
-            "treatment": false,
-            "uid": 2331
-        },
-        {
-            "X": 1,
-            "Y": 1,
-            "cancer": true,
-            "cell_line": true,
-            "name": "UM-RC-6",
-            "treatment": true,
-            "uid": 2332
-        }
-    ],
-    "UO-31": [
-        {
-            "X": 2,
-            "Y": 0,
-            "cancer": true,
-            "cell_line": true,
-            "name": "UO-31",
-            "treatment": true,
-            "uid": 2309
-        }
+    // ],
+    // "HK-2": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "HK-2",
+    //         "treatment": false,
+    //         "uid": 802
+    //     }
+    // ],
+    // "HFWT": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "Wilms' tumor cell line:HFWT",
+    //         "treatment": false,
+    //         "uid": 1811
+    //     }
+    // ],
+    // "RCC10": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "RCC10",
+    //         "treatment": false,
+    //         "uid": 2316
+    //     }
+    // ],
+    // "OS-RC-2": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "renal cell carcinoma cell line:OS-RC-2",
+    //         "treatment": false,
+    //         "uid": 1589
+    //     }
+    // ],
+    // "TTC-549": [
+    //     {
+    //         "X": 2,
+    //         "Y": 0,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "TTC-549",
+    //         "treatment": true,
+    //         "uid": 2691
+    //     }
+    // ],
+    // "TUHR10TKB": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "renal cell carcinoma cell line:TUHR10TKB",
+    //         "treatment": false,
+    //         "uid": 1590
+    //     }  
+    // ],
+    // "UM-RC-6": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "UM-RC-6",
+    //         "treatment": false,
+    //         "uid": 2331
+    //     },
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "UM-RC-6",
+    //         "treatment": true,
+    //         "uid": 2332
+    //     }
+    // ],
+    // "UO-31": [
+    //     {
+    //         "X": 2,
+    //         "Y": 0,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "UO-31",
+    //         "treatment": true,
+    //         "uid": 2309
+    //     }
     ]
 }
