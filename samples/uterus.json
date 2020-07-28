@@ -1,0 +1,80 @@
+{
+    "smooth muscle cell (uterus)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Smooth Muscle Cells - Uterine, donor1",
+            "treatment": false,
+            "uid": 1717
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Smooth Muscle Cells - Uterine, donor3",
+            "treatment": false,
+            "uid": 1718
+        }
+    ],
+    "uterus": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "uterus",
+            "treatment": false,
+            "uid": 2249
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "uterus",
+            "treatment": true,
+            "uid": 2589
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "uterus female adult (51 years)",
+            "treatment": false,
+            "uid": 14
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "uterus female adult (53 years)",
+            "treatment": false,
+            "uid": 10
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "uterus, adult, pool1",
+            "treatment": false,
+            "uid": 1798
+        }
+    ],
+    "uterus (fetus)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "uterus, fetal, donor1",
+            "treatment": false,
+            "uid": 1799
+        }
+    ]
+}

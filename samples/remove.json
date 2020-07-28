@@ -1,0 +1,47 @@
+[
+    {
+        "X": 1,
+        "Y": 1,
+        "cancer": true,
+        "cell_line": true,
+        "name": "HK-2",
+        "treatment": false,
+        "uid": 714
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": true,
+        "cell_line": true,
+        "name": "renal cell carcinoma cell line:OS-RC-2",
+        "treatment": false,
+        "uid": 2091
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": true,
+        "cell_line": true,
+        "name": "renal cell carcinoma cell line:TUHR10TKB",
+        "treatment": false,
+        "uid": 2092
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": true,
+        "cell_line": true,
+        "name": "Wilms' tumor cell line:G-401",
+        "treatment": false,
+        "uid": 2168
+    }
+    {
+        "X": null,
+        "Y": null,
+        "cancer": true,
+        "cell_line": true,
+        "name": "Wilms' tumor cell line:HFWT",
+        "treatment": false,
+        "uid": 2169
+    }
+]
