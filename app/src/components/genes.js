@@ -14,6 +14,7 @@ export default function Genes(props) {
           <div class="input-group">
             <input type="text" class="form-control" placeholder="gene symbol" />
             <div class="input-group-append" id="button-addon4">
+              {/* TODO: add functionality to these buttons */}
               <button class="btn btn-outline-custom" type="button">Search for Genes</button>
               <button class="btn btn-outline-custom" type="button">Suggest Genes</button>
             </div>
@@ -28,6 +29,6 @@ export default function Genes(props) {
       </div>
       <IGV genome={'hg19'} start={50000} end={500000} chrom={'chr1'} />
       <hr />
-        <NavButtons next={props.next} back={props.back} page={props.page} />
+        <NavButtons next={props.next} back={props.back} page={props.page} submit={props.submit} />
     </React.Fragment>)
 }

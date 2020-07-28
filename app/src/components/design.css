@@ -1,0 +1,45 @@
+.regionHeaders1 {
+  font-weight: bold;
+  padding: 2px;
+  width:13.3%;
+}
+.regionHeaders2 {
+  font-weight: bold;
+  width:20%;
+  padding: 2px;
+}
+.regionHeaders3 {
+  font-weight: bold;
+  width:5%;
+  padding: 2px;
+}
+
+.regionRows1 {
+  padding: 2px;
+  width:13.3%;
+}
+.regionRows2 {
+  width:20%;
+  padding: 2px;
+}
+.regionRows3 {
+  width:5%;
+  padding: 2px;
+}
+.regionsContainer {
+  display: flex;
+}
+.btn.btn-custom2 {
+  background-color: #6bcaaf;
+  border-color: #6bcaaf;
+  margin: 3px;
+  color: white;
+  font-weight: bold;
+}
+.btn.btn-custom2:hover{
+  background-color: #fff794;
+  border-color: #fff794;
+  margin: 3px;
+  color: white		;
+  font-weight: bold;
+}
