@@ -76,6 +76,7 @@ export default function Samples(props) {
   }
 
   function populateSamples(e) {
+    // TODO: populate sample list from selection
     console.log("populate sample list");
   }
 
@@ -510,6 +511,13 @@ export default function Samples(props) {
                 <option>True</option>
                 <option>False</option>
               </select>
+              <div className="col-sm-1"></div>
+              <label className="col-sm-2 col-form-label" for="cancerCellSelect">Cancer Cell</label>
+              <select className="form-control col-sm-3" id="cancerCellSelect">
+                <option>Any</option>
+                <option>True</option>
+                <option>False</option>
+              </select>
             </div>
             <div className="form-group row">
               <label className="col-sm-2 col-form-label" for="cellLineSelect">Cell Line</label>
@@ -519,12 +527,7 @@ export default function Samples(props) {
                 <option>False</option>
               </select>
               <div className="col-sm-1"></div>
-              <label className="col-sm-2 col-form-label" for="cancerCellSelect">Cancer Cell</label>
-              <select className="form-control col-sm-3" id="cancerCellSelect">
-                <option>Any</option>
-                <option>True</option>
-                <option>False</option>
-              </select>
+              
             </div>
             <div className="form-group row">
               <div className="col-sm-11 text-right">
@@ -540,7 +543,7 @@ export default function Samples(props) {
             </select>
           </div>
           <hr />
-          <NavButtons next={props.next} back={props.back} page={props.page} />
+          <NavButtons next={props.next} back={props.back} page={props.page} submit={props.submit} />
         </div>
       </div>
 
