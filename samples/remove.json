@@ -13,6 +13,87 @@
         "Y": null,
         "cancer": true,
         "cell_line": true,
+        "name": "ductal cell carcinoma cell line:KLM-1",
+        "treatment": false,
+        "uid": 1939
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": true,
+        "cell_line": true,
+        "name": "ductal cell carcinoma cell line:MIA Paca2",
+        "treatment": false,
+        "uid": 1940
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": false,
+        "cell_line": false,
+        "name": "Fibroblast - Cardiac, donor1",
+        "treatment": false,
+        "uid": 1959
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": false,
+        "cell_line": false,
+        "name": "heart - mitral valve, adult",
+        "treatment": false,
+        "uid": 1990
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": false,
+        "cell_line": false,
+        "name": "heart - pulmonic valve, adult",
+        "treatment": false,
+        "uid": 1991
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": false,
+        "cell_line": false,
+        "name": "heart - tricuspid valve, adult",
+        "treatment": false,
+        "uid": 1992
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": false,
+        "cell_line": false,
+        "name": "pancreas, adult, donor1",
+        "treatment": false,
+        "uid": 2070
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": true,
+        "cell_line": true,
+        "name": "pancreatic carcinoma cell line:NOR-P1",
+        "treatment": false,
+        "uid": 2071
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": false,
+        "cell_line": false,
+        "name": "Pancreatic stromal cells, donor1",
+        "treatment": false,
+        "uid": 2072
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": true,
+        "cell_line": true,
         "name": "renal cell carcinoma cell line:OS-RC-2",
         "treatment": false,
         "uid": 2091
@@ -31,10 +112,28 @@
         "Y": null,
         "cancer": true,
         "cell_line": true,
+        "name": "somatostatinoma cell line:QGP-1",
+        "treatment": false,
+        "uid": 2131
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": true,
+        "cell_line": true,
+        "name": "tubular adenocarcinoma cell line:SUIT-2",
+        "treatment": false,
+        "uid": 2162
+    },
+    {
+        "X": null,
+        "Y": null,
+        "cancer": true,
+        "cell_line": true,
         "name": "Wilms' tumor cell line:G-401",
         "treatment": false,
         "uid": 2168
-    }
+    },
     {
         "X": null,
         "Y": null,

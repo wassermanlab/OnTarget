@@ -6,7 +6,7 @@
 #786-M1A
 #786-O
 81-3
-8988T
+#8988T
 A-137
 A-1847
 A-375
@@ -310,9 +310,9 @@ FT33
 Fibroblast - Aortic Adventitial, donor1
 Fibroblast - Aortic Adventitial, donor2
 Fibroblast - Aortic Adventitial, donor3
-Fibroblast - Cardiac, donor1
-Fibroblast - Cardiac, donor2
-Fibroblast - Cardiac, donor3
+#Fibroblast - Cardiac, donor1
+#Fibroblast - Cardiac, donor2
+#Fibroblast - Cardiac, donor3
 Fibroblast - Cardiac, donor4
 Fibroblast - Cardiac, donor5
 Fibroblast - Cardiac, donor6
@@ -660,7 +660,7 @@ MDM
 ME-1
 MG-63-3
 MG63
-MIA-PaCa-2
+#MIA-PaCa-2
 MKL-1
 MKN28
 ML-2
@@ -771,8 +771,8 @@ NSC
 NT2-D1
 NT2/D1
 NTERA2
-NY15
-NY8
+#NY15
+#NY8
 Natural Killer Cells, donor1
 Natural Killer Cells, donor2
 Natural Killer Cells, donor3
@@ -818,23 +818,23 @@ Osteoblast, donor2
 Osteoblast, donor3
 Ovary_Schmitt2016
 P493-6
-PANC-1
-PANC1_ENCODE3-Dekker
-PATU8988
+#PANC-1
+#PANC1_ENCODE3-Dekker
+#PATU8988
 PAVE
 PBMC
 PC-3
 PC-9
-PDAC
+#PDAC
 PEO1
 PF-382
 PFSK1
 PK-LCLs
 PRIMA2
 PRIMA5
-Panc1
-Pancreas_Schmitt2016
-Pancreatic stromal cells, donor1
+#Panc1
+#Pancreas_Schmitt2016
+#Pancreatic stromal cells, donor1
 Pericytes, donor1
 Pericytes, donor2
 Pericytes, donor3
@@ -1115,8 +1115,8 @@ Urothelial Cells, donor2
 Urothelial Cells, donor3
 Urothelial cells, donor0
 VCaP
-VentricleLeft_STL003_Leung_2015
-Ventricle_Right_Schmitt2016
+#VentricleLeft_STL003_Leung_2015
+#Ventricle_Right_Schmitt2016
 WA01
 WA09
 WERI-Rb-1
@@ -1235,10 +1235,10 @@ bladder, adult, pool1
 blood
 blood vessels
 blood, adult, pool1
-body of pancreas female adult (51 years)
-body of pancreas female adult (53 years)
-body of pancreas male adult (37 years)
-body of pancreas male adult (54 years)
+#body of pancreas female adult (51 years)
+#body of pancreas female adult (53 years)
+#body of pancreas male adult (37 years)
+#body of pancreas male adult (54 years)
 bone marrow stromal cell line:StromaNKtert
 bone marrow, adult
 bone-marrow
@@ -1385,8 +1385,8 @@ dopaminergic-neuron
 dorsal root ganglion
 dorsolateral prefrontal cortex (glia)
 dorsolateral prefrontal cortex (neuron)
-ductal cell carcinoma cell line:KLM-1
-ductal cell carcinoma cell line:MIA Paca2
+#ductal cell carcinoma cell line:KLM-1
+#ductal cell carcinoma cell line:MIA Paca2
 ductus deferens, adult
 duodenal mucosa male adult (59 years)
 duodenal mucosa male adult (76 years)
@@ -1399,14 +1399,14 @@ ectodermal cell originated from HUES64
 effector memory CD4-positive, alpha-beta T cell
 embryonic facial prominence embryo (53 days) and embryo (58 days)
 #embryonic kidney cell line: HEK293/SLAM untreated
-embryonic pancreas cell line:1B2C6
-embryonic pancreas cell line:1C3D3
-embryonic pancreas cell line:1C3IKEI
-embryonic pancreas cell line:2C6
-endocrine pancreas adult (59 years)
-endocrine pancreas male
-endocrine pancreas male adult (45 years)
-endocrine pancreas male adult (46 years)
+#embryonic pancreas cell line:1B2C6
+#embryonic pancreas cell line:1C3D3
+#embryonic pancreas cell line:1C3IKEI
+#embryonic pancreas cell line:2C6
+#endocrine pancreas adult (59 years)
+#endocrine pancreas male
+#endocrine pancreas male adult (45 years)
+#endocrine pancreas male adult (46 years)
 endoderm
 endodermal cell
 endodermal cell originated from HUES64
@@ -1545,40 +1545,40 @@ hMSC
 hMSC-TERT
 hMSC-TERT4
 hairy cell leukemia cell line:Mo
-heart
-heart - mitral valve, adult
-heart - pulmonic valve, adult
-heart - tricuspid valve, adult
-heart embryo (101 days)
-heart embryo (59 days) and female embryo (76 days)
-heart embryo (80 days)
-heart embryo (96 days)
-heart female embryo (103 days)
-heart female embryo (105 days)
-heart female embryo (110 days)
-heart female embryo (116 days) and female embryo (98 days)
-heart female embryo (117 days)
-heart female embryo (147 days)
-heart female embryo (91 days)
-heart left ventricle female adult (51 years)
-heart left ventricle female adult (53 years)
-heart left ventricle female embryo (101 days) and female embryo (103 days)
-heart left ventricle female embryo (136 days)
-heart left ventricle male adult (34 years)
-heart left ventricle male child (3 years)
-heart male adult (27 years) and male adult (35 years)
-heart male child (3 years)
-heart male embryo (105 days)
-heart male embryo (110 days)
-heart male embryo (120 days)
-heart male embryo (72 days) and male embryo (76 days)
-heart male embryo (91 days)
-heart male embryo (96 days)
-heart right ventricle female embryo (101 days) and female embryo (103 days)
-heart right ventricle male adult (34 years)
-heart right ventricle male child (3 years)
-heart, adult, pool1
-heart, fetal, pool1
+#heart
+#heart - mitral valve, adult
+#heart - pulmonic valve, adult
+#heart - tricuspid valve, adult
+#heart embryo (101 days)
+#heart embryo (59 days) and female embryo (76 days)
+#heart embryo (80 days)
+#heart embryo (96 days)
+#heart female embryo (103 days)
+#heart female embryo (105 days)
+#heart female embryo (110 days)
+#heart female embryo (116 days) and female embryo (98 days)
+#heart female embryo (117 days)
+#heart female embryo (147 days)
+#heart female embryo (91 days)
+#heart left ventricle female adult (51 years)
+#heart left ventricle female adult (53 years)
+#heart left ventricle female embryo (101 days) and female embryo (103 days)
+#heart left ventricle female embryo (136 days)
+#heart left ventricle male adult (34 years)
+#heart left ventricle male child (3 years)
+#heart male adult (27 years) and male adult (35 years)
+#heart male child (3 years)
+#heart male embryo (105 days)
+#heart male embryo (110 days)
+#heart male embryo (120 days)
+#heart male embryo (72 days) and male embryo (76 days)
+#heart male embryo (91 days)
+#heart male embryo (96 days)
+#heart right ventricle female embryo (101 days) and female embryo (103 days)
+#heart right ventricle male adult (34 years)
+#heart right ventricle male child (3 years)
+#heart, adult, pool1
+#heart, fetal, pool1
 hematopoietic multipotent progenitor cell
 hepatic mesenchymal tumor cell line:LI90
 hepatic stellate cell female adult (59 years)
@@ -1617,8 +1617,8 @@ insula (glia)
 insula (neuron)
 insula, adult, pool1
 iris pigment epithelial cell
-islet
-islet precursor cell
+#islet
+#islet precursor cell
 keratinocyte
 keratinocyte female
 keratoacanthoma cell line:HKA-1
@@ -1692,7 +1692,7 @@ left lung male embryo (96 days)
 #left renal cortex interstitium male embryo (120 days)
 #left renal pelvis male embryo (105 days)
 #left renal pelvis male embryo (120 days)
-left ventricle, adult, donor1
+#left ventricle, adult, donor1
 leiomyoblastoma cell line:G-402
 leiomyosarcoma cell line:Hs 5.T
 lens epithelial cell line:SRA 01/04
@@ -1796,10 +1796,10 @@ mesenchymal precursor cell - adipose, donor3
 mesenchymal precursor cell - bone marrow, donor1
 mesenchymal precursor cell - bone marrow, donor2
 mesenchymal precursor cell - bone marrow, donor3
-mesenchymal precursor cell - cardiac, donor1
-mesenchymal precursor cell - cardiac, donor2
-mesenchymal precursor cell - cardiac, donor3
-mesenchymal precursor cell - cardiac, donor4
+#mesenchymal precursor cell - cardiac, donor1
+#mesenchymal precursor cell - cardiac, donor2
+#mesenchymal precursor cell - cardiac, donor3
+#mesenchymal precursor cell - cardiac, donor4
 mesenchymal stem cell female adult and female adult (41 years) and female adult (59 years), originated from adipose tissue
 mesenchymal stem cell female adult and female adult (59 years), originated from adipose tissue
 mesenchymal stem cell line:Hu5/E18
@@ -1982,12 +1982,12 @@ ovary female adult (53 years)
 ovary female embryo
 ovary, adult, pool1
 pagetoid sarcoma cell line:Hs 925.T
-pancreas
-pancreas female adult (30 years)
-pancreas male adult (34 years)
-pancreas male adult (54 years) and male adult (60 years)
-pancreas, adult, donor1
-pancreatic carcinoma cell line:NOR-P1
+#pancreas
+#pancreas female adult (30 years)
+#pancreas male adult (34 years)
+#pancreas male adult (54 years) and male adult (60 years)
+#pancreas, adult, donor1
+#pancreatic carcinoma cell line:NOR-P1
 papillary adenocarcinoma cell line:8505C
 papillotubular adenocarcinoma cell line:TGBC18TKB
 paracentral gyrus, adult, pool1
@@ -2191,7 +2191,7 @@ smooth muscle cell of the brain vasculature female
 smooth muscle cell originated from H9
 smooth muscle, adult, pool1
 smooth-muscle-cell
-somatostatinoma cell line:QGP-1
+#somatostatinoma cell line:QGP-1
 somite
 spinal cord - adult, donor10196
 spinal cord female embryo (108 days)
@@ -2362,7 +2362,7 @@ trophoblast cell embryo (39 weeks) and embryo (40 weeks)
 trophoblast cell originated from H1
 trophoblast female embryo (20 weeks)
 trophoblast female embryo (40 weeks)
-tubular adenocarcinoma cell line:SUIT-2
+#tubular adenocarcinoma cell line:SUIT-2
 umbilical cord embryo (59 days) and male embryo (76 days)
 umbilical cord, fetal, donor1
 upper lobe of left lung female adult (51 years)

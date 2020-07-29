@@ -98,15 +98,15 @@
         "treatment": false,
         "uid": 2273
     },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": true,
-        "cell_line": true,
-        "name": "8988T",
-        "treatment": false,
-        "uid": 771
-    },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "8988T",
+    //     "treatment": false,
+    //     "uid": 771
+    // },
     {
         "X": null,
         "Y": null,
@@ -3617,69 +3617,60 @@
         "treatment": false,
         "uid": 1178
     },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Fibroblast - Cardiac, donor1",
-        "treatment": false,
-        "uid": 1179
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Fibroblast - Cardiac, donor1",
-        "treatment": false,
-        "uid": 1959
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Fibroblast - Cardiac, donor2",
-        "treatment": false,
-        "uid": 1180
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Fibroblast - Cardiac, donor3",
-        "treatment": false,
-        "uid": 1181
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Fibroblast - Cardiac, donor4",
-        "treatment": false,
-        "uid": 1182
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Fibroblast - Cardiac, donor5",
-        "treatment": false,
-        "uid": 1183
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Fibroblast - Cardiac, donor6",
-        "treatment": false,
-        "uid": 1184
-    },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "Fibroblast - Cardiac, donor1",
+    //     "treatment": false,
+    //     "uid": 1179
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "Fibroblast - Cardiac, donor2",
+    //     "treatment": false,
+    //     "uid": 1180
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "Fibroblast - Cardiac, donor3",
+    //     "treatment": false,
+    //     "uid": 1181
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "Fibroblast - Cardiac, donor4",
+    //     "treatment": false,
+    //     "uid": 1182
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "Fibroblast - Cardiac, donor5",
+    //     "treatment": false,
+    //     "uid": 1183
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "Fibroblast - Cardiac, donor6",
+    //     "treatment": false,
+    //     "uid": 1184
+    // },
     {
         "X": null,
         "Y": null,
@@ -7478,24 +7469,24 @@
         "treatment": false,
         "uid": 605
     },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": true,
-        "cell_line": true,
-        "name": "MIA-PaCa-2",
-        "treatment": false,
-        "uid": 2805
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": true,
-        "cell_line": true,
-        "name": "MIA-PaCa-2",
-        "treatment": true,
-        "uid": 2806
-    },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "MIA-PaCa-2",
+    //     "treatment": false,
+    //     "uid": 2805
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "MIA-PaCa-2",
+    //     "treatment": true,
+    //     "uid": 2806
+    // },
     {
         "X": 1,
         "Y": 1,
@@ -8648,24 +8639,24 @@
         "treatment": false,
         "uid": 2611
     },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": true,
-        "cell_line": true,
-        "name": "NY15",
-        "treatment": false,
-        "uid": 2398
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": true,
-        "cell_line": true,
-        "name": "NY8",
-        "treatment": false,
-        "uid": 2399
-    },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "NY15",
+    //     "treatment": false,
+    //     "uid": 2398
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "NY8",
+    //     "treatment": false,
+    //     "uid": 2399
+    // },
     {
         "X": 1,
         "Y": 1,
@@ -9215,33 +9206,33 @@
         "treatment": false,
         "uid": 2487
     },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": true,
-        "cell_line": true,
-        "name": "PANC-1",
-        "treatment": false,
-        "uid": 2184
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": true,
-        "cell_line": true,
-        "name": "PANC1_ENCODE3-Dekker",
-        "treatment": false,
-        "uid": 527
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": true,
-        "cell_line": true,
-        "name": "PATU8988",
-        "treatment": false,
-        "uid": 2552
-    },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "PANC-1",
+    //     "treatment": false,
+    //     "uid": 2184
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "PANC1_ENCODE3-Dekker",
+    //     "treatment": false,
+    //     "uid": 527
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "PATU8988",
+    //     "treatment": false,
+    //     "uid": 2552
+    // },
     {
         "X": null,
         "Y": null,
@@ -9287,24 +9278,24 @@
         "treatment": false,
         "uid": 632
     },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": true,
-        "cell_line": false,
-        "name": "PDAC",
-        "treatment": false,
-        "uid": 2649
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": true,
-        "cell_line": false,
-        "name": "PDAC",
-        "treatment": true,
-        "uid": 2650
-    },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": true,
+    //     "cell_line": false,
+    //     "name": "PDAC",
+    //     "treatment": false,
+    //     "uid": 2649
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": true,
+    //     "cell_line": false,
+    //     "name": "PDAC",
+    //     "treatment": true,
+    //     "uid": 2650
+    // },
     {
         "X": 2,
         "Y": 0,
@@ -9359,42 +9350,33 @@
         "treatment": false,
         "uid": 2482
     },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": true,
-        "cell_line": true,
-        "name": "Panc1",
-        "treatment": false,
-        "uid": 728
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Pancreas_Schmitt2016",
-        "treatment": false,
-        "uid": 528
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Pancreatic stromal cells, donor1",
-        "treatment": false,
-        "uid": 1523
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Pancreatic stromal cells, donor1",
-        "treatment": false,
-        "uid": 2072
-    },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "Panc1",
+    //     "treatment": false,
+    //     "uid": 728
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "Pancreas_Schmitt2016",
+    //     "treatment": false,
+    //     "uid": 528
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "Pancreatic stromal cells, donor1",
+    //     "treatment": false,
+    //     "uid": 1523
+    // },
     {
         "X": null,
         "Y": null,
@@ -12554,24 +12536,24 @@
         "treatment": true,
         "uid": 2417
     },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "VentricleLeft_STL003_Leung_2015",
-        "treatment": false,
-        "uid": 538
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "Ventricle_Right_Schmitt2016",
-        "treatment": false,
-        "uid": 539
-    },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "VentricleLeft_STL003_Leung_2015",
+    //     "treatment": false,
+    //     "uid": 538
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "Ventricle_Right_Schmitt2016",
+    //     "treatment": false,
+    //     "uid": 539
+    // },
     {
         "X": 1,
         "Y": 1,
@@ -13976,42 +13958,42 @@
         "treatment": false,
         "uid": 967
     },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "body of pancreas female adult (51 years)",
-        "treatment": false,
-        "uid": 46
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "body of pancreas female adult (53 years)",
-        "treatment": false,
-        "uid": 82
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "body of pancreas male adult (37 years)",
-        "treatment": false,
-        "uid": 34
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "body of pancreas male adult (54 years)",
-        "treatment": false,
-        "uid": 20
-    },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "body of pancreas female adult (51 years)",
+    //     "treatment": false,
+    //     "uid": 46
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "body of pancreas female adult (53 years)",
+    //     "treatment": false,
+    //     "uid": 82
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "body of pancreas male adult (37 years)",
+    //     "treatment": false,
+    //     "uid": 34
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "body of pancreas male adult (54 years)",
+    //     "treatment": false,
+    //     "uid": 20
+    // },
     {
         "X": 1,
         "Y": 1,
@@ -15542,42 +15524,24 @@
         "treatment": false,
         "uid": 2891
     },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": true,
-        "cell_line": true,
-        "name": "ductal cell carcinoma cell line:KLM-1",
-        "treatment": false,
-        "uid": 1118
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": true,
-        "cell_line": true,
-        "name": "ductal cell carcinoma cell line:KLM-1",
-        "treatment": false,
-        "uid": 1939
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": true,
-        "cell_line": true,
-        "name": "ductal cell carcinoma cell line:MIA Paca2",
-        "treatment": false,
-        "uid": 1119
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": true,
-        "cell_line": true,
-        "name": "ductal cell carcinoma cell line:MIA Paca2",
-        "treatment": false,
-        "uid": 1940
-    },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "ductal cell carcinoma cell line:KLM-1",
+    //     "treatment": false,
+    //     "uid": 1118
+    // },
+     // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "ductal cell carcinoma cell line:MIA Paca2",
+    //     "treatment": false,
+    //     "uid": 1119
+    // },
     {
         "X": 1,
         "Y": 1,
@@ -15713,78 +15677,78 @@
     //     "treatment": false,
     //     "uid": 1124
     // },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": true,
-        "name": "embryonic pancreas cell line:1B2C6",
-        "treatment": false,
-        "uid": 1125
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": true,
-        "name": "embryonic pancreas cell line:1C3D3",
-        "treatment": false,
-        "uid": 1126
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": true,
-        "name": "embryonic pancreas cell line:1C3IKEI",
-        "treatment": false,
-        "uid": 1127
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": true,
-        "name": "embryonic pancreas cell line:2C6",
-        "treatment": false,
-        "uid": 1128
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "endocrine pancreas adult (59 years)",
-        "treatment": false,
-        "uid": 131
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "endocrine pancreas male",
-        "treatment": false,
-        "uid": 544
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "endocrine pancreas male adult (45 years)",
-        "treatment": false,
-        "uid": 154
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "endocrine pancreas male adult (46 years)",
-        "treatment": false,
-        "uid": 194
-    },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": true,
+    //     "name": "embryonic pancreas cell line:1B2C6",
+    //     "treatment": false,
+    //     "uid": 1125
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": true,
+    //     "name": "embryonic pancreas cell line:1C3D3",
+    //     "treatment": false,
+    //     "uid": 1126
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": true,
+    //     "name": "embryonic pancreas cell line:1C3IKEI",
+    //     "treatment": false,
+    //     "uid": 1127
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": true,
+    //     "name": "embryonic pancreas cell line:2C6",
+    //     "treatment": false,
+    //     "uid": 1128
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "endocrine pancreas adult (59 years)",
+    //     "treatment": false,
+    //     "uid": 131
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "endocrine pancreas male",
+    //     "treatment": false,
+    //     "uid": 544
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "endocrine pancreas male adult (45 years)",
+    //     "treatment": false,
+    //     "uid": 154
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "endocrine pancreas male adult (46 years)",
+    //     "treatment": false,
+    //     "uid": 194
+    // },
     {
         "X": null,
         "Y": null,
@@ -17297,348 +17261,321 @@
         "treatment": false,
         "uid": 1989
     },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart",
-        "treatment": false,
-        "uid": 1830
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart",
-        "treatment": true,
-        "uid": 2254
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart - mitral valve, adult",
-        "treatment": false,
-        "uid": 1267
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart - mitral valve, adult",
-        "treatment": false,
-        "uid": 1990
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart - pulmonic valve, adult",
-        "treatment": false,
-        "uid": 1268
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart - pulmonic valve, adult",
-        "treatment": false,
-        "uid": 1991
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart - tricuspid valve, adult",
-        "treatment": false,
-        "uid": 1269
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart - tricuspid valve, adult",
-        "treatment": false,
-        "uid": 1992
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart embryo (101 days)",
-        "treatment": false,
-        "uid": 191
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart embryo (59 days) and female embryo (76 days)",
-        "treatment": false,
-        "uid": 279
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart embryo (80 days)",
-        "treatment": false,
-        "uid": 429
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart embryo (96 days)",
-        "treatment": false,
-        "uid": 355
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart female embryo (103 days)",
-        "treatment": false,
-        "uid": 479
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart female embryo (105 days)",
-        "treatment": false,
-        "uid": 444
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart female embryo (110 days)",
-        "treatment": false,
-        "uid": 447
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart female embryo (116 days) and female embryo (98 days)",
-        "treatment": false,
-        "uid": 338
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart female embryo (117 days)",
-        "treatment": false,
-        "uid": 377
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart female embryo (147 days)",
-        "treatment": false,
-        "uid": 455
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart female embryo (91 days)",
-        "treatment": false,
-        "uid": 465
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart left ventricle female adult (51 years)",
-        "treatment": false,
-        "uid": 23
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart left ventricle female adult (53 years)",
-        "treatment": false,
-        "uid": 17
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart left ventricle female embryo (101 days) and female embryo (103 days)",
-        "treatment": false,
-        "uid": 245
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart left ventricle female embryo (136 days)",
-        "treatment": false,
-        "uid": 449
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart left ventricle male adult (34 years)",
-        "treatment": false,
-        "uid": 101
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart left ventricle male child (3 years)",
-        "treatment": false,
-        "uid": 151
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart male adult (27 years) and male adult (35 years)",
-        "treatment": false,
-        "uid": 223
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart male child (3 years)",
-        "treatment": false,
-        "uid": 319
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart male embryo (105 days)",
-        "treatment": false,
-        "uid": 395
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart male embryo (110 days)",
-        "treatment": false,
-        "uid": 473
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart male embryo (120 days)",
-        "treatment": false,
-        "uid": 318
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart male embryo (72 days) and male embryo (76 days)",
-        "treatment": false,
-        "uid": 289
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart male embryo (91 days)",
-        "treatment": false,
-        "uid": 541
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart male embryo (96 days)",
-        "treatment": false,
-        "uid": 435
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart right ventricle female embryo (101 days) and female embryo (103 days)",
-        "treatment": false,
-        "uid": 222
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart right ventricle male adult (34 years)",
-        "treatment": false,
-        "uid": 135
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart right ventricle male child (3 years)",
-        "treatment": false,
-        "uid": 129
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart, adult, pool1",
-        "treatment": false,
-        "uid": 1270
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "heart, fetal, pool1",
-        "treatment": false,
-        "uid": 1271
-    },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart",
+    //     "treatment": false,
+    //     "uid": 1830
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart",
+    //     "treatment": true,
+    //     "uid": 2254
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart - mitral valve, adult",
+    //     "treatment": false,
+    //     "uid": 1267
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart - pulmonic valve, adult",
+    //     "treatment": false,
+    //     "uid": 1268
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart - tricuspid valve, adult",
+    //     "treatment": false,
+    //     "uid": 1269
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart embryo (101 days)",
+    //     "treatment": false,
+    //     "uid": 191
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart embryo (59 days) and female embryo (76 days)",
+    //     "treatment": false,
+    //     "uid": 279
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart embryo (80 days)",
+    //     "treatment": false,
+    //     "uid": 429
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart embryo (96 days)",
+    //     "treatment": false,
+    //     "uid": 355
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart female embryo (103 days)",
+    //     "treatment": false,
+    //     "uid": 479
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart female embryo (105 days)",
+    //     "treatment": false,
+    //     "uid": 444
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart female embryo (110 days)",
+    //     "treatment": false,
+    //     "uid": 447
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart female embryo (116 days) and female embryo (98 days)",
+    //     "treatment": false,
+    //     "uid": 338
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart female embryo (117 days)",
+    //     "treatment": false,
+    //     "uid": 377
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart female embryo (147 days)",
+    //     "treatment": false,
+    //     "uid": 455
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart female embryo (91 days)",
+    //     "treatment": false,
+    //     "uid": 465
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart left ventricle female adult (51 years)",
+    //     "treatment": false,
+    //     "uid": 23
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart left ventricle female adult (53 years)",
+    //     "treatment": false,
+    //     "uid": 17
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart left ventricle female embryo (101 days) and female embryo (103 days)",
+    //     "treatment": false,
+    //     "uid": 245
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart left ventricle female embryo (136 days)",
+    //     "treatment": false,
+    //     "uid": 449
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart left ventricle male adult (34 years)",
+    //     "treatment": false,
+    //     "uid": 101
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart left ventricle male child (3 years)",
+    //     "treatment": false,
+    //     "uid": 151
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart male adult (27 years) and male adult (35 years)",
+    //     "treatment": false,
+    //     "uid": 223
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart male child (3 years)",
+    //     "treatment": false,
+    //     "uid": 319
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart male embryo (105 days)",
+    //     "treatment": false,
+    //     "uid": 395
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart male embryo (110 days)",
+    //     "treatment": false,
+    //     "uid": 473
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart male embryo (120 days)",
+    //     "treatment": false,
+    //     "uid": 318
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart male embryo (72 days) and male embryo (76 days)",
+    //     "treatment": false,
+    //     "uid": 289
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart male embryo (91 days)",
+    //     "treatment": false,
+    //     "uid": 541
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart male embryo (96 days)",
+    //     "treatment": false,
+    //     "uid": 435
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart right ventricle female embryo (101 days) and female embryo (103 days)",
+    //     "treatment": false,
+    //     "uid": 222
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart right ventricle male adult (34 years)",
+    //     "treatment": false,
+    //     "uid": 135
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart right ventricle male child (3 years)",
+    //     "treatment": false,
+    //     "uid": 129
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart, adult, pool1",
+    //     "treatment": false,
+    //     "uid": 1270
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "heart, fetal, pool1",
+    //     "treatment": false,
+    //     "uid": 1271
+    // },
     {
         "X": null,
         "Y": null,
@@ -18044,24 +17981,24 @@
         "treatment": false,
         "uid": 608
     },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "islet",
-        "treatment": false,
-        "uid": 2270
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "islet precursor cell",
-        "treatment": false,
-        "uid": 695
-    },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "islet",
+    //     "treatment": false,
+    //     "uid": 2270
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "islet precursor cell",
+    //     "treatment": false,
+    //     "uid": 695
+    // },
     {
         "X": null,
         "Y": null,
@@ -18764,15 +18701,15 @@
     //     "treatment": false,
     //     "uid": 217
     // },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "left ventricle, adult, donor1",
-        "treatment": false,
-        "uid": 1315
-    },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "left ventricle, adult, donor1",
+    //     "treatment": false,
+    //     "uid": 1315
+    // },
     {
         "X": 2,
         "Y": 0,
@@ -19880,42 +19817,42 @@
         "treatment": false,
         "uid": 1393
     },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "mesenchymal precursor cell - cardiac, donor1",
-        "treatment": false,
-        "uid": 1394
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "mesenchymal precursor cell - cardiac, donor2",
-        "treatment": false,
-        "uid": 1395
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "mesenchymal precursor cell - cardiac, donor3",
-        "treatment": false,
-        "uid": 1396
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "mesenchymal precursor cell - cardiac, donor4",
-        "treatment": false,
-        "uid": 1397
-    },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "mesenchymal precursor cell - cardiac, donor1",
+    //     "treatment": false,
+    //     "uid": 1394
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "mesenchymal precursor cell - cardiac, donor2",
+    //     "treatment": false,
+    //     "uid": 1395
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "mesenchymal precursor cell - cardiac, donor3",
+    //     "treatment": false,
+    //     "uid": 1396
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "mesenchymal precursor cell - cardiac, donor4",
+    //     "treatment": false,
+    //     "uid": 1397
+    // },
     {
         "X": 2,
         "Y": 0,
@@ -21878,87 +21815,69 @@
         "treatment": false,
         "uid": 2069
     },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "pancreas",
-        "treatment": false,
-        "uid": 1837
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "pancreas",
-        "treatment": true,
-        "uid": 2245
-    },
-    {
-        "X": 2,
-        "Y": 0,
-        "cancer": false,
-        "cell_line": false,
-        "name": "pancreas female adult (30 years)",
-        "treatment": false,
-        "uid": 146
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "pancreas male adult (34 years)",
-        "treatment": false,
-        "uid": 119
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "pancreas male adult (54 years) and male adult (60 years)",
-        "treatment": false,
-        "uid": 95
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": false,
-        "cell_line": false,
-        "name": "pancreas, adult, donor1",
-        "treatment": false,
-        "uid": 1521
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": false,
-        "name": "pancreas, adult, donor1",
-        "treatment": false,
-        "uid": 2070
-    },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": true,
-        "cell_line": true,
-        "name": "pancreatic carcinoma cell line:NOR-P1",
-        "treatment": false,
-        "uid": 1522
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": true,
-        "cell_line": true,
-        "name": "pancreatic carcinoma cell line:NOR-P1",
-        "treatment": false,
-        "uid": 2071
-    },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "pancreas",
+    //     "treatment": false,
+    //     "uid": 1837
+    // },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "pancreas",
+    //     "treatment": true,
+    //     "uid": 2245
+    // },
+    // {
+    //     "X": 2,
+    //     "Y": 0,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "pancreas female adult (30 years)",
+    //     "treatment": false,
+    //     "uid": 146
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "pancreas male adult (34 years)",
+    //     "treatment": false,
+    //     "uid": 119
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "pancreas male adult (54 years) and male adult (60 years)",
+    //     "treatment": false,
+    //     "uid": 95
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": false,
+    //     "cell_line": false,
+    //     "name": "pancreas, adult, donor1",
+    //     "treatment": false,
+    //     "uid": 1521
+    // },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "pancreatic carcinoma cell line:NOR-P1",
+    //     "treatment": false,
+    //     "uid": 1522
+    // },
     {
         "X": 2,
         "Y": 0,
@@ -24002,24 +23921,15 @@
         "treatment": false,
         "uid": 2243
     },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": true,
-        "cell_line": true,
-        "name": "somatostatinoma cell line:QGP-1",
-        "treatment": false,
-        "uid": 1720
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": true,
-        "cell_line": true,
-        "name": "somatostatinoma cell line:QGP-1",
-        "treatment": false,
-        "uid": 2131
-    },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "somatostatinoma cell line:QGP-1",
+    //     "treatment": false,
+    //     "uid": 1720
+    // },
     {
         "X": null,
         "Y": null,
@@ -25811,24 +25721,15 @@
         "treatment": false,
         "uid": 105
     },
-    {
-        "X": 1,
-        "Y": 1,
-        "cancer": true,
-        "cell_line": true,
-        "name": "tubular adenocarcinoma cell line:SUIT-2",
-        "treatment": false,
-        "uid": 1791
-    },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": true,
-        "cell_line": true,
-        "name": "tubular adenocarcinoma cell line:SUIT-2",
-        "treatment": false,
-        "uid": 2162
-    },
+    // {
+    //     "X": 1,
+    //     "Y": 1,
+    //     "cancer": true,
+    //     "cell_line": true,
+    //     "name": "tubular adenocarcinoma cell line:SUIT-2",
+    //     "treatment": false,
+    //     "uid": 1791
+    // },
     {
         "X": null,
         "Y": null,

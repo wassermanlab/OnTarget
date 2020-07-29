@@ -654,15 +654,6 @@
     ],
     "podocyte": [
         {
-            "X": null,
-            "Y": null,
-            "cancer": false,
-            "cell_line": false,
-            "name": "glomerular visceral epithelial cell child (3 years)",
-            "treatment": false,
-            "uid": 549
-        },
-        {
             "X": 1,
             "Y": 1,
             "cancer": false,
@@ -670,6 +661,17 @@
             "name": "kidney glomerular epithelial cell male adult (43 years) and male adult (62 years)",
             "treatment": false,
             "uid": 668
+        }
+    ],
+    "podocyte (child)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "glomerular visceral epithelial cell child (3 years)",
+            "treatment": false,
+            "uid": 549
         }
     ],
     "preadipocyte (perirenal)": [
