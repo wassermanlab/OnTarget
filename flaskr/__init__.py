@@ -1,7 +1,10 @@
 import os
 
-from flask import Flask
+from flask import Flask, request
 
+from flaskr.Endpoints.name2sample import name2sample
+
+remote_host='http://gud.cmmt.ubc.ca:8080'
 
 def create_app(test_config=None):
     # create and configure the app
@@ -23,8 +26,9 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
+    # eg host/samples/hg38/?name=endothelial%20cells
+    @app.route('/samples/<database>/')
+    def samples(database):
+        return name2sample(remote_host, database, request.args.get('name'))
 
     return app
