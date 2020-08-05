@@ -3203,15 +3203,15 @@
         "treatment": false,
         "uid": 2401
     },
-    {
-        "X": null,
-        "Y": null,
-        "cancer": false,
-        "cell_line": true,
-        "name": "EndoC-betaH2",
-        "treatment": false,
-        "uid": 2801
-    },
+    // {
+    //     "X": null,
+    //     "Y": null,
+    //     "cancer": false,
+    //     "cell_line": true,
+    //     "name": "EndoC-betaH2",
+    //     "treatment": false,
+    //     "uid": 2801
+    // },
     {
         "X": null,
         "Y": null,
