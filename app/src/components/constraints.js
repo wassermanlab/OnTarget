@@ -41,6 +41,7 @@ export default function Constraints(props) {
       <div className="row spacing">
         <div className="col-sm-1"></div>
         <div className="col-sm-5">
+          {/* TODO change kilobase drawing */}
           <ConstraintButton setN={setN} handleClick={handleClick} 
           selectState={select["kbregion"]} type="kbregion" />
         </div>
@@ -51,6 +52,6 @@ export default function Constraints(props) {
         <div className="col-sm-1"></div>
       </div>
       <hr />
-      <NavButtons next={props.next} back={props.back} page={props.page} />
+      <NavButtons next={props.next} back={props.back} page={props.page} submit={props.submit} />
     </React.Fragment>)
 }

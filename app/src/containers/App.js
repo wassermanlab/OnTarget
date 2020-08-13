@@ -3,37 +3,35 @@ import './app.css';
 import Genes from '../components/genes'
 import Constraints from '../components/constraints'
 import Samples from '../components/samples'
-import Results from '../components/results'
-import Design from '../components/design'
 import Nav from '../components/nav'
 
 export default function App() {
-  const [page, setPageState] = useState(5)
+  const [page, setPageState] = useState(1)
   const [form, setForm] = useState({
     samples: [],
     gene: "",
     searchWindow: "",
   })
-  function back(){
-    setPageState(page-1)
+  function back() {
+    setPageState(page - 1)
   }
 
-  function next(){
-    setPageState(page+1)
+  function next() {
+    setPageState(page + 1)
+  }
+  function submit() {
+    console.log("submit");
+    // submit something 
   }
 
   function rendered_component() {
     switch (page) {
       case 1:
-        return (<Samples next={next} back={back} page={page} />);
+        return (<Samples next={next} back={back} page={page} submit={submit} />);
       case 2:
-        return (<Genes next={next} back={back} page={page} />);
+        return (<Genes next={next} back={back} page={page} submit={submit} />);
       case 3:
-        return (<Constraints next={next} back={back} page={page} />);
-      case 4:
-        return (<Results next={next} back={back} page={page} />);
-      case 5:
-          return (<Design next={next} back={back} page={page} />);
+        return (<Constraints next={next} back={back} page={page} submit={submit} />);
       default:
         return (<React.Fragment></React.Fragment>);
     }
@@ -43,7 +41,7 @@ export default function App() {
     <React.Fragment>
       <Nav />
       <div className="navbar-fix container-fluid">
-      {rendered_component()}
-        </div>
+        {rendered_component()}
+      </div>
     </React.Fragment>)
 }

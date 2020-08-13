@@ -1,0 +1,395 @@
+{
+    "islet precursor cell": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "islet precursor cell",
+            "treatment": false,
+            "uid": 695
+        }
+    ],
+    "pancreas": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "body of pancreas female adult (51 years)",
+            "treatment": false,
+            "uid": 46
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "body of pancreas female adult (53 years)",
+            "treatment": false,
+            "uid": 82
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "body of pancreas male adult (37 years)",
+            "treatment": false,
+            "uid": 34
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "body of pancreas male adult (54 years)",
+            "treatment": false,
+            "uid": 20
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "pancreas",
+            "treatment": false,
+            "uid": 1837
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "pancreas",
+            "treatment": true,
+            "uid": 2245
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "pancreas female adult (30 years)",
+            "treatment": false,
+            "uid": 146
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "pancreas male adult (34 years)",
+            "treatment": false,
+            "uid": 119
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "pancreas male adult (54 years) and male adult (60 years)",
+            "treatment": false,
+            "uid": 95
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "pancreas, adult, donor1",
+            "treatment": false,
+            "uid": 1521
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Pancreas_Schmitt2016",
+            "treatment": false,
+            "uid": 528
+        }
+    ],
+    "pancreas (endocrine)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "endocrine pancreas adult (59 years)",
+            "treatment": false,
+            "uid": 131
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "endocrine pancreas male",
+            "treatment": false,
+            "uid": 544
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "endocrine pancreas male adult (45 years)",
+            "treatment": false,
+            "uid": 154
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "endocrine pancreas male adult (46 years)",
+            "treatment": false,
+            "uid": 194
+        }
+    ],
+    "pancreatic ductal adenocarcinoma": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": true,
+            "cell_line": false,
+            "name": "PDAC",
+            "treatment": false,
+            "uid": 2649
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": true,
+            "cell_line": false,
+            "name": "PDAC",
+            "treatment": true,
+            "uid": 2650
+        }   
+    ],
+    "pancreatic islet": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "islet",
+            "treatment": false,
+            "uid": 2270
+        }
+    ],
+    "stromal cell (pancreas)": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Pancreatic stromal cells, donor1",
+            "treatment": false,
+            "uid": 1523
+        }
+    // ],
+    // "1B2C6": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "embryonic pancreas cell line:1B2C6",
+    //         "treatment": false,
+    //         "uid": 1125
+    //     }
+    // ],
+    // "1C3D3": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "embryonic pancreas cell line:1C3D3",
+    //         "treatment": false,
+    //         "uid": 1126
+    //     }
+    // ],
+    // "1C3IKEI": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "embryonic pancreas cell line:1C3IKEI",
+    //         "treatment": false,
+    //         "uid": 1127
+    //     }
+    // ],
+    // "2C6": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "embryonic pancreas cell line:2C6",
+    //         "treatment": false,
+    //         "uid": 1128
+    //     }
+    ],
+    "EndoC-betaH1": [
+    ],
+    "EndoC-betaH2": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": true,
+            "name": "EndoC-betaH2",
+            "treatment": false,
+            "uid": 2801
+        }
+    // ],
+    // "KLM-1": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "ductal cell carcinoma cell line:KLM-1",
+    //         "treatment": false,
+    //         "uid": 1118
+    //     }
+    // ],
+    // "MIA PaCa-2": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "ductal cell carcinoma cell line:MIA Paca2",
+    //         "treatment": false,
+    //         "uid": 1119
+    //     },
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "MIA-PaCa-2",
+    //         "treatment": false,
+    //         "uid": 2805
+    //     },
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "MIA-PaCa-2",
+    //         "treatment": true,
+    //         "uid": 2806
+    //     }
+    // ],
+    // "NOR-P1": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "pancreatic carcinoma cell line:NOR-P1",
+    //         "treatment": false,
+    //         "uid": 1522
+    //     }
+    // ],
+    // "NY15": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "NY15",
+    //         "treatment": false,
+    //         "uid": 2398
+    //     }
+    // ],
+    // "NY8": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "NY8",
+    //         "treatment": false,
+    //         "uid": 2399
+    //     }
+    ],
+    "PaTu 8988t": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": true,
+            "cell_line": true,
+            "name": "8988T",
+            "treatment": false,
+            "uid": 771
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": true,
+            "cell_line": true,
+            "name": "PATU8988",
+            "treatment": false,
+            "uid": 2552
+        }
+    ],
+    "PANC-1": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "Panc1",
+            "treatment": false,
+            "uid": 728
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "PANC-1",
+            "treatment": false,
+            "uid": 2184
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "PANC1_ENCODE3-Dekker",
+            "treatment": false,
+            "uid": 527
+        }
+    // ],
+    // "QGP-1": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "somatostatinoma cell line:QGP-1",
+    //         "treatment": false,
+    //         "uid": 1720
+    //     }
+    // ],
+    // "SUIT-2": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "tubular adenocarcinoma cell line:SUIT-2",
+    //         "treatment": false,
+    //         "uid": 1791
+    //     }
+    ]
+}

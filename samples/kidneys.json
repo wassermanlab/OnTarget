@@ -1,0 +1,1135 @@
+{
+    "adipocyte (perirenal)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Adipocyte - perirenal, donor1",
+            "treatment": false,
+            "uid": 914
+        }
+    // ],
+    // "clear cell renal cell carcinoma": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": true,
+    //         "cell_line": false,
+    //         "name": "ccRCC",
+    //         "treatment": false,
+    //         "uid": 2789
+    //     }
+    ],
+    "endothelial cell (glomerulus)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "glomerular endothelial cell",
+            "treatment": false,
+            "uid": 650
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Glomerular Endothelial Cells, donor1",
+            "treatment": false,
+            "uid": 1596
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Glomerular Endothelial Cells, donor2",
+            "treatment": false,
+            "uid": 1597
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Glomerular Endothelial Cells, donor3",
+            "treatment": false,
+            "uid": 1598
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Glomerular Endothelial Cells, donor4",
+            "treatment": false,
+            "uid": 1599
+        }
+    ],
+    "endothelial cell (kidney capillary / embryo)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney capillary endothelial cell female embryo (113 days)",
+            "treatment": false,
+            "uid": 717
+        }
+    ],
+    "epithelial cell (kidney)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney epithelial cell",
+            "treatment": false,
+            "uid": 560
+        }
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Epithelial Cells, donor1",
+            "treatment": false,
+            "uid": 1593
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Epithelial Cells, donor2",
+            "treatment": false,
+            "uid": 1594
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Epithelial Cells, donor3",
+            "treatment": false,
+            "uid": 1595
+        }
+    ],
+    "epithelial cell (renal cortex)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal cortical epithelial cell",
+            "treatment": false,
+            "uid": 767
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Cortical Epithelial Cells, donor1",
+            "treatment": false,
+            "uid": 1591
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Cortical Epithelial Cells, donor2",
+            "treatment": false,
+            "uid": 1592
+        }
+    ],
+    "epithelial cell (proximal tubule)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "epithelial cell of proximal tubule",
+            "treatment": false,
+            "uid": 583
+        }
+    ],
+    "interstitium (renal cortex / embryo)" : [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal cortex interstitium female embryo (103 days)",
+            "treatment": false,
+            "uid": 484
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal cortex interstitium female embryo (120 days)",
+            "treatment": false,
+            "uid": 416
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal cortex interstitium female embryo (89 days)",
+            "treatment": false,
+            "uid": 292
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal cortex interstitium female embryo (96 days)",
+            "treatment": false,
+            "uid": 315
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal cortex interstitium male embryo (108 days)",
+            "treatment": false,
+            "uid": 308
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal cortex interstitium male embryo (113 days)",
+            "treatment": false,
+            "uid": 399
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal cortex interstitium male embryo (127 days)",
+            "treatment": false,
+            "uid": 365
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal cortex interstitium male embryo (91 days)",
+            "treatment": false,
+            "uid": 306
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal cortex interstitium male embryo (97 days)",
+            "treatment": false,
+            "uid": 410
+        }
+    ],
+    "interstitium (renal cortex / left / embryo)" : [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left renal cortex interstitium male embryo (105 days)",
+            "treatment": false,
+            "uid": 390
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left renal cortex interstitium male embryo (120 days)",
+            "treatment": false,
+            "uid": 461
+        }
+    ],
+    "interstitium (renal cortex / right / embryo)" : [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right renal cortex interstitium male embryo (105 days)",
+            "treatment": false,
+            "uid": 427
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right renal cortex interstitium male embryo (120 days)",
+            "treatment": false,
+            "uid": 294
+        }
+    ],
+    "kidney": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney",
+            "treatment": false,
+            "uid": 2191
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney",
+            "treatment": true,
+            "uid": 2713
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney male adult (50 years)",
+            "treatment": false,
+            "uid": 172
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney male adult (67 years)",
+            "treatment": false,
+            "uid": 178
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney, adult, pool1",
+            "treatment": false,
+            "uid": 1308
+        }
+    ],
+    "kidney (embryo)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney embryo (59 days) and female embryo (59 days)",
+            "treatment": false,
+            "uid": 260
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney embryo (80 days)",
+            "treatment": false,
+            "uid": 227
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney female embryo (105 days)",
+            "treatment": false,
+            "uid": 372
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney female embryo (108 days)",
+            "treatment": false,
+            "uid": 353
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney female embryo (113 days)",
+            "treatment": false,
+            "uid": 464
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney female embryo (120 days)",
+            "treatment": false,
+            "uid": 205
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney female embryo (121 days)",
+            "treatment": false,
+            "uid": 438
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney female embryo (76 days) and male embryo (76 days)",
+            "treatment": false,
+            "uid": 243
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney female embryo (85 days)",
+            "treatment": false,
+            "uid": 439
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney male embryo (105 days)",
+            "treatment": false,
+            "uid": 433
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney male embryo (85 days)",
+            "treatment": false,
+            "uid": 409
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney male embryo (87 days)",
+            "treatment": false,
+            "uid": 236
+        }
+    ],
+    "kidney (fetal)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney, fetal, pool1",
+            "treatment": false,
+            "uid": 1309
+        }
+    ],
+    "kidney (left / embryo)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left kidney female embryo (107 days)",
+            "treatment": false,
+            "uid": 474
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left kidney female embryo (110 days)",
+            "treatment": false,
+            "uid": 263
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left kidney female embryo (147 days)",
+            "treatment": false,
+            "uid": 393
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left kidney female embryo (59 days) and male embryo (91 days)",
+            "treatment": false,
+            "uid": 368
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left kidney female embryo (87 days)",
+            "treatment": false,
+            "uid": 423
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left kidney female embryo (98 days)",
+            "treatment": false,
+            "uid": 406
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left kidney male embryo (115 days)",
+            "treatment": false,
+            "uid": 264
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left kidney male embryo (87 days)",
+            "treatment": false,
+            "uid": 436
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left kidney male embryo (96 days)",
+            "treatment": false,
+            "uid": 224
+        }
+    ],
+    "kidney (right / embryo)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right kidney female embryo (107 days)",
+            "treatment": false,
+            "uid": 387
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right kidney female embryo (117 days)",
+            "treatment": false,
+            "uid": 238
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right kidney female embryo (147 days)",
+            "treatment": false,
+            "uid": 448
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right kidney female embryo (87 days)",
+            "treatment": false,
+            "uid": 469
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right kidney female embryo (98 days)",
+            "treatment": false,
+            "uid": 450
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right kidney male embryo (108 days)",
+            "treatment": false,
+            "uid": 216
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right kidney male embryo (115 days)",
+            "treatment": false,
+            "uid": 376
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right kidney male embryo (87 days)",
+            "treatment": false,
+            "uid": 374
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right kidney male embryo (91 days)",
+            "treatment": false,
+            "uid": 488
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right kidney male embryo (96 days)",
+            "treatment": false,
+            "uid": 286
+        }
+    ],
+    "mesangial cell": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Mesangial Cells, donor1",
+            "treatment": false,
+            "uid": 1600
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Mesangial Cells, donor2",
+            "treatment": false,
+            "uid": 1601
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Mesangial Cells, donor3",
+            "treatment": false,
+            "uid": 1602
+        }
+    ],
+    "podocyte": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney glomerular epithelial cell male adult (43 years) and male adult (62 years)",
+            "treatment": false,
+            "uid": 668
+        }
+    ],
+    "podocyte (child)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "glomerular visceral epithelial cell child (3 years)",
+            "treatment": false,
+            "uid": 549
+        }
+    ],
+    "preadipocyte (perirenal)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Preadipocyte - perirenal, donor1",
+            "treatment": false,
+            "uid": 1564
+        }
+    ],
+    "renal pelvis (embryo)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal pelvis female embryo (103 days)",
+            "treatment": false,
+            "uid": 408
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal pelvis female embryo (105 days)",
+            "treatment": false,
+            "uid": 246
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal pelvis female embryo (89 days)",
+            "treatment": false,
+            "uid": 341
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal pelvis female embryo (96 days)",
+            "treatment": false,
+            "uid": 453
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal pelvis male embryo (108 days)",
+            "treatment": false,
+            "uid": 255
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal pelvis male embryo (113 days)",
+            "treatment": false,
+            "uid": 231
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal pelvis male embryo (127 days)",
+            "treatment": false,
+            "uid": 381
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal pelvis male embryo (91 days)",
+            "treatment": false,
+            "uid": 371
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "renal pelvis male embryo (97 days)",
+            "treatment": false,
+            "uid": 394
+        }
+    ],
+    "renal pelvis (left / embryo)": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left renal pelvis male embryo (105 days)",
+            "treatment": false,
+            "uid": 277
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left renal pelvis male embryo (120 days)",
+            "treatment": false,
+            "uid": 217
+        }
+    ],
+    "renal pelvis (right / embryo)": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right renal pelvis male embryo (105 days)",
+            "treatment": false,
+            "uid": 342
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "right renal pelvis male embryo (120 days)",
+            "treatment": false,
+            "uid": 414
+        }
+    ],
+    "tubule cell": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "kidney tubule cell female adult (80 years) and male adult (62 years)",
+            "treatment": false,
+            "uid": 658
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Proximal Tubular Epithelial Cell, donor1",
+            "treatment": false,
+            "uid": 1603
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Proximal Tubular Epithelial Cell, donor2",
+            "treatment": false,
+            "uid": 1604
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Renal Proximal Tubular Epithelial Cell, donor3",
+            "treatment": false,
+            "uid": 1605
+        }
+    // ],
+    // "786-M1A": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "786-M1A",
+    //         "treatment": false,
+    //         "uid": 2867
+    //     }
+    ],
+    "786-O": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "786-O",
+            "treatment": false,
+            "uid": 2416
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "786-O",
+            "treatment": true,
+            "uid": 2725
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "RCC 7860",
+            "treatment": false,
+            "uid": 675
+        }
+    // ],
+    // "A-498": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "A-498",
+    //         "treatment": true,
+    //         "uid": 2299
+    //     }
+    ],
+    "ACHN": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "ACHN",
+            "treatment": false,
+            "uid": 737
+        }
+    ],
+    "Caki-2": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "Caki2",
+            "treatment": false,
+            "uid": 707
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "Caki2_ENCODE3-Dekker",
+            "treatment": false,
+            "uid": 495
+        }
+    ],
+    "G-401": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "G401",
+            "treatment": false,
+            "uid": 678
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "G401_ENCODE3-Dekker",
+            "treatment": false,
+            "uid": 500
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "G-401",
+            "treatment": false,
+            "uid": 2659
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "G-401",
+            "treatment": true,
+            "uid": 2690
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": true,
+            "cell_line": true,
+            "name": "Wilms' tumor cell line:G-401",
+            "treatment": false,
+            "uid": 1810
+        }
+    ],
+    "HEK293": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": true,
+            "name": "embryonic kidney cell line: HEK293/SLAM untreated",
+            "treatment": false,
+            "uid": 1124
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": true,
+            "name": "HEK293",
+            "treatment": false,
+            "uid": 839
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": true,
+            "name": "HEK293",
+            "treatment": true,
+            "uid": 2321
+        }
+    // ],
+    // "HEK293-FT": [
+    //     {
+    //         "X": 2,
+    //         "Y": 0,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "HEK293-FT",
+    //         "treatment": false,
+    //         "uid": 2634
+    //     }
+    ],
+    "HEK293T": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": true,
+            "name": "HEK293T",
+            "treatment": false,
+            "uid": 587
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": true,
+            "name": "HEK293T",
+            "treatment": true,
+            "uid": 2483
+        }
+    // ],
+    // "HK-2": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": false,
+    //         "cell_line": true,
+    //         "name": "HK-2",
+    //         "treatment": false,
+    //         "uid": 802
+    //     }
+    // ],
+    // "HFWT": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "Wilms' tumor cell line:HFWT",
+    //         "treatment": false,
+    //         "uid": 1811
+    //     }
+    // ],
+    // "RCC10": [
+    //     {
+    //         "X": null,
+    //         "Y": null,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "RCC10",
+    //         "treatment": false,
+    //         "uid": 2316
+    //     }
+    // ],
+    // "OS-RC-2": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "renal cell carcinoma cell line:OS-RC-2",
+    //         "treatment": false,
+    //         "uid": 1589
+    //     }
+    // ],
+    // "TTC-549": [
+    //     {
+    //         "X": 2,
+    //         "Y": 0,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "TTC-549",
+    //         "treatment": true,
+    //         "uid": 2691
+    //     }
+    // ],
+    // "TUHR10TKB": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "renal cell carcinoma cell line:TUHR10TKB",
+    //         "treatment": false,
+    //         "uid": 1590
+    //     }  
+    // ],
+    // "UM-RC-6": [
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "UM-RC-6",
+    //         "treatment": false,
+    //         "uid": 2331
+    //     },
+    //     {
+    //         "X": 1,
+    //         "Y": 1,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "UM-RC-6",
+    //         "treatment": true,
+    //         "uid": 2332
+    //     }
+    // ],
+    // "UO-31": [
+    //     {
+    //         "X": 2,
+    //         "Y": 0,
+    //         "cancer": true,
+    //         "cell_line": true,
+    //         "name": "UO-31",
+    //         "treatment": true,
+    //         "uid": 2309
+    //     }
+    ]
+}

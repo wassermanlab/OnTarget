@@ -1,0 +1,40 @@
+{
+    "vagina": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "vagina",
+            "treatment": false,
+            "uid": 2255
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "vagina female adult (51 years)",
+            "treatment": false,
+            "uid": 44
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "vagina female adult (53 years)",
+            "treatment": false,
+            "uid": 68
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "vagina, adult",
+            "treatment": false,
+            "uid": 1800
+        }
+    ]
+}
