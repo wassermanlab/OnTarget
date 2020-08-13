@@ -1,10 +1,14 @@
 import os
+import traceback
 
+import requests
 from flask import Flask, request
 
+from flaskr.Endpoints.gene2region import gene2region
 from flaskr.Endpoints.name2sample import name2sample
 
-remote_host='http://gud.cmmt.ubc.ca:8080'
+remote_host = 'http://gud.cmmt.ubc.ca:8080'
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -27,8 +31,12 @@ def create_app(test_config=None):
         pass
 
     # eg host/samples/hg38/?name=endothelial%20cells
-    @app.route('/samples/<database>/')
+    @app.route('/samples/<database>', methods=['GET'])
     def samples(database):
         return name2sample(remote_host, database, request.args.get('name'))
+
+    @app.route('/regions/<database>/<mode>', methods=['POST'])
+    def region(database, mode):
+        return gene2region(remote_host, database, request.args.get('gene').split(','), request.get_json(), mode)
 
     return app
