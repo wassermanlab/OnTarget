@@ -266,26 +266,6 @@
             "treatment": false,
             "uid": 1560
         }
-    // ],
-    // "BPE": [
-    //     {
-    //         "X": null,
-    //         "Y": null,
-    //         "cancer": false,
-    //         "cell_line": true,
-    //         "name": "BPE",
-    //         "treatment": false,
-    //         "uid": 2498
-    //     },
-    //     {
-    //         "X": null,
-    //         "Y": null,
-    //         "cancer": false,
-    //         "cell_line": true,
-    //         "name": "BPE",
-    //         "treatment": true,
-    //         "uid": 2499
-    //     }
     ],
     "HCC1806": [
         {
@@ -354,33 +334,6 @@
             "name": "MCF-10A",
             "treatment": true,
             "uid": 2330
-        // },
-        // {
-        //     "X": 2,
-        //     "Y": 0,
-        //     "cancer": true,
-        //     "cell_line": true,
-        //     "name": "MCF-10AT1",
-        //     "treatment": false,
-        //     "uid": 2877
-        // },
-        // {
-        //     "X": 2,
-        //     "Y": 0,
-        //     "cancer": true,
-        //     "cell_line": true,
-        //     "name": "MCF-10CA1a",
-        //     "treatment": false,
-        //     "uid": 2878
-        // },
-        // {
-        //     "X": 2,
-        //     "Y": 0,
-        //     "cancer": false,
-        //     "cell_line": true,
-        //     "name": "MCF10A-Er-Src",
-        //     "treatment": true,
-        //     "uid": 2435
         }
     ],
     "MCF-7": [
@@ -410,51 +363,6 @@
             "name": "MCF-7",
             "treatment": true,
             "uid": 2264
-        // },
-        // {
-        //     "X": 2,
-        //     "Y": 0,
-        //     "cancer": true,
-        //     "cell_line": true,
-        //     "name": "MCF-7-Luc",
-        //     "treatment": true,
-        //     "uid": 2727
-        // },
-        // {
-        //     "X": 2,
-        //     "Y": 0,
-        //     "cancer": true,
-        //     "cell_line": true,
-        //     "name": "MCF-7-Luc-Y537S",
-        //     "treatment": true,
-        //     "uid": 2726
-        // },
-        // {
-        //     "X": 2,
-        //     "Y": 0,
-        //     "cancer": true,
-        //     "cell_line": true,
-        //     "name": "MCF-7-TAMR-1",
-        //     "treatment": true,
-        //     "uid": 2431
-        // },
-        // {
-        //     "X": 2,
-        //     "Y": 0,
-        //     "cancer": true,
-        //     "cell_line": true,
-        //     "name": "MCF-7-WS8",
-        //     "treatment": true,
-        //     "uid": 2432
-        // },
-        // {
-        //     "X": 2,
-        //     "Y": 0,
-        //     "cancer": true,
-        //     "cell_line": true,
-        //     "name": "MCF7-Tet-On",
-        //     "treatment": true,
-        //     "uid": 2748
         }
     ],
     "MDA-MB-453": [
@@ -485,16 +393,5 @@
             "treatment": true,
             "uid": 2274
         }
-    // ],
-    // "PHMLER": [
-    //     {
-    //         "X": 2,
-    //         "Y": 0,
-    //         "cancer": false,
-    //         "cell_line": true,
-    //         "name": "HMLE-Twist-ER",
-    //         "treatment": true,
-    //         "uid": 2859
-    //     }
     ]
 }

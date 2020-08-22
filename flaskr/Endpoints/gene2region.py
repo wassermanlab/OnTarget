@@ -59,7 +59,7 @@ def get_gene_region(gene, database, remote_host, samples=[], limit_by="tad"):
     if limit_by.isdigit():
         region_start = gene_start - int(limit_by) * 1000
         region_end = gene_end + int(limit_by) * 1000
-    # # Instead, if delimit by TADs...
+    # Instead, if delimit by TADs...
     elif limit_by == "tad":
         region_start, region_end =\
             get_region_coordinates_by_tad(

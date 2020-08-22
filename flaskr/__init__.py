@@ -5,6 +5,7 @@ import requests
 from flask import Flask, request
 
 from flaskr.Endpoints.gene2region import gene2region
+from flaskr.Endpoints.gene2sample import gene2sample
 from flaskr.Endpoints.name2sample import name2sample
 
 remote_host = 'http://gud.cmmt.ubc.ca:8080'
@@ -38,5 +39,13 @@ def create_app(test_config=None):
     @app.route('/regions/<database>/<mode>', methods=['POST'])
     def region(database, mode):
         return gene2region(remote_host, database, request.args.get('gene').split(','), request.get_json(), mode)
+
+    @app.route('/gene', methods=['POST'])
+    def gene():
+        json = request.get_json()
+        return gene2sample(samples=json.get("samples", None), cell_line=json.get('cell_line', None),
+                           treatment=json.get('treatment', None),
+                           XChrom=json.get('XChrom', None), YChrom=json.get('YChrom', None),
+                           cancer=json.get('cancer', None))
 
     return app

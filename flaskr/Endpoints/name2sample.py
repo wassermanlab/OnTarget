@@ -10,7 +10,6 @@ def name2sample(remote_host, database, name=None):
     results = {}
     try:
         data = requests.get(url=URL).json()
-        print(data)
         list = []
         while "next" in data:
             list.extend(data['results'])
