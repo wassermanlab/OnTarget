@@ -1,3 +1,5 @@
+import tempfile
+
 import requests
 from lxml import etree
 import os, sys, re
@@ -6,6 +8,7 @@ from binning import containing_bins, contained_bins
 from Bio.Alphabet.IUPAC import unambiguous_dna
 from Bio.Seq import Seq
 from Bio.SeqFeature import FeatureLocation, SeqFeature
+from .genomic_feature import GenomicFeature
 import json
 import numpy
 import shutil
@@ -66,31 +69,27 @@ def region2enhancer(remote_host, database, region, length, feats, mask_exons, ma
                                           feats, weights, feat_matrix, mask_exons,
                                           mask_repeats, verbose)
 
+            # Create temporary directory for storing results
+            tempdir = tempfile.TemporaryDirectory(dir="../Cache")
             # Print enhancers
-            if args.enhancers:
-                sequence = str(feats["sequence"])
-                enhancers_bed = os.path.join(out_dir, "%s:%s-%s.enhancers.bed" %
-                                             (chrom, start, end))
-                enhancers_fasta = os.path.join(out_dir, "%s:%s-%s.enhancers.fa" %
-                                               (chrom, start, end))
-                for e in enhancers:
-                    OTglobals.write(enhancers_bed, e)
-                    sub_sequence = sequence[e.start_1_based - zeroed_start:e.end - zeroed_start + 1]
-                    OTglobals.write(enhancers_fasta, ">%s:%s-%s\n%s" % (chrom,
-                                                                        e.start_1_based, e.end, sub_sequence))
+            sequence = str(feats["sequence"])
+            enhancers_bed = open(os.path.join(tempdir.name, f"{chrom}:{start}-{end}.enhancers.bed"), 'w')
+            enhancers_fasta=open(os.path.join(tempdir.name, f"{chrom}:{start}-{end}.enhancers.fa"), 'w')
+            for e in enhancers:
+                enhancers_bed.write(e)
+                sub_sequence = sequence[e.start_1_based - zeroed_start:e.end - zeroed_start + 1]
+                enhancers_fasta.write(f">{chrom}:{e.start_1_based}-{e.end}\n{sub_sequence}")
 
             # Print matrix
-            if args.matrix:
-                if len(matrix_rows) == 1: continue
-                # Initalize
-                matrix = {}
-                matrix_file = os.path.join(out_dir, "%s:%s-%s.matrix.csv" %
-                                           (chrom, start, end))
-                # For each row...
-                for i in range(len(matrix_rows)):
-                    OTglobals.write(matrix_file, "%s,%s" % (matrix_rows[i], ",".join(
-                        map(str, feat_matrix[i].tolist()))))
-
+            if len(matrix_rows) == 1: continue
+            # Initalize
+            matrix = {}
+            matrix_file = open(os.path.join(tempdir.name, f"{chrom}:{start}-{end}.matrix.csv"), 'w')
+            # For each row...
+            for i in range(len(matrix_rows)):
+                matrix_file.write("%s,%s" % (matrix_rows[i], ",".join(
+                    map(str, feat_matrix[i].tolist()))))
+            return tempdir.name
         except:
             print("Skipping region: %s:%s-%s" % (chrom, start, end))
 
@@ -227,7 +226,7 @@ def get_sequence_from_ucsc(chrom=None, start=None, end=None, genome=None):
 
     return Seq(sequence, unambiguous_dna)
 
-
+# can split within GUD now
 def get_evidence_and_weights(feats):
     """
     """
@@ -541,7 +540,8 @@ def compute_regions(chrom, start, end, profile, exons=[],
                 # Score region
                 score = _score_region(region_profile)
                 # Initialize region
-                region = Region(
+                # Genomic feature replaces region
+                region = GenomicFeature(
                     chrom,
                     FeatureLocation(region_start, region_end),
                     id="{}{}".format(label, counter + 1),
@@ -572,7 +572,7 @@ def compute_regions(chrom, start, end, profile, exons=[],
         # Score region
         score = _score_region(region_profile)
         # Initialize region
-        region = Region(
+        region = GenomicFeature(
             chrom,
             FeatureLocation(region_start, region_end),
             id="{}{}".format(label, counter + 1),
@@ -717,7 +717,7 @@ def _stitch_regions(regions, profile, exons=[], min_score=0.6,
                # threshold...
                if score >= min_score:
                    # Initialize combined region
-                   stitched_region = Region(
+                   stitched_region = GenomicFeature(
                        chrom,
                        FeatureLocation(A_start, B_end),
                        id = "{}{}-{}".format(label, A_region_id, B_region_id),
