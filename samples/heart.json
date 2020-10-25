@@ -1,0 +1,466 @@
+{
+    "fibroblast (heart / embryo)": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Fibroblast - Cardiac, donor1",
+            "treatment": false,
+            "uid": 1179
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Fibroblast - Cardiac, donor2",
+            "treatment": false,
+            "uid": 1180
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Fibroblast - Cardiac, donor3",
+            "treatment": false,
+            "uid": 1181
+        }
+    ],
+    "fibroblast (heart / fetal)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Fibroblast - Cardiac, donor4",
+            "treatment": false,
+            "uid": 1182
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Fibroblast - Cardiac, donor5",
+            "treatment": false,
+            "uid": 1183
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Fibroblast - Cardiac, donor6",
+            "treatment": false,
+            "uid": 1184
+        }
+    ],
+    "heart": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart",
+            "treatment": false,
+            "uid": 1830
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart",
+            "treatment": true,
+            "uid": 2254
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart, adult, pool1",
+            "treatment": false,
+            "uid": 1270
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart male adult (27 years) and male adult (35 years)",
+            "treatment": false,
+            "uid": 223
+        }
+    ],
+    "heart (child)": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart male child (3 years)",
+            "treatment": false,
+            "uid": 319
+        }
+    ],
+    "heart (embryo)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart embryo (101 days)",
+            "treatment": false,
+            "uid": 191
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart embryo (59 days) and female embryo (76 days)",
+            "treatment": false,
+            "uid": 279
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart embryo (80 days)",
+            "treatment": false,
+            "uid": 429
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart embryo (96 days)",
+            "treatment": false,
+            "uid": 355
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart female embryo (103 days)",
+            "treatment": false,
+            "uid": 479
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart female embryo (105 days)",
+            "treatment": false,
+            "uid": 444
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart female embryo (110 days)",
+            "treatment": false,
+            "uid": 447
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart female embryo (116 days) and female embryo (98 days)",
+            "treatment": false,
+            "uid": 338
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart female embryo (117 days)",
+            "treatment": false,
+            "uid": 377
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart female embryo (147 days)",
+            "treatment": false,
+            "uid": 455
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart female embryo (91 days)",
+            "treatment": false,
+            "uid": 465
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart male embryo (105 days)",
+            "treatment": false,
+            "uid": 395
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart male embryo (110 days)",
+            "treatment": false,
+            "uid": 473
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart male embryo (120 days)",
+            "treatment": false,
+            "uid": 318
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart male embryo (72 days) and male embryo (76 days)",
+            "treatment": false,
+            "uid": 289
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart male embryo (91 days)",
+            "treatment": false,
+            "uid": 541
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart male embryo (96 days)",
+            "treatment": false,
+            "uid": 435
+        }
+    ],
+    "heart (fetal)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart, fetal, pool1",
+            "treatment": false,
+            "uid": 1271
+        }
+    ],
+    "mesenchymal precursor cell (heart)": [
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "mesenchymal precursor cell - cardiac, donor1",
+            "treatment": false,
+            "uid": 1394
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "mesenchymal precursor cell - cardiac, donor2",
+            "treatment": false,
+            "uid": 1395
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "mesenchymal precursor cell - cardiac, donor3",
+            "treatment": false,
+            "uid": 1396
+        },
+        {
+            "X": null,
+            "Y": null,
+            "cancer": false,
+            "cell_line": false,
+            "name": "mesenchymal precursor cell - cardiac, donor4",
+            "treatment": false,
+            "uid": 1397
+        }
+    ],
+    "mitral valve": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart - mitral valve, adult",
+            "treatment": false,
+            "uid": 1267
+        }
+    ],
+    "pulmonic valve": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart - pulmonic valve, adult",
+            "treatment": false,
+            "uid": 1268
+        }
+    ],
+    "tricuspid valve": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart - tricuspid valve, adult",
+            "treatment": false,
+            "uid": 1269
+        }
+    ],
+    "ventricle (left)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart left ventricle female adult (51 years)",
+            "treatment": false,
+            "uid": 23
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart left ventricle female adult (53 years)",
+            "treatment": false,
+            "uid": 17
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart left ventricle male adult (34 years)",
+            "treatment": false,
+            "uid": 101
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "left ventricle, adult, donor1",
+            "treatment": false,
+            "uid": 1315
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "VentricleLeft_STL003_Leung_2015",
+            "treatment": false,
+            "uid": 538
+        }
+    ],
+    "ventricle (left / child)": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart left ventricle male child (3 years)",
+            "treatment": false,
+            "uid": 151
+        }
+    ],
+    "ventricle (left / embryo)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart left ventricle female embryo (101 days) and female embryo (103 days)",
+            "treatment": false,
+            "uid": 245
+        },
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart left ventricle female embryo (136 days)",
+            "treatment": false,
+            "uid": 449
+        }
+    ],
+    "ventricle (right)": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart right ventricle male adult (34 years)",
+            "treatment": false,
+            "uid": 135
+        },
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "Ventricle_Right_Schmitt2016",
+            "treatment": false,
+            "uid": 539
+        }
+    ],
+    "ventricle (right / child)": [
+        {
+            "X": 1,
+            "Y": 1,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart right ventricle male child (3 years)",
+            "treatment": false,
+            "uid": 129
+        }
+    ],
+    "ventricle (right / embryo)": [
+        {
+            "X": 2,
+            "Y": 0,
+            "cancer": false,
+            "cell_line": false,
+            "name": "heart right ventricle female embryo (101 days) and female embryo (103 days)",
+            "treatment": false,
+            "uid": 222
+        }
+    ]
+}
