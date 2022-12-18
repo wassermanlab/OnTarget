@@ -1,0 +1,14 @@
+{
+    "designs": 5,
+    "enzyme": [
+        "AscI",
+        "FseI"
+    ],
+    "json_file": "/home/oriol/OnTarget/data/examples/Adora2a/regions.json",
+    "output_dir": "/home/oriol/OnTarget/data/examples/Adora2a",
+    "size": 2100,
+    "tf": [
+        "RARB",
+        "SP9"
+    ]
+}
