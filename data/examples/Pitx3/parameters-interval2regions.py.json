@@ -1,0 +1,46 @@
+{
+    "chrom": "19",
+    "cons_length": 10,
+    "cons_score": 0.6,
+    "conservation": true,
+    "dummy_dir": "/tmp",
+    "end": 46198325,
+    "evidence": [
+        [
+            "/home/oriol/OnTarget/data/examples/Pitx3/dna_accessibility.bed.gz",
+            1.0
+        ],
+        [
+            "/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K27ac.bed.gz",
+            1.0
+        ],
+        [
+            "/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K36me3.bed.gz",
+            1.0
+        ],
+        [
+            "/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K4me1.bed.gz",
+            1.0
+        ],
+        [
+            "/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K4me3.bed.gz",
+            1.0
+        ],
+        [
+            "/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K9ac.bed.gz",
+            1.0
+        ]
+    ],
+    "genome": "mm10",
+    "host": "gud.cmmt.ubc.ca",
+    "liftover": "hg19",
+    "mask_exons": true,
+    "mask_repeats": true,
+    "output_dir": "/home/oriol/OnTarget/data/examples/Pitx3",
+    "password": "",
+    "port": 5506,
+    "region_length": 100,
+    "region_score": 5.0,
+    "start": 46085684,
+    "user": "gud_r"
+}
