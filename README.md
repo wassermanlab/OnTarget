@@ -1,4 +1,178 @@
 # OnTarget
-test
-> This is a software for x, y, and z.
 
+```python
+import json
+from GUD import GUDUtils
+
+GUDUtils.user = "gud_r"
+GUDUtils.pwd = ""
+GUDUtils.host = "gud.cmmt.ubc.ca"
+GUDUtils.port = 5506
+GUDUtils.db = "mm10"
+session = GUDUtils.get_session()
+
+from ontarget.gene2interval import (get_intervals_limit_by_gene,
+                                    get_intervals_limit_by_distance)
+
+intervals = get_intervals_limit_by_gene(session, "Pitx3")
+print(json.dumps(intervals, indent=4))
+```
+```
+[
+    {
+        "chrom": "19",
+        "start": 46135684,
+        "end": 46152557,
+        "type": "Gene interval",
+        "id": "Pitx3 (from=Elovl3 to=Gbf1)",
+        "score": 0,
+        "strand": 0,
+        "qualifiers": null
+    }
+]
+```
+```python
+intervals = get_intervals_limit_by_distance(session, "Pitx3", 50000)
+print(json.dumps(intervals, indent=4))
+```
+```
+[
+    {
+        "chrom": "19",
+        "start": 46085684,
+        "end": 46198325,
+        "type": "Gene interval",
+        "id": "Pitx3 +/- 50 kb",
+        "score": 0,
+        "strand": 0,
+        "qualifiers": null
+    }
+]
+```
+```python
+from ontarget.interval2regions import get_regions
+
+evidence = [
+    ['/home/oriol/OnTarget/data/examples/Pitx3/dna_accessibility.bed.gz', 1.0],
+    ['/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K27ac.bed.gz', 1.0],
+    ['/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K36me3.bed.gz', 1.0],
+    ['/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K4me1.bed.gz', 1.0],
+    ['/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K4me3.bed.gz', 1.0],
+    ['/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K9ac.bed.gz', 1.0]
+]
+
+regions = get_regions(session, chrom="19", start=46085684, end=46198325,
+                      genome="mm10", evidence=evidence, liftover="hg19",
+                      use_conservation=True, mask_exons=True,
+                      mask_repeats=True)
+print(json.dumps(regions, indent=4))
+```
+```
+[
+    ...
+    {
+        "chrom": "10",
+        "start": 104000618,
+        "end": 104001855,
+        "type": "Promoter",
+        "id": "RegulatoryRegion8",
+        "score": 0.6321905313786568,
+        "strand": 0,
+        "qualifiers": {
+            "source": "OnTarget",
+            "genome": "mm10",
+            "TSS": [
+                [
+                    "Pitx3",
+                    -1
+                ]
+            ],
+            "original coordinate": "mm10:chr19:46147762-46148962",
+            "liftOver genome": "hg19",
+            "sequence": "AGGCGCACCCCGGCTCCCAGCCCCAGGAGTCTGAGCCTAGGCCGAGGGGCATCGGGCGCCGTCAACTGCCCCCACACTGGGGGCCGCCCCGCCAGCTCCCCCGCTGGCCAGGGCCTCTGTAACCCCTTTCGCTCCCTGGCCGCCTGCCCCGTGCCCTGGGATTCCAGGGCGCTTTCTGGTAATGGTTTCCAGACTCCCTACTCCCTGCCTCGCGAAGCCCCTATCCTGGTTTCAAGTCTCCGGCTTCGTTCCGGATCCTCTGAGTCTCCCCCTTCCCTATCCCCTGGTTCTTACCCTGAGTTTCCCTTTTCCCAAGTCCTGGCCCCAGGTCTGCAGTCCGCCCTCCCATTCTCGACCTGTTCCCAAGGCACCGGAGTTCAGCTGCCCCAGGTCTCGTTTTAGGGATTCCAAGGTCCAGCAATAGCTCCTCGGCCCCATGAGCCCCTGTCCTTAGAATGGTCAAACACTCACAGTGCGTCCTGCAACAGGCAGACTCCCAGTAGCGGCGGCTGCGGCGGCGATCTAGAGGGCAGGCAGGGGCCAGGGGCCGGGCACCCGGCCGGAGTGGGGGCCGCCCCCCTGCTCCCGGGCCGCCTCTCCGCTCGGGCGCTCCTGGACTCTCGGAGGGAGTGAGCCTCACCGCGTACTGCCACCCCCAGCCGGCGCCCATTCACTTTATGGCAGACCAGGGCGCCCCCAGCCCGCCGCGGCGAGCCGCGCGCGTCAGGCCCCGCCCCTTTCCAGCTGCCCTGCTGGGGCTCCGCCCTTTCCAGCTGTGGATCTCCAGGCCCCGCCTTTGAGGGAGGGGTCTGGCCGGCGAGACGCCAAGAACCCCGCCCTCTGGCCAATCAGAAGCGCTCTTCAGCAACTCGGCCGCGCCCCTCCCCACGTGGCAGAGACCGCGCTCCGGCTAGGACGCTTAGGCAGAGCCAAGTGGGCGAGAGTAGAGTGGTCCCGGTAGCCACGGGTAAAAGGGATCGGCTGGCAGCGAAGTGGGTTGGGCCGCTACCCCGAGGAAAGTGGATCGGCGCCAGGTGGGAAGGCGCACGGGGCCGCCGGGTCTCAGCGCTCAGACTTCTCTGCCACTCAAGTTTCGCCGATTTTCTCCACTTGTCGCTGTCCGTCTCTCCTCCCTTTTGTCTCTGTTCCAATCCTCCCACGTCTCGCCTTTCTTTCCTCTTCTTTCTCCTCAGCCGCTTCGCTCCTGCTGTTTACCATTCTCCTTCCTCTGCCACTT",
+            "enzymes": [
+                "ABASI",
+                "SAPI",
+                "MAUBI",
+                "CSP6I",
+                ...
+            ],
+            "tfs": [
+                "LBX1",
+                "ZNF189",
+                "FOXL1",
+                "STAT6",
+                ...
+            ]
+        }
+    },
+    ...
+]
+```
+```python
+from ontarget.regions2minips import get_minipromoters
+
+minips = get_minipromoters(regions, enzymes=set(["AscI", "FseI"]),
+                           tfs=set(["NR4A2", "PITX3"]))
+print(json.dumps(minips[0], indent=4))
+```
+```
+[
+[
+    {
+        "chrom": "10",
+        "starts": [
+            103985959,
+            103990858,
+            103995880,
+            104000233,
+            104005794,
+            104028873,
+            104046030,
+            104046360
+        ],
+        "ends": [
+            103986305,
+            103991344,
+            103995998,
+            104000416,
+            104006152,
+            104029024,
+            104046180,
+            104046597
+        ],
+        "type": "MiniPromoter",
+        "ids": [
+            "RegulatoryRegion1",
+            "RegulatoryRegion4",
+            "RegulatoryRegion6",
+            "RegulatoryRegion7",
+            "RegulatoryRegion11",
+            "RegulatoryRegion15",
+            "RegulatoryRegion16",
+            "RegulatoryRegion17"
+        ],
+        "score": 0.5920698894940838,
+        "strand": 1,
+        "qualifiers": {
+            "enzymes": [
+                "ACCBSI",
+                "SMAI",
+                "ECORI",
+                "HINDIII",
+                ...
+            ],
+            "sequence": "CTTTAAATCCCCCCTCTTTTTCCTGTTGTAAAGGTCAGATTTTTTTTGACAACTGTGTGCAGGAACAAGATTTGCTAAATCCCTTCATTTTTATTCATACAAATATCGGAATTCAGTGAGCATCAGTTATTCCAGCATTTAGAGGTAAGGAAAACTCAGGGAGAATCTTGTGAATCTCAGCTTTGTGCTAGACATATATCTCTGGGGATAAATTTGCTGCCTCAACTTTAACCCCTTCATTCATTAAACCACTCCTCGCATTCCCTGTTTTCAAAGCTTATCAGGATGACTTTGATTTAGTTATTTGGAACCAAAAAGGCAGTTTGTGGAGCCTGGTCTGGAGCTGTGTAGCAGTAATATATCAGAGATCAGACTTAGGTCCCAGTGATGTCTCTTCTGTAACATCAGCATTCTGTTACCACTGTTACCACTGTAGGTCGAGTTGTGAAGGGCTGCCACATGTGCACAGATCACAACTGACCTTTCCTTGTTCCACGCTTATTGAGCAATTACTTGCCCGTTTGTGGAACTCACATTATCCCAGGCTTGACCTAGTATTTAGCTTCTCCTTTCCAGCGCTTTCTGCATCCTGAAGAGCCCAGTACTCAAAAGCTGAAAGCAAACCTAAGGAGCATTGTGTCTACTTTTATGGGTTTTCAGACTTTAGATGTGAAAGTCTCTCTAGATTCTGTACAGCGTCTACTTCTTTGTGATTGCCTCACTAATACAAAGGAACTGCTTCATTAATAATGATGAACTAGTGCACCCTAGAATCAGGTTGTCAGCAGAGGGACGTGTGGAAGGCTTGAGGTTATAGCAGCGCAGGGAACTGGGCTATGAGAAGGCTTCCCTCTTACAGGACAGCTCAGCTGCCAGTCTGGGTCTGTATGTAAACACTGGGATTTGAGGTGACCCACCGCAGCCGACCCCATCGCACACGCAGCAGCTGGGCAGGCGCTGCTGGGTAGACGGACATGCCACCCAGCCAGGGACATTCTGTCCGCCACTGCCAGACACAACTCCCGCTCCGGAGAGACCCACTTCGCTACCCGGACATTCTGTCCGCTCCGAGCCCCATGGGGCTGGTCAGGCAAAGGCTGGGGGCGCCAAGCTGTTGTCTGAGCTGGAGACAGGCTGGCTGAAGATTAAGCTCCCCCAAACTGCTGGAGGTCAGGAAGCTAGGGAGTTGGGACTGAGCTGCGGGCACGGGAGAAAGGCGGTCAGGGCCCGGGGCCGGGTCCCAGCGGCTGAAGGGCGGGCCACCCCGACGGGGCTTCCAGCCGGGGCCCTGCGGTCAATAAACGAGATGAGGTGGCTAGAGACGGGGTGGGAGGGAAGGAGCGCACGGAGTCCGGGGTCGGAGAACAGAAGGCGCGGGCGGCTGGACCGAGTCATCGGCGCCAGGGTCTGGCGGGACAGTAGGATGGGGTTGAGGAGGGGTGGTGAGGGGAAGGAGAGACGGTGTCAGGGCCGAAGAAGCGCGCGGTCCGAGTAGTAGGGAGCAGTGGGAGCAGAGGCTGGAGGTTGGCGGGCAAGAGACCGCGTGGGGCTGCGGCCGGGAGCCAGGGTCCGGGGTCCGGGGTCCGAGGGAGGGGGCAGGTGGGGTGGAACCGCTGGCCTCCGGGTCGCAGGCTGAGCGCGGAGGGCCCGCGCGGGTGCGAGTCGCGGGTCTGGAGAGCATACGCAGGCGGGCCCTTGAGTATGACCAATCAGAATGCGGACTGCGTCCCAGGGGCGGAGCAGAGGCGTATCTTGGTCGAGATTGGATAGCGGCGGGGCGCAGGAAAGAGGTCGCGCCAGCCCGGGCAGGCAGCTTTGCAAGTCCGCGTTATATATCGCAGTGGCTGCGCCCGGGATAGCTGGCTGCGCCGCCGCGCACATGCCTAGGTTCGACGCCCTCCTCCCTTTGCCCAGGAGTTCCTTCTGTCCCGGCTCTGTTCCGTCTCGCCCCGAGGTTCACGCCATCCTCGGAGCCCCAGCCTTTCACCCAGCGCCTCCAAGCTTTGGACCTTGACTTCTGCAAAACTAG",
+            "size": 2029,
+            "tfs": [
+                "AHR",
+                "ALX3",
+                "AR",
+                "ARGFX",
+                ...
+            ]
+        }
+    },
+    ...
+]
+```

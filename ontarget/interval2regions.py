@@ -184,7 +184,7 @@ def cli(**args):
     # Write
     json_file = os.path.join(args["output_dir"], "regions.json")
     handle = ParseUtils._get_file_handle(json_file, "w")
-    handle.write(f"{regions}\n")
+    handle.write(json.dumps(regions, indent=4))
     handle.close()
 
 
@@ -299,7 +299,7 @@ def get_regions(session, chrom, start, end, genome, evidence=[],
                                 reg_regions[i].end, genome)
         reg_regions[i].qualifiers.setdefault("tfs", list(tfs))
 
-    return json.dumps([rr.serialize() for rr in reg_regions], indent=4)
+    return [rr.serialize() for rr in reg_regions]
 
 
 def _get_interval_transcription_start_sites(session, chrom, start, end):

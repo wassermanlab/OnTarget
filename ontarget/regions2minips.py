@@ -206,7 +206,7 @@ def cli(**args):
     # Write
     json_file = os.path.join(args["output_dir"], "minips.json")
     handle = ParseUtils._get_file_handle(json_file, "w")
-    handle.write(f"{minips}\n")
+    handle.write(json.dumps(minips, indent=4))
     handle.close()
 
 
@@ -242,7 +242,7 @@ def get_minipromoters(regions, designs=OnTargetUtils.max_minip_designs,
         for minip in _get_minipromoters(promoter, enhancers, designs, size):
             minips.append(minip)
 
-    return json.dumps([minip.serialize() for minip in minips], indent=4)
+    return [minip.serialize() for minip in minips]
 
 
 def _get_minipromoters(promoter, enhancers,

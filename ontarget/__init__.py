@@ -16,10 +16,10 @@ __version__ = "22.12.1"
 __all__ = ["gene2interval", "interval2regions", "regions2minips"]
 
 
-from .gene2interval import (get_intervals_limit_by_gene,
-                            get_intervals_limit_by_distance)
-from .interval2regions import get_regions
-from .regions2minips import get_minipromoters
+# from .gene2interval import (get_intervals_limit_by_gene,
+#                             get_intervals_limit_by_distance)
+# from .interval2regions import get_regions
+# from .regions2minips import get_minipromoters
 
 
 class OnTargetUtilities:

@@ -107,7 +107,7 @@ def cli(**args):
     # Write
     json_file = os.path.join(args["output_dir"], "interval.json")
     handle = ParseUtils._get_file_handle(json_file, "w")
-    handle.write(f"{intervals}\n")
+    handle.write(json.dumps(intervals, indent=4))
     handle.close()
 
 
@@ -141,7 +141,9 @@ def get_intervals_limit_by_gene(session, name):
         # Get chrom, start, end
         chrom = gene.chrom
         start = 0
+        start_gene = None
         end = chroms[chrom]
+        end_gene = None
 
         # Get all genes in chromosome as gene features
         genes_chrom = [Gene.as_genomic_feature(g2) for g2 in \
@@ -152,10 +154,21 @@ def get_intervals_limit_by_gene(session, name):
         idx = _binary_search(genes_chrom, 0, len(genes_chrom) - 1, gene)
 
         # Get start, end
-        start = min([gene.start, genes_chrom[idx-1].end]) \
-            if idx > 0 else start
-        end = max([gene.end, genes_chrom[idx+1].start]) \
-            if idx < len(genes_chrom) else end
+        if idx > 0:
+            start = min([gene.start, genes_chrom[idx-1].end])
+            start_gene = genes_chrom[idx-1].qualifiers["gene_symbol"]
+        if idx < len(genes_chrom):
+            end = max([gene.end, genes_chrom[idx+1].start])
+            end_gene = genes_chrom[idx+1].qualifiers["gene_symbol"]
+
+        # Get feat id
+        feat_id = gene.qualifiers["gene_symbol"]
+        if start_gene and end_gene:
+            feat_id += " " + f"(from={start_gene} to={end_gene})"
+        elif start_gene:
+            feat_id += " " + f"(from={start_gene} to=chromEnd)"
+        elif end_gene:
+            feat_id += " " + f"(from=chromStart to={end_gene})"
 
         # Get interval feature
         feat = GenomicFeature(
@@ -163,11 +176,11 @@ def get_intervals_limit_by_gene(session, name):
             start=start,
             end=end,
             feat_type="Gene interval",
-            feat_id=gene.qualifiers["gene_symbol"],
+            feat_id=feat_id,
         )
         intervals.append(feat)
 
-    return json.dumps([i.serialize() for i in intervals], indent=4)
+    return [i.serialize() for i in intervals]
 
 
 def get_intervals_limit_by_distance(session, name, distance):
@@ -206,7 +219,7 @@ def get_intervals_limit_by_distance(session, name, distance):
         )
         intervals.append(feat)
 
-    return json.dumps([i.serialize() for i in intervals], indent=4)
+    return [i.serialize() for i in intervals]
 
 
 def _binary_search(genes, start, end, gene):
