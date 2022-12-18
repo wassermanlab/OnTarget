@@ -1,0 +1,12 @@
+[
+    {
+        "chrom": "10",
+        "start": 75216876,
+        "end": 75434792,
+        "type": "Gene interval",
+        "id": "Adora2a +/- 100 kb",
+        "score": 0,
+        "strand": 0,
+        "qualifiers": null
+    }
+]

@@ -1,0 +1,11 @@
+{
+    "gene": "Adora2a",
+    "genome": "mm10",
+    "host": "gud.cmmt.ubc.ca",
+    "lim_by_dist": 100,
+    "lim_by_gene": false,
+    "output_dir": "/home/oriol/OnTarget/data/examples/Adora2a",
+    "password": "",
+    "port": 5506,
+    "user": "gud_r"
+}
