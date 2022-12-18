@@ -1,0 +1,4 @@
+chr10	75324807	75325070	Pol2ra	nucleus accumbens	ChIP-seq	PMID:24758366	None
+chr10	75327206	75327413	Pol2ra	nucleus accumbens	ChIP-seq	PMID:24758366	None
+chr10	75331001	75331252	Pol2ra	nucleus accumbens	ChIP-seq	PMID:24758366	None
+chr10	75336096	75336755	Pol2ra	nucleus accumbens	ChIP-seq	PMID:24758366	None
