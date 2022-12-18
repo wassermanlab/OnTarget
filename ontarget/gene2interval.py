@@ -12,6 +12,8 @@ from GUD.ORM import Chrom, Gene
 from GUD.ORM.genomic_feature import GenomicFeature
 from GUD.parsers import ParseUtils
 
+from ontarget import OnTargetUtils
+
 
 CONTEXT_SETTINGS = {
     "help_option_names": ["-h", "--help"],
@@ -36,7 +38,7 @@ CONTEXT_SETTINGS = {
 @optgroup.option(
     "--lim-by-dist",
     help="Limit gene intervals based on distance (i.e., gene body ± `x` kb).",
-    type=click.IntRange(0, 1000, clamp=True),
+    type=click.IntRange(0, 100, clamp=True),
 )
 @optgroup.group("GUD")
 @optgroup.option(
@@ -153,12 +155,16 @@ def get_intervals_limit_by_gene(session, name):
         # Get index of gene
         idx = _binary_search(genes_chrom, 0, len(genes_chrom) - 1, gene)
 
-        # Get start, end
+        # Get start, end (max = OnTargetUtils.max_interval_extension)
         if idx > 0:
             start = min([gene.start, genes_chrom[idx-1].end])
+            if gene.start - start > OnTargetUtils.max_interval_extension:
+                start = gene.start - OnTargetUtils.max_interval_extension
             start_gene = genes_chrom[idx-1].qualifiers["gene_symbol"]
         if idx < len(genes_chrom):
             end = max([gene.end, genes_chrom[idx+1].start])
+            if end - gene.end > OnTargetUtils.max_interval_extension:
+                end = gene.end + OnTargetUtils.max_interval_extension
             end_gene = genes_chrom[idx+1].qualifiers["gene_symbol"]
 
         # Get feat id
@@ -195,6 +201,8 @@ def get_intervals_limit_by_distance(session, name, distance):
 
     # Initialize
     intervals = []
+    if distance > OnTargetUtils.max_interval_extension:
+        distance = OnTargetUtils.max_interval_extension
 
     # Get all genes in ncbiRefSeqSelect
     q = Gene.select_by_sources(session, None, ["ncbiRefSeqSelect"])
