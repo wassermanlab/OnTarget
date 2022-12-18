@@ -53,12 +53,12 @@ print(json.dumps(intervals, indent=4))
 from ontarget.interval2regions import get_regions
 
 evidence = [
-    ['/home/oriol/OnTarget/data/examples/Pitx3/dna_accessibility.bed.gz', 1.0],
-    ['/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K27ac.bed.gz', 1.0],
-    ['/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K36me3.bed.gz', 1.0],
-    ['/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K4me1.bed.gz', 1.0],
-    ['/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K4me3.bed.gz', 1.0],
-    ['/home/oriol/OnTarget/data/examples/Pitx3/histone_modification-H3K9ac.bed.gz', 1.0]
+    ['./data/examples/Pitx3/dna_accessibility.bed.gz', 1.0],
+    ['./data/examples/Pitx3/histone_modification-H3K27ac.bed.gz', 1.0],
+    ['./data/examples/Pitx3/histone_modification-H3K36me3.bed.gz', 1.0],
+    ['./data/examples/Pitx3/histone_modification-H3K4me1.bed.gz', 1.0],
+    ['./data/examples/Pitx3/histone_modification-H3K4me3.bed.gz', 1.0],
+    ['./data/examples/Pitx3/histone_modification-H3K9ac.bed.gz', 1.0]
 ]
 
 regions = get_regions(session, chrom="19", start=46085684, end=46198325,
