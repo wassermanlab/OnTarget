@@ -9,6 +9,7 @@
 ## Requirements
 OnTarget requires the following dependencies:
 * [`GUD`](https://github.com/wassermanlab/GUD)
+* [`liftOver`](https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/)
 * [`Python`](https://www.python.org) `3.x` (recommended) with:
     - [`Biopython`](https://biopython.org)
     - [`Click`](https://click.palletsprojects.com/en/8.1.x/) with [`click-option-group`](https://click-option-group.readthedocs.io/en/latest/)
@@ -24,10 +25,19 @@ OnTarget requires the following dependencies:
 ## Configuration
 
 ```
-conda create -n gud -c bioconda -c conda-forge python=3.7 biopython coreutils flask \
-    flask-sqlalchemy fuzzywuzzy pandas pymysql pyliftover python-coreapi requests
-pip install flask-limiter interval-binning python-Levenshtein SQLAlchemy-FullText-Search \
-    sqlalchemy-utils
+conda create -n ontarget -c bioconda -c conda-forge \
+    biopython=1.79 \
+    click=8.1.3 click-option-group=0.5.3 \
+    flask=2.2.2 flask-cors=3.0.10 flask-restful=0.3.9 \
+    genomepy=0.14.0 \
+    numpy=1.23.5 \
+    pandas=1.5.2 \
+    pybedtools=0.9.0 \
+    python=3 \
+    requests=2.28.1 \
+    scikit-learn=1.2.0 \
+    ucsc-liftover=377 \
+    werkzeug=2.2.2
 ```
 
 ```python
