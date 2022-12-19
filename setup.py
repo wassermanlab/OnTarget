@@ -1,5 +1,5 @@
 """
-OnTarget: bioinformatics design of MiniPromoters for targeted delivery of expression
+OnTarget: in silico design of MiniPromoters for targeted delivery of expression
 """
 
 import setuptools
@@ -12,7 +12,7 @@ setuptools.setup(
     version="22.12.1",
     author="Oriol Fornes, Tamar Av-Shalom",
     author_email="oriol.fornes@gmail.com, avshalom.tamar0@gmail.com",
-    description="OnTarget: bioinformatics design of MiniPromoters for targeted delivery of expression",
+    description="OnTarget: in silico design of MiniPromoters for targeted delivery of expression",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/wassermanlab/OnTarget",

@@ -40,7 +40,7 @@ class OnTargetUtilities:
         self._dummy_dir = "/tmp/"
         self._genomes_dir = "/home/oriol/OnTarget/data/genomes"
         self._liftover_dir = "/home/oriol/OnTarget/data/liftover"
-        self._max_interval_extension = 100000
+        self._max_interval_extension = 125000
         self._max_minip_designs = 5
         self._max_minip_size = 2100
         self._min_conserved_region_length = 10
@@ -56,28 +56,21 @@ class OnTargetUtilities:
         """
         :return: str, path to genomes directory
         """
-        return(self._genomes_dir)
+        return self._genomes_dir
 
     @property
     def liftover_dir(self):
         """
         :return: str, path to liftOver directory
         """
-        return(self._liftover_dir)
-
-    @property
-    def max_interval_extension(self):
-        """
-        :return: int, max. allowed interval extension (in bp)
-        """
-        return(self._max_interval_extension)
+        return self._liftover_dir
 
     @property
     def max_minip_designs(self):
         """
         :return: int, max. number of MiniPromoter designs per promoter region
         """
-        return(self._max_minip_designs)
+        return self._max_minip_designs
 
     @property
     def max_minip_size(self):
@@ -85,7 +78,7 @@ class OnTargetUtilities:
         :return: int, max. size of MiniPromoters (in bp)
 
         """
-        return(self._max_minip_size)
+        return self._max_minip_size
 
     # @property
     # def min_cons_score(self):
@@ -122,6 +115,15 @@ class OnTargetUtilities:
         @rtype = {file}
         """
         return os.path.join(self.get_dir("genome"), genome, f"{genome}.fa")
+
+    def get_max_int_ext(self, unit="bp"):
+        """
+        :param: str, unit (i.e., bp or kb)
+        :return: int, max. interval extension
+        """
+        if unit == "kb":
+            return int(self._max_interval_extension / 1000.)
+        return self._max_interval_extension
 
     def get_min_length(self, rtype="regulatory region"):
         """

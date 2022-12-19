@@ -38,7 +38,7 @@ CONTEXT_SETTINGS = {
 @optgroup.option(
     "--lim-by-dist",
     help="Limit gene intervals based on distance (i.e., gene body ± `x` kb).",
-    type=click.IntRange(0, 100, clamp=True),
+    type=click.IntRange(1, OnTargetUtils.get_max_int_ext("kb"), clamp=True),
 )
 @optgroup.group("GUD")
 @optgroup.option(
@@ -155,16 +155,16 @@ def get_intervals_limit_by_gene(session, name):
         # Get index of gene
         idx = _binary_search(genes_chrom, 0, len(genes_chrom) - 1, gene)
 
-        # Get start, end (max = OnTargetUtils.max_interval_extension)
+        # Get start, end (max = OnTargetUtils.get_max_int_ext())
         if idx > 0:
             start = min([gene.start, genes_chrom[idx-1].end])
-            if gene.start - start > OnTargetUtils.max_interval_extension:
-                start = gene.start - OnTargetUtils.max_interval_extension
+            if gene.start - start > OnTargetUtils.get_max_int_ext():
+                start = gene.start - OnTargetUtils.get_max_int_ext()
             start_gene = genes_chrom[idx-1].qualifiers["gene_symbol"]
         if idx < len(genes_chrom):
             end = max([gene.end, genes_chrom[idx+1].start])
-            if end - gene.end > OnTargetUtils.max_interval_extension:
-                end = gene.end + OnTargetUtils.max_interval_extension
+            if end - gene.end > OnTargetUtils.get_max_int_ext():
+                end = gene.end + OnTargetUtils.get_max_int_ext()
             end_gene = genes_chrom[idx+1].qualifiers["gene_symbol"]
 
         # Get feat id
@@ -201,8 +201,8 @@ def get_intervals_limit_by_distance(session, name, distance):
 
     # Initialize
     intervals = []
-    if distance > OnTargetUtils.max_interval_extension:
-        distance = OnTargetUtils.max_interval_extension
+    if distance > OnTargetUtils.get_max_int_ext():
+        distance = OnTargetUtils.get_max_int_ext()
 
     # Get all genes in ncbiRefSeqSelect
     q = Gene.select_by_sources(session, None, ["ncbiRefSeqSelect"])
