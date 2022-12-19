@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Download liftOver and chains (hg19ToMm10, mm9ToMm10, mm10Tohg19, and
-# mm10Tohg38) from UCSC
+# Download hg19ToMm10, mm9ToMm10, mm10Tohg19, and mm10Tohg38 chains from UCSC
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 CHAIN="hg19ToMm10.over.chain.gz"
