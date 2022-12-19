@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 
-from Bio.Alphabet.IUPAC import unambiguous_dna
 from Bio.Restriction import *
 from Bio.Seq import Seq
 import click
@@ -423,7 +422,7 @@ def _get_interval_sequence(chrom, start, end, genome):
     # Get response
     response = requests.get(url)
 
-    return Seq(response.json()["dna"], unambiguous_dna)
+    return Seq(response.json()["dna"])
 
 
 def _get_sequence_restriction_sites(sequence):
@@ -770,9 +769,9 @@ def _liftover_regions(regions, from_genome, to_genome, dummy_dir="/tmp/"):
     minMatch = 0.1 if from_genome[:2] != to_genome[:2] else 0.95
     liftover_file = os.path.join(dummy_dir, "%s.%s.lo" % (base_name, pid))
     unmapped_file = os.path.join(dummy_dir, "%s.%s.unmap" % (base_name, pid))
-    cmd = f"{OnTargetUtils.liftover_dir}/liftOver -minMatch={minMatch} " + \
+    cmd = f"liftOver -minMatch={minMatch} " + \
           f"{bed_file} {chain_file} {liftover_file} {unmapped_file}"
-    p = sp.call(cmd, stdout=sp.DEVNULL, stderr=sp.DEVNULL, shell=True)
+    _ = sp.call(cmd, stdout=sp.DEVNULL, stderr=sp.DEVNULL, shell=True)
 
     # Get liftOver regions
     df = pd.read_table(liftover_file, header=None, index_col=3)

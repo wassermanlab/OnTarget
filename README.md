@@ -8,9 +8,9 @@
 
 ## Requirements
 OnTarget requires the following dependencies:
-* [`GUD`](https://github.com/wassermanlab/GUD)
+* [`GUD`](https://github.com/wassermanlab/GUD) with [`FuzzyWuzzy`](https://github.com/seatgeek/fuzzywuzzy), [`interval-binning`](https://interval-binning.readthedocs.io/en/latest/), [`PyMySQL`](https://pymysql.readthedocs.io/en/latest/), [`SQLAlchemy`](https://www.sqlalchemy.org/), [`SQLAlchemy-FullText-Search`](https://github.com/mengzhuo/sqlalchemy-fulltext-search), [`SQLAlchemy-Utils`](https://sqlalchemy-utils.readthedocs.io/en/latest/) 
 * [`liftOver`](https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/)
-* [`Python`](https://www.python.org) `3.x` (recommended) with:
+* [`Python 3.x`](https://www.python.org) with:
     - [`Biopython`](https://biopython.org)
     - [`Click`](https://click.palletsprojects.com/en/8.1.x/) with [`click-option-group`](https://click-option-group.readthedocs.io/en/latest/)
     - [`flask`](https://flask.palletsprojects.com/en/1.0.x/) with [`Flask-CORS`](https://flask-cors.readthedocs.io/en/latest/) and [`Flask-RESTful`](https://flask-restful.readthedocs.io/en/latest/)
@@ -22,6 +22,10 @@ OnTarget requires the following dependencies:
     - [`scikit-learn`](https://scikit-learn.org/stable/install.html)
     - [`werkzeug`](https://werkzeug.palletsprojects.com/en/2.2.x/)
 
+Additionally, to generate the example data, it requires:
+* [`BigWigToBedGraph`](https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/)
+* [`MACS2`](https://github.com/macs3-project/MACS)
+
 ## Configuration
 
 ```
@@ -29,15 +33,21 @@ conda create -n ontarget -c bioconda -c conda-forge \
     biopython=1.79 \
     click=8.1.3 click-option-group=0.5.3 \
     flask=2.2.2 flask-cors=3.0.10 flask-restful=0.3.9 \
+    fuzzywuzzy=0.18.0 \
     genomepy=0.14.0 \
+    interval-binning=1.0.0 \
     numpy=1.23.5 \
     pandas=1.5.2 \
     pybedtools=0.9.0 \
+    pymysql=1.0.2 \
     python=3 \
     requests=2.28.1 \
     scikit-learn=1.2.0 \
+    sqlalchemy=1.4.45  sqlalchemy-utils=0.38.3 \
     ucsc-liftover=377 \
     werkzeug=2.2.2
+
+pip install SQLAlchemy-FullText-Search
 ```
 
 ```python
@@ -154,7 +164,7 @@ from ontarget.regions2minips import get_minipromoters
 
 minips = get_minipromoters(regions, enzymes=set(["AscI", "FseI"]),
                            tfs=set(["NR4A2", "PITX3"]))
-print(json.dumps(minips[0], indent=4))
+print(json.dumps(minips, indent=4))
 ```
 ```
 [

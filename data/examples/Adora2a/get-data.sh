@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Download bigWigToBedGraph from UCSC
-# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-if [ ! -f bigWigToBedGraph ]; then
-    wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bigWigToBedGraph
-    chmod u+x bigWigToBedGraph
-fi
-
-# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Postmortem human (hg19) striatal neurons (both from the accumbens nucleus
 # and putamen) processed ATAC-seq data (BOCA; PMID: XXXXX); liftOver mm10
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -26,7 +17,7 @@ if [ ! -f ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${GSM}_${BOCA}.bg ]; then
-    ./bigWigToBedGraph ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw \
+    bigWigToBedGraph ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw \
         ./${DIR}/${GSM}_${BOCA}.bg
 fi
 
@@ -42,7 +33,7 @@ if [ ! -f ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${GSM}_${BOCA}.bg ]; then
-    ./bigWigToBedGraph ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw \
+    bigWigToBedGraph ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw \
         ./${DIR}/${GSM}_${BOCA}.bg
 fi
 
@@ -58,7 +49,7 @@ if [ ! -f ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${GSM}_${BOCA}.bg ]; then
-    ./bigWigToBedGraph ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw \
+    bigWigToBedGraph ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw \
         ./${DIR}/${GSM}_${BOCA}.bg
 fi
 
@@ -74,7 +65,7 @@ if [ ! -f ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${GSM}_${BOCA}.bg ]; then
-    ./bigWigToBedGraph ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw \
+    bigWigToBedGraph ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw \
         ./${DIR}/${GSM}_${BOCA}.bg
 fi
 
@@ -90,7 +81,7 @@ if [ ! -f ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${GSM}_${BOCA}.bg ]; then
-    ./bigWigToBedGraph ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw \
+    bigWigToBedGraph ./${DIR}/${GSM}_${BOCA}_norm_sorted_rmdup_nochrM.bw \
         ./${DIR}/${GSM}_${BOCA}.bg
 fi
 
@@ -127,7 +118,7 @@ if [ ! -f ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me1.sal.rep1.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${HIST_MARK}/rep1.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
         ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me1.sal.rep1.bw \
         ./${DIR}/${HIST_MARK}/rep1.bg
 fi
@@ -144,7 +135,7 @@ if [ ! -f ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me1.sal.rep2.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${HIST_MARK}/rep2.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
         ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me1.sal.rep2.bw \
         ./${DIR}/${HIST_MARK}/rep2.bg
 fi
@@ -161,7 +152,7 @@ if [ ! -f ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me1.sal.rep3.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${HIST_MARK}/rep3.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
          ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me1.sal.rep3.bw \
         ./${DIR}/${HIST_MARK}/rep3.bg
 fi
@@ -190,7 +181,7 @@ if [ ! -f ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me3.sal.rep1.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${HIST_MARK}/rep1.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
         ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me3.sal.rep1.bw \
         ./${DIR}/${HIST_MARK}/rep1.bg
 fi
@@ -207,7 +198,7 @@ if [ ! -f ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me3.sal.rep2.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${HIST_MARK}/rep2.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
         ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me3.sal.rep2.bw \
         ./${DIR}/${HIST_MARK}/rep2.bg
 fi
@@ -224,7 +215,7 @@ if [ ! -f ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me3.sal.rep3.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${HIST_MARK}/rep3.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
          ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k4me3.sal.rep3.bw \
         ./${DIR}/${HIST_MARK}/rep3.bg
 fi
@@ -253,7 +244,7 @@ if [ ! -f ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k36me3.sal.rep1.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${HIST_MARK}/rep1.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
         ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k36me3.sal.rep1.bw \
         ./${DIR}/${HIST_MARK}/rep1.bg
 fi
@@ -270,7 +261,7 @@ if [ ! -f ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k36me3.sal.rep2.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${HIST_MARK}/rep2.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
         ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k36me3.sal.rep2.bw \
         ./${DIR}/${HIST_MARK}/rep2.bg
 fi
@@ -287,7 +278,7 @@ if [ ! -f ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k36me3.sal.rep3.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${HIST_MARK}/rep3.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
          ./${DIR}/${HIST_MARK}/${GSM}_mm9.nac.h3k36me3.sal.rep3.bw \
         ./${DIR}/${HIST_MARK}/rep3.bg
 fi
@@ -318,7 +309,7 @@ if [ ! -f ./${DIR}/${TF}/${GSM}_mm9.nac.pol2.sal.rep1.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${TF}/rep1.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
         ./${DIR}/${TF}/${GSM}_mm9.nac.pol2.sal.rep1.bw \
         ./${DIR}/${TF}/rep1.bg
 fi
@@ -335,7 +326,7 @@ if [ ! -f ./${DIR}/${TF}/${GSM}_mm9.nac.pol2.sal.rep2.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${TF}/rep2.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
         ./${DIR}/${TF}/${GSM}_mm9.nac.pol2.sal.rep2.bw \
         ./${DIR}/${TF}/rep2.bg
 fi
@@ -352,7 +343,7 @@ if [ ! -f ./${DIR}/${TF}/${GSM}_mm9.nac.pol2.sal.rep3.bw ]; then
 fi
 
 if [ ! -f ./${DIR}/${TF}/rep3.bg ]; then
-    ./bigWigToBedGraph \
+    bigWigToBedGraph \
          ./${DIR}/${TF}/${GSM}_mm9.nac.pol2.sal.rep3.bw \
         ./${DIR}/${TF}/rep3.bg
 fi
