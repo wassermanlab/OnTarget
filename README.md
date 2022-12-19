@@ -1,4 +1,34 @@
 # OnTarget
+> This is a webserver to design promoters with "on target" expression patterns.
+
+## Manifest
++ app - Webserver
++ data - Examples, genomes, liftOver chains
++ ontarget - The OnTarget module
+
+## Requirements
+OnTarget requires the following dependencies:
+* [`GUD`](https://github.com/wassermanlab/GUD)
+* [`Python`](https://www.python.org) `3.x` (recommended) with:
+    - [`Biopython`](https://biopython.org)
+    - [`Click`](https://click.palletsprojects.com/en/8.1.x/) with [`click-option-group`](https://click-option-group.readthedocs.io/en/latest/)
+    - [`flask`](https://flask.palletsprojects.com/en/1.0.x/) with [`Flask-CORS`](https://flask-cors.readthedocs.io/en/latest/) and [`Flask-RESTful`](https://flask-restful.readthedocs.io/en/latest/)
+    - [`genomepy`](https://vanheeringen-lab.github.io/genomepy/)
+    - [`NumPy`](https://numpy.org/)
+    - [`pandas`](https://pandas.pydata.org/)
+    - [`pybedtools`](https://daler.github.io/pybedtools/)
+    - [`requests`](https://requests.readthedocs.io/en/master/)
+    - [`scikit-learn`](https://scikit-learn.org/stable/install.html)
+    - [`werkzeug`](https://werkzeug.palletsprojects.com/en/2.2.x/)
+
+## Configuration
+
+```
+conda create -n gud -c bioconda -c conda-forge python=3.7 biopython coreutils flask \
+    flask-sqlalchemy fuzzywuzzy pandas pymysql pyliftover python-coreapi requests
+pip install flask-limiter interval-binning python-Levenshtein SQLAlchemy-FullText-Search \
+    sqlalchemy-utils
+```
 
 ```python
 import json
