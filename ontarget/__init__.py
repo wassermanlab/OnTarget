@@ -13,7 +13,7 @@ __organization__ = "[Wasserman Lab](http://www.cisreg.ca)"
 __version__ = "22.12.1"
 
 
-__all__ = ["gene2interval", "interval2regions", "regions2minips"]
+__all__ = ["api", "gene2interval", "interval2regions", "regions2minips"]
 
 
 # from .gene2interval import (get_intervals_limit_by_gene,
@@ -37,9 +37,9 @@ class OnTargetUtilities:
         """
 
         # i.e. defaults
-        self._dummy_dir = "/tmp/"
-        self._genomes_dir = "/Users/ofornes/Work/OnTarget/data/genomes"
-        self._liftover_dir = "/Users/ofornes/Work/OnTarget/data/liftover"
+        self._dummy_dir = "/space/www/tmp/"
+        self._genomes_dir = "/space/www/OnTarget/data/genomes/"
+        self._liftover_dir = "/space/www/OnTarget/data/liftover/"
         self._max_interval_extension = 125000
         self._max_minip_designs = 5
         self._max_minip_size = 2100
