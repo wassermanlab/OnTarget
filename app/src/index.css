@@ -13,3 +13,8 @@
 .row-margin{
 margin-bottom: 10px;
 }
+.table-wrapper {
+    max-height: 200px;
+    overflow: auto;
+    display:flex;
+  }
