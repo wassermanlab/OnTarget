@@ -7,7 +7,6 @@ import click
 from click_option_group import optgroup
 import json
 import os
-import random
 
 from GUD.parsers import ParseUtils
 
@@ -242,7 +241,7 @@ def get_minipromoters(regions, designs=OnTargetUtils.max_minip_designs,
         for minip in _get_minipromoters(promoter, enhancers, designs, size):
             minips.append(minip)
 
-    return [minip.serialize() for minip in minips]
+    return minips
 
 
 def _get_minipromoters(promoter, enhancers,
@@ -252,8 +251,83 @@ def _get_minipromoters(promoter, enhancers,
     # Initialize
     minips = []
 
-    # Map enhancer ids to enhancers
-    ids2enhancers = {e["id"]:e for e in enhancers}
+    # Get enhancer combinations
+    max_size = size - (promoter["end"] - promoter["start"])
+    enhancer_combs = _get_enhancer_combs(enhancers, max_size)
+
+    # Get MiniPromoters
+    for enhancers in enhancer_combs[:min([len(enhancer_combs), designs])]:
+        minip = get_minipromoter(promoter, enhancers)
+        minips.append(minip.serialize())
+
+    return minips
+
+
+def _get_enhancer_combs(enhancers, max_size):
+
+    # Initialize
+    enhancer_combs = []
+    nr_enhancer_combs = []
+
+    # # Map enhancer ids to enhancers
+    # ids2enhancers = {e["id"]:e for e in enhancers}
+
+    # # Get enhancer sizes
+    # sizes = {e["id"]:len(e["qualifiers"]["sequence"]) for e in enhancers}
+
+    # Get enhancer combinations
+    # for ec in __get_combs_recursively(list(sizes.keys()), sizes, max_size):
+    for ec in __get_combs_recursively(enhancers, max_size):
+        enhancer_combs.append(ec)
+
+    # Sort enhancer combinations by size
+    enhancer_combs.sort(key=lambda x: x[1], reverse=True)
+
+    # Get non-redundant enhancer combinations
+    for ec in enhancer_combs:
+        is_nr = True
+        for nr_ec in nr_enhancer_combs:
+            if set([e["id"] for e in ec[0]]).issubset(
+                set(nr_e["id"] for nr_e in nr_ec[0])
+            ):
+                is_nr = False
+                break
+        if is_nr:
+            nr_enhancer_combs.append(ec)
+
+    # Sort non-redundant enhancer combinations by score
+    nr_enhancer_combs.sort(key=lambda x: x[2], reverse=True)
+
+    return [nr_ec[0] for nr_ec in nr_enhancer_combs]
+
+
+# def __get_combs_recursively(enhancers, sizes, max_size, combination=[],
+def __get_combs_recursively(enhancers, max_size, comb=[], comb_size=0,
+                            comb_score=0):
+
+    if comb_size > max_size:
+        return
+    if comb_size > 0:
+        yield comb, comb_size, comb_score / comb_size
+    for i, e in enumerate(enhancers):
+        # remaining_enhancers = enhancers[i+1:]
+        # yield from __get_combs_recursively(remaining_enhancers, sizes,
+        size = e["end"] - e["start"]
+        yield from __get_combs_recursively(enhancers[i+1:],
+                                           max_size,
+                                           comb + [e],
+                                           comb_size + size,
+                                           comb_score + e["score"] * size)
+
+
+def get_minipromoter(promoter, enhancers):
+
+    # Initialize
+    upstream = []
+    downstream = []
+
+    # # Map enhancer ids to enhancers
+    # ids2enhancers = {e["id"]:e for e in enhancers}
 
     # Get promoter strand
     strand = set([tss[1] for tss in promoter["qualifiers"]["TSS"]])
@@ -264,137 +338,71 @@ def _get_minipromoters(promoter, enhancers,
     # Sort enhancers by start position
     enhancers.sort(key=lambda x: x["start"])
 
-    # Get enhancer combinations
-    max_size = size - len(promoter["qualifiers"]["sequence"])
-    enhancer_combs = [c for c in _enhancer_combinations(enhancers, max_size)]
-
-    # Get MiniPromoters
-    random.seed(0)
-    for ec in random.sample(enhancer_combs, designs):
-
-        # Get upstream and downstream enhancers
-        upstream = []
-        downstream = []
-        for e in ec:
-            if strand == 1: # i.e., forward
-                if ids2enhancers[e]["end"] < promoter["start"]:
-                    upstream.append(e)
-                else:
-                    downstream.append(e)
-            else: # i.e., reverse
-                if ids2enhancers[e]["end"] < promoter["start"]:
-                    downstream.append(e)
-                else:
-                    upstream.append(e)
-
-        # Get MiniPromoter ids
-        minip_ids = [promoter["id"]]
-        if strand == 1:
-            for e in reversed(upstream):
-                minip_ids.append(e)
-            for e in downstream:
-                minip_ids.append(e)
+    # Get upstream and downstream enhancers
+    for e in enhancers:
+        if e["end"] < promoter["start"]:
+            upstream.append(e)
         else:
-            for e in upstream:
-                minip_ids.append(e)
-            for e in reversed(downstream):
-                minip_ids.append(e)
+            downstream.append(e)
 
-        # Get MiniPromoter starts, ends, sequence, score, tfs, etc.
-        score = 0
-        tfs = set()
-        minip_starts = []
-        minip_ends = []
-        minip_seqs = []
-        for minip_id in minip_ids:
-            if minip_id in ids2enhancers:
-                s = ids2enhancers[minip_id]["qualifiers"]["sequence"]
-                if strand == -1:
-                    s = str(Seq(s).reverse_complement())
-                minip_seqs.insert(0, s)
-                score += ids2enhancers[minip_id]["score"] * len(s)
-                minip_starts.append(ids2enhancers[minip_id]["start"])
-                minip_ends.append(ids2enhancers[minip_id]["end"])
-                tfs.update(ids2enhancers[minip_id]["qualifiers"]["tfs"])
-            else:
-                s = promoter["qualifiers"]["sequence"]
-                if strand == -1:
-                    s = str(Seq(s).reverse_complement())
-                minip_seqs.insert(0, s)
-                score += promoter["score"] * len(s)
-                minip_starts.append(promoter["start"])
-                minip_ends.append(promoter["end"])
-                tfs.update(promoter["qualifiers"]["tfs"])
-        minip_seq = "".join(minip_seqs)
-        tfs = sorted(tfs)
-                
-        # Get MiniPromoter size
-        size = sum(len(s) for s in minip_seqs)
+    # Get MiniPromoter ids
+    # >>> promoter = [8]
+    # >>> upstream = list(range(8))
+    # >>> downstream = list(range(9, 12))
+    # >>> list(reversed(downstream)) + upstream + promoter
+    # [11, 10, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8]
+    # >>> upstream + list(reversed(downstream)) + promoter
+    # [0, 1, 2, 3, 4, 5, 6, 7, 11, 10, 9, 8]
+    if strand == 1:
+        minip_elements = list(reversed(downstream)) + upstream + \
+                         [promoter]
+    else:
+        minip_elements = upstream + list(reversed(downstream)) + \
+                         [promoter]
 
-        # Get MiniPromoter score per bp
-        score /= size
+    # Get MiniPromoter ids, starts, ends, sequence, score, size, tfs, etc.
+    minip_score = 0
+    minip_size = 0
+    minip_tfs = set()
+    minip_ids = []
+    minip_starts = []
+    minip_ends = []
+    minip_seqs = []
+    for minip_ele in minip_elements:
+        minip_ids.append(minip_ele["id"])
+        minip_starts.append(minip_ele["start"])
+        minip_ends.append(minip_ele["end"])
+        if strand == 1:
+            minip_seqs.append(minip_ele["qualifiers"]["sequence"])
+        else:
+            s = Seq(minip_ele["qualifiers"]["sequence"])
+            minip_seqs.append(str(s.reverse_complement()))
+        minip_score += minip_ele["score"] * (minip_ends[-1] - minip_starts[-1])
+        minip_size += minip_ends[-1] - minip_starts[-1]
+        minip_tfs.update(minip_ele["qualifiers"]["tfs"])
+    minip_seq = "".join(minip_seqs)
 
-        # Get MiniPromoter feature
-        minip = MiniPromoter(
-            chrom=promoter["chrom"],
-            starts=minip_starts,
-            ends=minip_ends,
-            score=score,
-            strand="+" if strand == 1 else "-",
-            feat_type="MiniPromoter",
-            feat_ids=minip_ids,
-            qualifiers={
-                "enzymes": _get_sequence_restriction_sites(minip_seq),
-                "sequence": minip_seq,
-                "size": size,
-                "tfs": tfs,
-            }
-        )
-        minips.append(minip)
+    # Get MiniPromoter score per bp
+    minip_score /= minip_size
 
-    return minips
+    # Get MiniPromoter feature
+    minip = MiniPromoter(
+        chrom=promoter["chrom"],
+        starts=minip_starts,
+        ends=minip_ends,
+        score=minip_score,
+        strand="+" if strand == 1 else "-",
+        feat_type="MiniPromoter",
+        feat_ids=minip_ids,
+        qualifiers={
+            "enzymes": _get_sequence_restriction_sites(minip_seq),
+            "sequence": minip_seq,
+            "size": minip_size,
+            "tfs": sorted(minip_tfs),
+        }
+    )
 
-
-def _enhancer_combinations(enhancers, max_size):
-
-    # Initialize
-    enhancer_combs = []
-    nr_enhancer_combs = []
-
-    # Get enhancer sizes
-    sizes = {e["id"]:len(e["qualifiers"]["sequence"]) for e in enhancers}
-
-    # Get enhancer combinations
-    for ec in __enhancer_combinations(list(sizes.keys()), sizes, max_size):
-        enhancer_combs.append(ec)
-
-    # Sort enhancer combinations by size
-    enhancer_combs.sort(key=lambda x: x[-1], reverse=True)
-
-    # Get non-redundant enhancer combinations
-    for ec in enhancer_combs:
-        is_nr = True
-        for nr_ec in nr_enhancer_combs:
-            if set(ec[0]).issubset(set(nr_ec)):
-                is_nr = False
-                break
-        if is_nr:
-            nr_enhancer_combs.append(ec[0])
-
-    return(nr_enhancer_combs)
-    
-
-def __enhancer_combinations(enhancers, sizes, max_size, combination=[],
-                            combination_size=0):
-    if combination_size > max_size:
-        return
-    if combination_size > 0:
-        yield combination, combination_size
-    for i, e in enumerate(enhancers):
-        remaining_enhancers = enhancers[i+1:]
-        yield from __enhancer_combinations(remaining_enhancers, sizes,
-                                           max_size, combination + [e],
-                                           combination_size + sizes[e])
+    return minip
 
 
 if __name__ == "__main__":
