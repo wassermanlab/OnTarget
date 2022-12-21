@@ -7,7 +7,6 @@ import click
 from click_option_group import optgroup
 import json
 import os
-import random
 
 from GUD.parsers import ParseUtils
 
@@ -254,11 +253,10 @@ def _get_minipromoters(promoter, enhancers,
 
     # Get enhancer combinations
     max_size = size - (promoter["end"] - promoter["start"])
-    enhancer_combs = [c for c in _get_enhancer_combs(enhancers, max_size)]
+    enhancer_combs = _get_enhancer_combs(enhancers, max_size)
 
     # Get MiniPromoters
-    random.seed(0)
-    for enhancers in random.sample(enhancer_combs, designs):
+    for enhancers in enhancer_combs[:min([len(enhancer_combs), designs])]:
         minip = get_minipromoter(promoter, enhancers)
         minips.append(minip.serialize())
 
@@ -283,37 +281,43 @@ def _get_enhancer_combs(enhancers, max_size):
         enhancer_combs.append(ec)
 
     # Sort enhancer combinations by size
-    enhancer_combs.sort(key=lambda x: x[-1], reverse=True)
+    enhancer_combs.sort(key=lambda x: x[1], reverse=True)
 
     # Get non-redundant enhancer combinations
     for ec in enhancer_combs:
         is_nr = True
         for nr_ec in nr_enhancer_combs:
             if set([e["id"] for e in ec[0]]).issubset(
-                set(nr_e["id"] for nr_e in nr_ec)
+                set(nr_e["id"] for nr_e in nr_ec[0])
             ):
                 is_nr = False
                 break
         if is_nr:
-            nr_enhancer_combs.append(ec[0])
+            nr_enhancer_combs.append(ec)
 
-    return nr_enhancer_combs
+    # Sort non-redundant enhancer combinations by score
+    nr_enhancer_combs.sort(key=lambda x: x[2], reverse=True)
+
+    return [nr_ec[0] for nr_ec in nr_enhancer_combs]
 
 
 # def __get_combs_recursively(enhancers, sizes, max_size, combination=[],
-def __get_combs_recursively(enhancers, max_size, comb=[], comb_size=0):
+def __get_combs_recursively(enhancers, max_size, comb=[], comb_size=0,
+                            comb_score=0):
 
     if comb_size > max_size:
         return
     if comb_size > 0:
-        yield comb, comb_size
+        yield comb, comb_size, comb_score / comb_size
     for i, e in enumerate(enhancers):
         # remaining_enhancers = enhancers[i+1:]
         # yield from __get_combs_recursively(remaining_enhancers, sizes,
+        size = e["end"] - e["start"]
         yield from __get_combs_recursively(enhancers[i+1:],
                                            max_size,
                                            comb + [e],
-                                           comb_size + e["end"] - e["start"])
+                                           comb_size + size,
+                                           comb_score + e["score"] * size)
 
 
 def get_minipromoter(promoter, enhancers):
