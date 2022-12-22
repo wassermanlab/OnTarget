@@ -14,6 +14,16 @@ function SelectRegion(props) {
         <option key={index} value={r}>{r}</option>
     );
 
+    let uploadedFiles = <div></div>
+    if (props.uploadedFiles !== null) {
+        uploadedFiles = <div className='row'>
+            <h3>Uploaded Files</h3>
+            {props.uploadedFiles.map((item, index) => (
+            <div key={index}> {item} </div>))}
+        </div>
+    }
+
+
     if (props.page !== 1) {
         return null;
     }
@@ -21,7 +31,7 @@ function SelectRegion(props) {
     return (
         <div>
             <div className='row-margin'>
-                <h2>Select Region</h2>
+                <h3>Select Region</h3>
                 <p>Note: the maximum size for a region is be 200 kB.</p>
                 <p>Type of region</p>
                 <div className="form-check form-check-inline row-margin">
@@ -81,6 +91,37 @@ function SelectRegion(props) {
                     <input className="form-check-input" type="radio" name="inlineRadioGenomeOptions" id="inlineRadioGenome2" value="hg19" onChange={props.handleGenomeChange} />
                     <label className="form-check-label" htmlFor="inlineRadioGenome2">hg19</label>
                 </div>
+            </div>
+            {props.genome === "mm10" &&
+                <div>
+                    <p>Would you like to liftover to hg19?</p>
+                    <div className="form-check form-check-inline row-margin">
+                        <input className="form-check-input" type="radio" name="inlineRadioLiftoverOptions" id="inlineRadioLiftoverOptions1" value="true" onChange={props.handleLiftoverChange} />
+                        <label className="form-check-label" htmlFor="inlineRadioLiftoverOptions1">Yes</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="radio" name="inlineRadioLiftoverOptions" id="inlineRadioLiftoverOptions1" value="false" onChange={props.handleLiftoverChange} />
+                        <label className="form-check-label" htmlFor="inlineRadioLiftoverOptions1">No</label>
+                    </div>
+                </div>
+            }
+            <div className="row-margin">
+                <form onSubmit={props.onSubmit}>
+                    <h3>Upload Evidence</h3>
+                    <p>Only gzipped bed files accepted</p>
+                    <div className="form-group">
+                        <input type="file" name="evidenceList" onChange={props.onFileChange} multiple />
+                    </div>
+                    <div className="form-group">
+                        <button className="btn btn-primary ontarget-button" type="submit">Upload</button>
+                    </div>
+                </form>
+
+                {uploadedFiles}
+
+                {/* requestCode */}
+                {/* uploadedFiles */}
+
             </div>
         </div>
 
