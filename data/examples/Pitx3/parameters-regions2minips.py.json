@@ -1,12 +1,12 @@
 {
-    "designs": 1000,
+    "designs": 5,
     "enzyme": [
         "AscI",
         "FseI"
     ],
     "json_file": "/home/oriol/OnTarget/data/examples/Pitx3/regions.json",
     "output_dir": "/home/oriol/OnTarget/data/examples/Pitx3",
-    "size": 2100,
+    "size": 1900,
     "tf": [
         "NR4A2",
         "PITX3"

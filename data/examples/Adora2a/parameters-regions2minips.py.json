@@ -6,7 +6,7 @@
     ],
     "json_file": "/home/oriol/OnTarget/data/examples/Adora2a/regions.json",
     "output_dir": "/home/oriol/OnTarget/data/examples/Adora2a",
-    "size": 2100,
+    "size": 1900,
     "tf": [
         "RARB",
         "SP9"

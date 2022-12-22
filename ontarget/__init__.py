@@ -42,7 +42,7 @@ class OnTargetUtilities:
         self._liftover_dir = "/space/www/OnTarget/data/liftover/"
         self._max_interval_extension = 125000
         self._max_minip_designs = 5
-        self._max_minip_size = 2100
+        self._max_minip_size = 1900
         self._min_conserved_region_length = 10
         self._min_conserved_region_score = .6
         self._min_regulatory_region_length = 100
