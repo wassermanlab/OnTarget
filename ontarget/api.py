@@ -1,17 +1,19 @@
-from flask import Flask, flash, request, redirect, url_for
+from flask import Flask, flash, request, redirect, url_for, jsonify
 from flask_restful import Resource, Api
 from flask_cors import CORS, cross_origin # figure this out on the production server
 import os
 from werkzeug.utils import secure_filename
 import string
 import random
+from ontarget import hg19, mm10, rest_enzymes, TFs
+from ontarget.regions2minips import get_minipromoters, get_minipromoter
 
 UPLOAD_FOLDER = '/home/tamar/Desktop/OnTarget/data/uploads' #change this 
 
 app = Flask(__name__)
 CORS(app) # figure out the CORS
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = 'abcd2435'
+app.secret_key = 'abcd2435' # TODO change this 
 # app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 api = Api(app)
 
@@ -23,6 +25,50 @@ def allowed_file(filename):
 def id_generator(size=6, chars=string.ascii_uppercase):
     return ''.join(random.choice(chars) for _ in range(size))
 
+@app.route('/getminipromoters', methods=["POST"])
+def get_mini_promoters():
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        json = request.json
+        size = int(json["size"])
+        selectedEnzymes = set(json["selectedEnzymes"])
+        selectedTFs = set(json["selectedTFs"])
+        regions = json["regions"]
+        minipromoters = get_minipromoters(regions, size=size, enzymes=selectedEnzymes, tfs= selectedTFs)
+        return jsonify(minipromoters)
+    else:
+        return {"error":'Content-Type not supported!'}
+
+@app.route('/getminipromoter', methods=["POST"])
+def get_mini_promoter():
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        json = request.json
+        promoter = json["promoter"]
+        enhancers = json["enhancers"]
+        minipromoter = get_minipromoter(promoter, enhancers)
+        return jsonify(minipromoter)
+    else:
+        return {"error":'Content-Type not supported!'}
+
+@app.route('/getregions', methods=["POST"])
+def get_regions():
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        json = request.json
+        ## keys in json for this 
+        # genome
+        # liftover
+        # plusMinusGene
+        # customCoordinateStart
+        # customCoordinateEnd
+        # requestCode
+        # regionType
+        # geneName
+
+        return {"TODO": "TODO"}
+    else:
+        return {"error":'Content-Type not supported!'}
 
 @app.route('/uploadevidence', methods=['POST'])
 def upload_file():
@@ -50,11 +96,21 @@ def upload_file():
                 "uploaded_files": uploadedfiles}
 
 
-@app.route('/genes_enzymes_tfs', methods=['GET'])
+@app.route('/genes', methods=['GET'])
 def get_genes_enzymes_tfs():
-    return {"genes": ["gene1", "gene2", "gene3"], 
-        "tfs": ["tf1", "tf2", "tf3"],
-         "enzymes": ["enzyme1", "enzyme2", "enzyme3"]}
+    hg19 = list(hg19)
+    mm10 = list(mm10)
+    return {"hg19": hg19,
+    "mm10": mm10}
+
+
+# hg19, mm10, rest_enzymes, TFs
+@app.route('/enzymes_tfs', methods=['GET'])
+def get_enzymes_tfs():
+    tf = list(TFs)
+    enzymes = list(rest_enzymes)
+    return {"tfs": tf,
+         "enzymes": enzymes}
 
 if __name__ == '__main__':
     app.run(debug=True) #remove debug mode for production
