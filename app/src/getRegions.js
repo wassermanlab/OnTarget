@@ -2,6 +2,7 @@ import React from 'react';
 import RegionList from './regionList';
 import SelectedRegionList from './selectedRegionList';
 import Errors from './errors';
+import Select from 'react-select'
 
 class GetRegions extends React.Component {
     constructor(props) {
@@ -12,9 +13,10 @@ class GetRegions extends React.Component {
             genes: [],
             enzymes: [],
             tfs: [],
-            //
-            selectedTFs: ["SMAI"],
-            selectedEnzymes: ["ZNF189"],
+            //design
+            size: 0,
+            selectedTFs: [],
+            selectedEnzymes: [],
             //regions
             regions: [
                 {
@@ -9532,19 +9534,26 @@ class GetRegions extends React.Component {
         };
         this.selectRegion = this.selectRegion.bind(this);
         this.removeSelectedRegion = this.removeSelectedRegion.bind(this);
+        this.clearDesignedPromoter = this.clearDesignedPromoter.bind(this);
+        this.downloadDesignedPromoter = this.downloadDesignedPromoter.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleMultiSelectChange = this.handleMultiSelectChange.bind(this);
     };
 
     //set genes, TFs, restrictionEnzymes
     componentDidMount() {
-        fetch("http://127.0.0.1:5000/genes_enzymes_tfs") // TODO: change this address
+        fetch("http://127.0.0.1:5000/enzymes_tfs") // TODO: change this address
             .then(res => res.json())
             .then(
                 (result) => {
+                    let enzymes = []
+                    let tfs = []
+                    result.enzymes.map((e) => enzymes.push({ value: e, label: e }))
+                    result.tfs.map((e) => tfs.push({ value: e, label: e }))
                     this.setState({
                         loadedResources: true,
-                        genes: result.genes,
-                        enzymes: result.enzymes,
-                        tfs: result.tfs
+                        enzymes: enzymes,
+                        tfs: tfs
                     },
                         () => { console.log(this.state); });
                 },
@@ -9586,6 +9595,26 @@ class GetRegions extends React.Component {
         selectedRegions.splice(index, 1);
         this.setState({ selectedRegions: selectedRegions, designErrors: [] })
     }
+    clearDesignedPromoter() {
+        this.setState({ selectedRegions: [], designErrors: [] })
+    }
+    downloadDesignedPromoter() {
+        //TODO: hook this up 
+        console.log("Design Promoter")
+    }
+    handleChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        }, () => { console.log(this.state); });
+    }
+    handleMultiSelectChange(event, name) {
+        const values = event.map((item) => { return item.value });
+        this.setState({[name]: values});
+    }
 
     render() {
         return (
@@ -9597,64 +9626,76 @@ class GetRegions extends React.Component {
                         <h3>Get suggested regulatory regions</h3>
                         <p>Instructions: To get suggested minipromoters indicate the maximum size of your mini promoter and how many suggested minipromoters you would like
                             to design and click "Suggest Mini Promoters". </p>
-                        <button type="button" className="btn btn-primary ontarget-button" >Suggest Mini Promoters</button>
+                        {/* size*/}
+                        <label htmlFor="promoterNumber">Number of mini promoters to download</label>
+                        <input name="size" onChange={this.handleChange} type="number" className="form-control" id="promoterNumber"></input>
+                        {/* restriction enzymes */}
+                        <label htmlFor="enzymeSelector">Select restriction enzymes to avoid</label>
+                        <Select onChange={e => this.handleMultiSelectChange(e, "selectedEnzymes")} isMulti id="enzymeSelector"
+                            options={this.state.enzymes} className="basic-multi-select" classNamePrefix="select"></Select>
+                        {/* TFs */}
+                        <label htmlFor="TFSelector">Select transcription factors to include</label>
+                        <Select isMulti onChange={e => this.handleMultiSelectChange(e, "selectedTFs")} id="TFSelector"
+                            options={this.state.tfs} className="basic-multi-select" classNamePrefix="select"></Select>
+
+                        <button type="button" className="btn btn-primary ontarget-button" >Download Suggested Mini Promoters</button>
 
                         <h3>Design Mini promoter from regulatory regions</h3>
                         <p>Instructions: To create a custom minipromoter select at least one promoter and one or more enhancers and click "Get Mini Promoter". </p>
                         <h4>Promoters</h4>
                         <div className='table-wrapper'>
-                        <table className="table table-sm table-responsive">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Chromosome</th>
-                                    <th scope="col">Strand</th>
-                                    <th scope="col">Start</th>
-                                    <th scope="col">End</th>
-                                    <th scope="col">Score</th>
-                                    <th scope="col">Select Region</th>
-                                </tr>
-                            </thead>
-                            <RegionList regions={this.state.regions} type="Promoter" selectRegion={this.selectRegion}></RegionList>
-                        </table>
+                            <table className="table table-sm table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Chromosome</th>
+                                        <th scope="col">Strand</th>
+                                        <th scope="col">Start</th>
+                                        <th scope="col">End</th>
+                                        <th scope="col">Score</th>
+                                        <th scope="col">Select Region</th>
+                                    </tr>
+                                </thead>
+                                <RegionList regions={this.state.regions} type="Promoter" selectRegion={this.selectRegion}></RegionList>
+                            </table>
                         </div>
                         <h4>Enhancers</h4>
                         <div className='table-wrapper'>
-                        <table className="table table-sm table-responsive">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Chromosome</th>
-                                    <th scope="col">Strand</th>
-                                    <th scope="col">Start</th>
-                                    <th scope="col">End</th>
-                                    <th scope="col">Score</th>
-                                    <th scope="col">Select Region</th>
-                                </tr>
-                            </thead>
-                            <RegionList regions={this.state.regions} type="Enhancer" selectRegion={this.selectRegion}></RegionList>
-                        </table>
+                            <table className="table table-sm table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Chromosome</th>
+                                        <th scope="col">Strand</th>
+                                        <th scope="col">Start</th>
+                                        <th scope="col">End</th>
+                                        <th scope="col">Score</th>
+                                        <th scope="col">Select Region</th>
+                                    </tr>
+                                </thead>
+                                <RegionList regions={this.state.regions} type="Enhancer" selectRegion={this.selectRegion}></RegionList>
+                            </table>
                         </div>
                         <h4>Designed Mini Promoter</h4>
                         <div className='table-wrapper'>
-                        <table className="table table-sm table-responsive">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Region Type</th>
-                                    <th scope="col">Chromosome</th>
-                                    <th scope="col">Strand</th>
-                                    <th scope="col">Start</th>
-                                    <th scope="col">End</th>
-                                    <th scope="col">Score</th>
-                                    <th scope="col">Select Region</th>
-                                </tr>
-                            </thead>
-                            <SelectedRegionList selectedRegions={this.state.selectedRegions} removeSelectedRegion={this.removeSelectedRegion}></SelectedRegionList>
-                        </table>
+                            <table className="table table-sm table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Region Type</th>
+                                        <th scope="col">Chromosome</th>
+                                        <th scope="col">Strand</th>
+                                        <th scope="col">Start</th>
+                                        <th scope="col">End</th>
+                                        <th scope="col">Score</th>
+                                        <th scope="col">Select Region</th>
+                                    </tr>
+                                </thead>
+                                <SelectedRegionList selectedRegions={this.state.selectedRegions} removeSelectedRegion={this.removeSelectedRegion}></SelectedRegionList>
+                            </table>
                         </div>
 
 
                         <Errors errors={this.state.designErrors} />
-                        <button type="button" className="btn btn-primary ontarget-button" >Get Mini Promoter</button>
-                        <button type="button" className="btn btn-primary ontarget-button" >Clear Mini Promoter</button>
+                        <button type="button" className="btn btn-primary ontarget-button" >Download Mini Promoter</button>
+                        <button type="button" onClick={this.clearDesignedPromoter} className="btn btn-primary ontarget-button" >Clear Mini Promoter</button>
 
 
 
