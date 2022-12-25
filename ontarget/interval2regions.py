@@ -181,10 +181,12 @@ def cli(**args):
                           args["dummy_dir"])
 
     # Write
+    bed_file = os.path.join(args["output_dir"], "regions.bed")
+    OnTargetUtils.write_bed(regions, bed_file)
+    # fasta_file = os.path.join(args["output_dir"], "regions.fa")
+    # OnTargetUtils.write_fasta(regions, fasta_file)
     json_file = os.path.join(args["output_dir"], "regions.json")
-    handle = ParseUtils._get_file_handle(json_file, "w")
-    handle.write(json.dumps(regions, indent=4))
-    handle.close()
+    OnTargetUtils.write_json(regions, json_file)
 
 
 def get_regions(session, chrom, start, end, genome, evidence=[],
@@ -263,7 +265,7 @@ def get_regions(session, chrom, start, end, genome, evidence=[],
                                      reg_profile_norm, region_score,
                                      region_length, exons=exons,
                                      feat_type="Enhancer",
-                                     feat_id_prefix="RegulatoryRegion",
+                                     feat_id_prefix="RR",
                                      source="OnTarget", reset_count=True)
 
     # Get promoters

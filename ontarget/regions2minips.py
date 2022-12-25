@@ -17,16 +17,7 @@ from ontarget.interval2regions import _get_sequence_restriction_sites
 
 class MiniPromoter(object):
     """
-    Implements a MiniPromoter object based on the Biopython's Sequence
-    Feature object.
-
-    Attributes:
-    chrom {str} chromosome of the feature location {FeatureLocation} location
-    of the feature on the genome type {str} the specified type of feature (e.g.
-    gene, TSS, repeat...) strand {int} on the DNA sequence. \"1\" indicates the
-    plus strand; \"-1\" the minus strand; \"0\" for unknown or not applicable
-    strand id {str} identifier for the feature qualifiers {dict} qualifiers of
-    the feature profile {array} of scores per nucleotide.
+    Implements a MiniPromoter object.
     """
 
     def __init__(
@@ -44,12 +35,14 @@ class MiniPromoter(object):
         self.chrom = chrom
         self._starts = starts
         self._ends = ends
+        self.end = ",".join(map(str, self.ends))
         self.score = score
         self._strand = strand
         self.strand = self.strand_binary
         self.type = feat_type
-        self.ids = feat_ids
+        self._ids = feat_ids
         self.qualifiers = qualifiers
+        self._size = sum([e - s for e, s in zip(self.ends, self.starts)])
 
     @property
     def starts(self):
@@ -70,6 +63,11 @@ class MiniPromoter(object):
     def ends_1_based(self):
 
         return self.ends
+
+    @property
+    def size(self):
+
+        return self._size
 
     @property
     def strand_binary(self):
@@ -102,8 +100,8 @@ class MiniPromoter(object):
             format(
                 self.chrom,
                 ",".join(map(str, self.starts)),  # 0-based for BED format
-                ",".join(map(str, self.ends)),
-                "+".join(self.ids),
+                ",".join(map(str, self.end)),
+                "+".join(self._ids),
                 self.score,
                 self.strand_string
             )
@@ -116,9 +114,10 @@ class MiniPromoter(object):
                 "chrom={}".format(self.chrom),
                 "starts={}".format(",".join(map(str, self.starts))),
                 "ends={}".format(",".join(map(str, self.ends))),
-                "ids={}".format("+".join(self.ids)),
+                "ids={}".format("+".join(self._ids)),
                 "score={}".format(self.score),
-                "strand={}".format(self.strand)
+                "strand={}".format(self.strand),
+                "size={}".format(self.size),
             )
 
     def serialize(self):
@@ -127,9 +126,10 @@ class MiniPromoter(object):
             "starts": self.starts,
             "ends": self.ends,
             "type": self.type,
-            "ids": self.ids,
+            "ids": self._ids,
             "score": self.score,
             "strand": self.strand,
+            "size": self.size,
             "qualifiers": self.qualifiers,
         }
 
@@ -204,10 +204,14 @@ def cli(**args):
                                set(tf.upper() for tf in args["tf"]))
 
     # Write
+    # fasta_file = os.path.join(args["output_dir"], "minips.fa")
+    # OnTargetUtils.write_fasta(minips, fasta_file)
+    for minip in minips:
+        fasta_file = os.path.join(args["output_dir"],
+                                  "%s.fa" % "+".join(minip["ids"]))
+        OnTargetUtils.write_fasta([minip], fasta_file)
     json_file = os.path.join(args["output_dir"], "minips.json")
-    handle = ParseUtils._get_file_handle(json_file, "w")
-    handle.write(json.dumps(minips, indent=4))
-    handle.close()
+    OnTargetUtils.write_json(minips, json_file)
 
 
 def get_minipromoters(regions, designs=OnTargetUtils.max_minip_designs,

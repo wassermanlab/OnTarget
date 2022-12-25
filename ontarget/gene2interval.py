@@ -107,11 +107,10 @@ def cli(**args):
                                                     args["lim_by_dist"] * 1000)
 
     # Write
+    bed_file = os.path.join(args["output_dir"], "interval.bed")
+    OnTargetUtils.write_bed(intervals, bed_file)
     json_file = os.path.join(args["output_dir"], "interval.json")
-    handle = ParseUtils._get_file_handle(json_file, "w")
-    handle.write(json.dumps(intervals, indent=4))
-    handle.close()
-
+    OnTargetUtils.write_json(intervals, json_file)
 
 def get_intervals_limit_by_gene(session, name):
     """

@@ -16,10 +16,13 @@ __version__ = "22.12.1"
 __all__ = ["api", "gene2interval", "interval2regions", "regions2minips"]
 
 
-# from .gene2interval import (get_intervals_limit_by_gene,
-#                             get_intervals_limit_by_distance)
-# from .interval2regions import get_regions
-# from .regions2minips import get_minipromoters
+from Bio import SeqIO
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+import json
+
+
+from GUD.parsers import ParseUtils
 
 
 class OnTargetUtilities:
@@ -37,9 +40,9 @@ class OnTargetUtilities:
         """
 
         # i.e. defaults
-        self._dummy_dir = "/space/www/tmp/"
-        self._genomes_dir = "/space/www/OnTarget/data/genomes/"
-        self._liftover_dir = "/space/www/OnTarget/data/liftover/"
+        self._dummy_dir = "/tmp/"
+        self._genomes_dir = "/home/oriol/OnTarget/data/genomes/"
+        self._liftover_dir = "/home/oriol/OnTarget/data/liftover/"
         self._max_interval_extension = 125000
         self._max_minip_designs = 5
         self._max_minip_size = 1900
@@ -76,7 +79,6 @@ class OnTargetUtilities:
     def max_minip_size(self):
         """
         :return: int, max. size of MiniPromoters (in bp)
-
         """
         return self._max_minip_size
 
@@ -111,15 +113,16 @@ class OnTargetUtilities:
 
     def get_genome_fasta(self, genome):
         """
-        FASTA file of genome:
-        @rtype = {file}
+        :param genome: str, genome assembly
+        :return: str, path to FASTA file for genome:
+
         """
         return os.path.join(self.get_dir("genome"), genome, f"{genome}.fa")
 
     def get_max_int_ext(self, unit="bp"):
         """
-        :param: str, unit (i.e., bp or kb)
-        :return: int, max. interval extension
+        :param unit: str, unit (i.e., bp or kb)
+        :return: int, max. allowed interval extension (in units)
         """
         if unit == "kb":
             return int(self._max_interval_extension / 1000.)
@@ -127,8 +130,8 @@ class OnTargetUtilities:
 
     def get_min_length(self, rtype="regulatory region"):
         """
-        Min. length for conserved or regulatory regions:
-        @rtype = {int}
+        :param rtype: str, region type (i.e. conserved or regulatory)
+        :return: int, min. length for region type
         """
         if rtype == "conserved region":
             return self._min_conserved_region_length
@@ -136,12 +139,86 @@ class OnTargetUtilities:
 
     def get_min_score(self, rtype="regulatory region"):
         """
-        Min. length for conserved or regulatory regions:
-        @rtype = {int}
+        :param rtype: str, region type (i.e. conserved or regulatory)
+        :return: float, min. score for region type
         """
         if rtype == "conserved region":
             return self._min_conserved_region_score
         return self._min_regulatory_region_score
+
+    def write_bed(self, feats, bed_file):
+        """
+        :param feats: list, one or more serialized GenomicFeature,
+                            RegulatoryRegion or MiniPromoter features
+        :param json_file: str, path to BED file to write
+        """
+
+        # Write
+        f = ParseUtils._get_file_handle(bed_file, "w")
+        for feat in feats:
+            chrom = "chr" + feat["chrom"]
+            start = feat["start"]
+            end = feat["end"]
+            name = feat["id"]
+            name = name.replace(" ", "_") # fixes error
+            score = round(feat["score"], 3)
+            if feat["strand"] == 1:
+                strand = "+" 
+            elif feat["strand"] == -1:
+                strand = "-" 
+            else:
+                strand = "." 
+            f.write(f"{chrom}\t{start}\t{end}\t{name}\t{score}\t{strand}\n")
+        f.close()
+
+    def write_fasta(self, feats, fasta_file):
+        """
+        :param feats: list, one or more serialized RegulatoryRegion or
+                            MiniPromoter features
+        :param fasta_file: str, path to FASTA file to write
+        """
+
+        # Write
+        records = []
+        for feat in feats:
+            chrom = "chr" + feat["chrom"]
+            if "starts" in feat:
+                start = ",".join(map(str, feat["starts"]))
+            else:
+                start = feat["start"]
+            if "ends" in feat:
+                end = ",".join(map(str, feat["ends"]))
+            else:
+                end = feat["end"]
+            if "ids" in feat:
+                name = "+".join(feat["ids"])
+            else:
+                name = feat["id"]
+            if feat["strand"] == 1:
+                strand = "+" 
+            elif feat["strand"] == -1:
+                strand = "-" 
+            else:
+                strand = "." 
+            size = feat["size"]
+            score = round(feat["score"], 3)
+            description = f"chrom={chrom} start={start} end={end} " + \
+                          f"strand={strand} size={size} score={score}"
+            s = Seq(feat["qualifiers"]["sequence"])
+            records.append(SeqRecord(s, name, name, description))
+        SeqIO.write(records, fasta_file, "fasta")
+
+    def write_json(self, feats, json_file):
+        """
+        :param feats: list, one or more serialized GenomicFeature,
+                            RegulatoryRegion or MiniPromoter features
+        :param json_file: str, path to JSON file to write
+        """
+
+        # Write
+        f = ParseUtils._get_file_handle(json_file, "w")
+        f.write(json.dumps(feats, indent=4))
+        f.close()
 
     # @property
     # def max_tss(self):
