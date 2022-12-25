@@ -200,7 +200,21 @@ def get_regions(session, chrom, start, end, genome, evidence=[],
     Function to get the regulatory regions within an interval based on 
     genomic evidence
     :param session: sqlalchemy Session, session to connect to GUD
-    :return: list, GenomicFeatures
+    :param chrom: str, chromosome
+    :param start: int, start coordinate (0-based)
+    :param end: int, end coordinate
+    :param genome: str, genome assembly
+    :param evidence: list, genomic evidence files and weights
+    :param liftover: str, genome assembly to liftOver to
+    :param region_length: int, min. regulatory region length
+    :param region_score: float, min. regulatory region score 
+    :param use_conservation: bool, whether or not to use conservation
+    :param cons_score: int, min. conserved region length
+    :param cons_length: float, min. conserved region score
+    :param mask_exons: bool, whether or not to mask exons
+    :param mask_repeats: bool, whether or not to mask repeats
+    :param dummy_dir: str, path to dummy directory
+    :return: list, regulatory regions as serialied GenomicFeature
     """
 
     # Get all transcription start sites in interval

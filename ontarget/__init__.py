@@ -114,7 +114,7 @@ class OnTargetUtilities:
     def get_genome_fasta(self, genome):
         """
         :param genome: str, genome assembly
-        :return: str, path to FASTA file for genome:
+        :return: str, path to FASTA file for genome
 
         """
         return os.path.join(self.get_dir("genome"), genome, f"{genome}.fa")

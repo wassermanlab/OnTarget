@@ -218,9 +218,15 @@ def get_minipromoters(regions, designs=OnTargetUtils.max_minip_designs,
                       enzymes=set(), size=OnTargetUtils.max_minip_size,
                       tfs=set()):
     """
-    Function to design MiniPromoters of a max. size from regions identified
+    Function to design MiniPromoters of a max. size and with desired properties
+    from regions identified
     within an interval
-    :return: list, GenomicFeatures
+    :param regions: list, regulatory regions as serialied GenomicFeature
+    :param designs: int, max. number of MiniPromoters to design per promoter
+    :param enzymes: set, restriction sites to avoid
+    :param size: int, max. MiniPromoter size (in bp)
+    :param tfs: set, transcription factor binding sites to include.
+    :return: list, MiniPromoters as serialized GenomicFeature
     """
 
     # Initialize
@@ -336,6 +342,13 @@ def _get_minipromoters(promoter, enhancers,
 
 
 def get_minipromoter(promoter, enhancers):
+    """
+    Function to design a MiniPromoters from one promoter and one or more
+    enhancers
+    :param promoter: regulatory region as serialied GenomicFeature
+    :param enhancers: list, regulatory regions as serialied GenomicFeature
+    :return: MiniPromoter as a serialized GenomicFeature
+    """
 
     # Initialize
     upstream = []

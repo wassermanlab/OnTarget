@@ -118,14 +118,14 @@ def get_intervals_limit_by_gene(session, name):
     of the closest upstream and downstream genes
     :param session: sqlalchemy Session, session to connect to GUD
     :param name: str, gene name
-    :return: list, GenomicFeatures
+    :return: list, genomic intervals as serialized GenomicFeature
     """
 
     # Initialize
     intervals = []
 
     # Get all chromosomes
-    chroms = Chrom.chrom_sizes(session)
+    chroms = Chrom.chrom_sizes(session) # fix this there's a dic!
 
     # Get all genes in ncbiRefSeqSelect
     q = Gene.select_by_sources(session, None, ["ncbiRefSeqSelect"])
@@ -194,8 +194,8 @@ def get_intervals_limit_by_distance(session, name, distance):
     (i.e., gene body ± `x` kb)
     :param session: sqlalchemy Session, session to connect to GUD
     :param name: str, gene name
-    :param distance: int, distance (in kb)  
-    :return: list, GenomicFeatures
+    :param distance: int, distance (in bp)  
+    :return: list, genomic intervals as serialized GenomicFeature
     """
 
     # Initialize
