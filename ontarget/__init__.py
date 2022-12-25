@@ -49,7 +49,7 @@ class OnTargetUtilities:
         self._min_conserved_region_length = 10
         self._min_conserved_region_score = .6
         self._min_regulatory_region_length = 100
-        self._min_regulatory_region_score = 5
+        self._min_regulatory_region_score = .5
         # self._max_tss = 100
         # self._min_percent = 0.0
         # self._min_tpm  = 100.0
