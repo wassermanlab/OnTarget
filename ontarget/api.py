@@ -72,6 +72,7 @@ def get_regions():
 
 @app.route('/uploadevidence', methods=['POST'])
 def upload_file():
+    # TODO: check that this is legit!
     print(request.files)
     if request.method == 'POST':
         if 'files' not in request.files:
@@ -97,11 +98,11 @@ def upload_file():
 
 
 @app.route('/genes', methods=['GET'])
-def get_genes_enzymes_tfs():
-    hg19 = list(hg19)
-    mm10 = list(mm10)
-    return {"hg19": hg19,
-    "mm10": mm10}
+def get_genes():
+    return {"hg19Chroms": hg19["chroms"],
+            "mm10Chroms": mm10["chroms"],
+            "hg19Genes": list(hg19["genes"]),
+            "mm10Genes": list(mm10["genes"])}
 
 
 # hg19, mm10, rest_enzymes, TFs

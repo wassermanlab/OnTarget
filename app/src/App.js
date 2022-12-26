@@ -4,7 +4,7 @@ import Layout from "./layout";
 import Home from "./home";
 import Design from "./design";
 import NoMatch from "./noMatch";
-import GetRegions from "./getRegions";
+//import GetRegions from "./getRegions";
 
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="design" element={<Design />} />
-          <Route path="getregions" element={<GetRegions />} />
+          {/* <Route path="getregions" element={<GetRegions />} /> */}
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>

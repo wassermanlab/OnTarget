@@ -1,4 +1,5 @@
 import React from 'react';
+import Select from 'react-select'
 
 function SelectRegion(props) {
     // props
@@ -7,25 +8,31 @@ function SelectRegion(props) {
     // plusMinusGene
     // customCoordinateStart
     // customCoordinateEnd
-    // genes
-    //geneName
+    // hg19Chrom
+    // mm10Chrom
+    // hg19Genes
+    // mm10Genes
+    // geneName
 
-    const geneNames = props.genes.map((r, index) =>
-        <option key={index} value={r}>{r}</option>
-    );
+    let chroms = <option></option>
+    if (props.genome === "hg19" && props.loadedResources) {
+        chroms = Object.keys(props.hg19Chrom).map((item, index) => (
+            <option key={index}>{item}</option>
+        ))
+    } else if (props.genome === "mm10" && props.loadedResources) {
+        chroms = Object.keys(props.mm10Chrom).map((item, index) => (
+            <option key={index}>{item}</option>
+        ))
+    }
+
 
     let uploadedFiles = <div></div>
     if (props.uploadedFiles !== null) {
         uploadedFiles = <div className='row'>
             <h3>Uploaded Files</h3>
             {props.uploadedFiles.map((item, index) => (
-            <div key={index}> {item} </div>))}
+                <div key={index}> {item} </div>))}
         </div>
-    }
-
-
-    if (props.page !== 1) {
-        return null;
     }
 
     return (
@@ -33,6 +40,30 @@ function SelectRegion(props) {
             <div className='row-margin'>
                 <h3>Select Region</h3>
                 <p>Note: the maximum size for a region is be 200 kB.</p>
+                <div className='row-margin'>
+                    <p>Genome</p>
+                    <div className="form-check form-check-inline row-margin">
+                        <input className="form-check-input" type="radio" name="inlineRadioGenomeOptions" id="inlineRadioGenome1" value="mm10" onChange={props.handleGenomeChange} />
+                        <label className="form-check-label" htmlFor="inlineRadioGenome1">mm10</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="radio" name="inlineRadioGenomeOptions" id="inlineRadioGenome2" value="hg19" onChange={props.handleGenomeChange} />
+                        <label className="form-check-label" htmlFor="inlineRadioGenome2">hg19</label>
+                    </div>
+                </div>
+                {props.genome === "mm10" &&
+                    <div>
+                        <p>Would you like to liftover to hg19?</p>
+                        <div className="form-check form-check-inline row-margin">
+                            <input className="form-check-input" type="radio" name="inlineRadioLiftoverOptions" id="inlineRadioLiftoverOptions1" value="true" onChange={props.handleLiftoverChange} />
+                            <label className="form-check-label" htmlFor="inlineRadioLiftoverOptions1">Yes</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioLiftoverOptions" id="inlineRadioLiftoverOptions1" value="false" onChange={props.handleLiftoverChange} />
+                            <label className="form-check-label" htmlFor="inlineRadioLiftoverOptions1">No</label>
+                        </div>
+                    </div>
+                }
                 <p>Type of region</p>
                 <div className="form-check form-check-inline row-margin">
                     <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="geneToGene" onChange={props.handleRegionChange} />
@@ -48,13 +79,18 @@ function SelectRegion(props) {
                 </div>
 
                 {/* gene name */}
-                {(props.regionType === "plusMinusBP" || props.regionType === "geneToGene") &&
+                {(props.regionType === "plusMinusBP" || props.regionType === "geneToGene") && props.genome === "hg19" &&
                     <div className="form-group row-margin">
                         <label htmlFor="selectGene">Gene name</label>
-                        <select className="form-control" id="selectGene" name="geneName" onChange={props.handleChange}>
-                            <option value=""></option>
-                            {geneNames}
-                        </select>
+                        <Select onChange={props.handleSelectChange} name="geneName"
+                            className="basic-single" classNamePrefix="select" options={props.hg19Genes} />
+                    </div>
+                }
+                {(props.regionType === "plusMinusBP" || props.regionType === "geneToGene") && props.genome === "mm10" &&
+                    <div className="form-group row-margin">
+                        <label htmlFor="selectGene">Gene name</label>
+                        <Select onChange={props.handleSelectChange} name="geneName"
+                            className="basic-single" classNamePrefix="select" options={props.mm10Genes} />
                     </div>
                 }
                 {/* TODO check with oriol what the max is */}
@@ -68,6 +104,12 @@ function SelectRegion(props) {
                 {props.regionType === "customCoordinates" &&
                     <div>
                         <div className="form-group row-margin">
+                            <label >Chromosome</label>
+                            <select onChange={props.handleChange} name="chromosome" value={props.chromosome} className="form-control" id="chromosome">
+                                {chroms}
+                            </select>
+                        </div>
+                        <div className="form-group row-margin">
                             <label htmlFor="inputStart">Custom start coordinate (0 based)</label>
                             <input type="number" className="form-control" min="0" name="customCoordinateStart" placeholder="0"
                                 value={props.customCoordinateStart} onChange={props.handleChange} />
@@ -80,31 +122,6 @@ function SelectRegion(props) {
                     </div>
                 }
             </div>
-
-            <div className='row-margin'>
-                <p>Genome</p>
-                <div className="form-check form-check-inline row-margin">
-                    <input className="form-check-input" type="radio" name="inlineRadioGenomeOptions" id="inlineRadioGenome1" value="mm10" onChange={props.handleGenomeChange} />
-                    <label className="form-check-label" htmlFor="inlineRadioGenome1">mm10</label>
-                </div>
-                <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="inlineRadioGenomeOptions" id="inlineRadioGenome2" value="hg19" onChange={props.handleGenomeChange} />
-                    <label className="form-check-label" htmlFor="inlineRadioGenome2">hg19</label>
-                </div>
-            </div>
-            {props.genome === "mm10" &&
-                <div>
-                    <p>Would you like to liftover to hg19?</p>
-                    <div className="form-check form-check-inline row-margin">
-                        <input className="form-check-input" type="radio" name="inlineRadioLiftoverOptions" id="inlineRadioLiftoverOptions1" value="true" onChange={props.handleLiftoverChange} />
-                        <label className="form-check-label" htmlFor="inlineRadioLiftoverOptions1">Yes</label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="radio" name="inlineRadioLiftoverOptions" id="inlineRadioLiftoverOptions1" value="false" onChange={props.handleLiftoverChange} />
-                        <label className="form-check-label" htmlFor="inlineRadioLiftoverOptions1">No</label>
-                    </div>
-                </div>
-            }
             <div className="row-margin">
                 <form onSubmit={props.onSubmit}>
                     <h3>Upload Evidence</h3>
