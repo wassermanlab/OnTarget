@@ -114,7 +114,7 @@ CONTEXT_SETTINGS = {
     show_default=True,
 )
 @optgroup.option(
-    "--password",
+    "--passwd",
     help="Password.",
     type=str,
     default=GUDUtils.pwd,
@@ -164,12 +164,9 @@ def cli(**args):
     handle.close()
 
     # Get session
-    GUDUtils.user = args["user"]
-    GUDUtils.pwd  = args["password"]
-    GUDUtils.host = args["host"]
-    GUDUtils.port = args["port"]
-    GUDUtils.db = args["genome"]
-    session = GUDUtils.get_session()
+    session = OnTargetUtils.get_gud_session(args["genome"], args["user"],
+                                            args["passwd"], args["host"],
+                                            args["port"])
 
     # Get regulatory regions
     regions = get_regions(session, args["chrom"], args["start"],
@@ -199,12 +196,12 @@ def get_regions(session, chrom, start, end, genome, evidence=[],
     """
     Function to get the regulatory regions within an interval based on 
     genomic evidence
-    :param session: sqlalchemy Session, session to connect to GUD
+    :param session: SQLAlchemy Session, session to connect to GUD
     :param chrom: str, chromosome
     :param start: int, start coordinate (0-based)
     :param end: int, end coordinate
     :param genome: str, genome assembly
-    :param evidence: list, genomic evidence files and weights
+    :param evidence: list, genomic evidence files and weights as sublists
     :param liftover: str, genome assembly to liftOver to
     :param region_length: int, min. regulatory region length
     :param region_score: float, min. regulatory region score 
@@ -449,7 +446,7 @@ def _get_sequence_restriction_sites(sequence):
 def _get_conserved_features(session, chrom, start, end, genome):
     """
     Function to get the sequence of an interval
-    :param session: sqlalchemy Session, session to connect to GUD
+    :param session: SQLAlchemy Session, session to connect to GUD
     :return: Bio Seq, sequence
     """
 
@@ -477,7 +474,7 @@ def _get_conserved_features(session, chrom, start, end, genome):
 def _get_rmsk_features(session, chrom, start, end, genome):
     """
     Function to get the sequence of an interval
-    :param session: sqlalchemy Session, session to connect to GUD
+    :param session: SQLAlchemy Session, session to connect to GUD
     :return: Bio Seq, sequence
     """
 

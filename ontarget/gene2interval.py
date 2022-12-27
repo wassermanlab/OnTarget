@@ -8,11 +8,11 @@ import os
 import sys
 
 from GUD import GUDUtils
-from GUD.ORM import Chrom, Gene
+from GUD.ORM import Gene
 from GUD.ORM.genomic_feature import GenomicFeature
 from GUD.parsers import ParseUtils
 
-from ontarget import OnTargetUtils
+from ontarget import OnTargetUtils, hg19, mm10
 
 
 CONTEXT_SETTINGS = {
@@ -49,7 +49,7 @@ CONTEXT_SETTINGS = {
     show_default=True,
 )
 @optgroup.option(
-    "--password",
+    "--passwd",
     help="Password.",
     type=str,
     default=GUDUtils.pwd,
@@ -92,16 +92,14 @@ def cli(**args):
     handle.close()
 
     # Get session
-    GUDUtils.user = args["user"]
-    GUDUtils.pwd  = args["password"]
-    GUDUtils.host = args["host"]
-    GUDUtils.port = args["port"]
-    GUDUtils.db = args["genome"]
-    session = GUDUtils.get_session()
+    session = OnTargetUtils.get_gud_session(args["genome"], args["user"],
+                                            args["passwd"], args["host"],
+                                            args["port"])
 
     # Get intervals
     if args["lim_by_gene"]:
-        intervals = get_intervals_limit_by_gene(session, args["gene"])
+        intervals = get_intervals_limit_by_gene(session, args["gene"],
+                                                args["genome"])
     else:
         intervals = get_intervals_limit_by_distance(session, args["gene"],
                                                     args["lim_by_dist"] * 1000)
@@ -112,12 +110,13 @@ def cli(**args):
     json_file = os.path.join(args["output_dir"], "interval.json")
     OnTargetUtils.write_json(intervals, json_file)
 
-def get_intervals_limit_by_gene(session, name):
+def get_intervals_limit_by_gene(session, name, genome):
     """
     Function to get the genomic interval of genes based on the UTRs
     of the closest upstream and downstream genes
-    :param session: sqlalchemy Session, session to connect to GUD
+    :param session: SQLAlchemy Session, session to connect to GUD
     :param name: str, gene name
+    :param genome: str, genome assembly
     :return: list, genomic intervals as serialized GenomicFeature
     """
 
@@ -125,7 +124,11 @@ def get_intervals_limit_by_gene(session, name):
     intervals = []
 
     # Get all chromosomes
-    chroms = Chrom.chrom_sizes(session) # fix this there's a dic!
+    # chroms = Chrom.chrom_sizes(session) # fix this there's a dic!
+    if genome == "hg19":
+        chroms = hg19["chroms"]
+    else:
+        chroms = mm10["chroms"]
 
     # Get all genes in ncbiRefSeqSelect
     q = Gene.select_by_sources(session, None, ["ncbiRefSeqSelect"])
@@ -192,7 +195,7 @@ def get_intervals_limit_by_distance(session, name, distance):
     """
     Function to get the genomic interval of genes based on distance
     (i.e., gene body ± `x` kb)
-    :param session: sqlalchemy Session, session to connect to GUD
+    :param session: SQLAlchemy Session, session to connect to GUD
     :param name: str, gene name
     :param distance: int, distance (in bp)  
     :return: list, genomic intervals as serialized GenomicFeature

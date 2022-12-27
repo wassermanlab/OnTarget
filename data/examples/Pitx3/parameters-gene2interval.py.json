@@ -5,7 +5,7 @@
     "lim_by_dist": 50,
     "lim_by_gene": false,
     "output_dir": "/home/oriol/OnTarget/data/examples/Pitx3",
-    "password": "",
+    "passwd": "",
     "port": 5506,
     "user": "gud_r"
 }

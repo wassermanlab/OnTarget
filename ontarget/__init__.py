@@ -22,6 +22,7 @@ from Bio.SeqRecord import SeqRecord
 import json
 
 
+from GUD import GUDUtils
 from GUD.parsers import ParseUtils
 
 
@@ -145,6 +146,28 @@ class OnTargetUtilities:
         if rtype == "conserved region":
             return self._min_conserved_region_score
         return self._min_regulatory_region_score
+
+    def get_gud_session(self, genome, user=GUDUtils.user, passwd=GUDUtils.pwd,
+                        host=GUDUtils.host, port=GUDUtils.port):
+        """
+        :param genome: str, GUD database name
+        :param user: str, MySQL user to query GUD
+        :param passwd: str, MySQL user's password
+        :param host: str, MySQL host to query GUD
+        :param port: int, MySQL port to query GUD
+        :return: SQLAlchemy Session
+        """
+
+        # Initialize
+        GUDUtils.user = user
+        GUDUtils.pwd  = passwd
+        GUDUtils.host = host
+        GUDUtils.port = port
+        GUDUtils.db = genome
+    
+        return GUDUtils.get_session()
+
+
 
     def write_bed(self, feats, bed_file):
         """
