@@ -14,8 +14,7 @@ import re
 import requests
 from sklearn.preprocessing import MinMaxScaler
 import subprocess as sp
-import sys
-
+import sys 
 from GUD import GUDUtils
 from GUD.ORM import Conservation, Gene, Region, RepeatMask
 from GUD.ORM.genomic_feature import GenomicFeature
@@ -184,7 +183,6 @@ def cli(**args):
     # OnTargetUtils.write_fasta(regions, fasta_file)
     json_file = os.path.join(args["output_dir"], "regions.json")
     OnTargetUtils.write_json(regions, json_file)
-
 
 def get_regions(session, chrom, start, end, genome, evidence=[],
                 liftover=None, region_length=OnTargetUtils.get_min_length(),
@@ -785,8 +783,10 @@ def _liftover_regions(regions, from_genome, to_genome, dummy_dir="/tmp/"):
     cmd = f"liftOver -minMatch={minMatch} " + \
           f"{bed_file} {chain_file} {liftover_file} {unmapped_file}"
     _ = sp.call(cmd, stdout=sp.DEVNULL, stderr=sp.DEVNULL, shell=True)
-
     # Get liftOver regions
+    ## NOTE FOR ORIOL: the execusion is haulting when it gets to the next line because the liftover_file isnt made yet. 
+    # are you sure you are making this file
+    # it keeps saying No such file or directory: '/tmp/interval2regions.py.42525.lo'
     df = pd.read_table(liftover_file, header=None, index_col=3)
     for r in regions:
         if r.id in df.index:
@@ -806,7 +806,6 @@ def _liftover_regions(regions, from_genome, to_genome, dummy_dir="/tmp/"):
             feat.qualifiers.setdefault("original coordinate", coord)
             feat.qualifiers.setdefault("liftOver genome", to_genome)
             regions_lo.append(feat)
-
     # Remove
     os.remove(bed_file)
     os.remove(liftover_file)
