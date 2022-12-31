@@ -71,8 +71,18 @@ def get_minipromoter_request():
         json = request.json
         promoter = json["promoter"]
         enhancers = json["enhancers"]
+        requestCode         = str(json["requestCode"])
         minipromoter = get_minipromoter(promoter, enhancers)
-        return jsonify(minipromoter)
+        minipromoter = minipromoter.serialize()
+
+        currentDateAndTime= datetime.now().strftime("%Y%m%d%H%M%S")
+        filename = "minipromoter" + currentDateAndTime
+        path = os.path.join(app.config['UPLOAD_FOLDER'], requestCode)
+        # save the fasta
+        fasta_file = os.path.join(path,filename+".fa")
+        OnTargetUtils.write_fasta([minipromoter], fasta_file)
+
+        return send_file(fasta_file)
     else:
         return {"error":'Content-Type not supported!'}
 
