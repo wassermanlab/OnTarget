@@ -784,10 +784,8 @@ def _liftover_regions(regions, from_genome, to_genome, dummy_dir="/tmp/"):
           f"{bed_file} {chain_file} {liftover_file} {unmapped_file}"
     p = sp.Popen([cmd], stdout=sp.DEVNULL, stderr=sp.DEVNULL, shell=True)
     p.wait() # wait for child process to terminate
+
     # Get liftOver regions
-    ## NOTE FOR ORIOL: the execusion is haulting when it gets to the next line because the liftover_file isnt made yet. 
-    # are you sure you are making this file
-    # it keeps saying No such file or directory: '/tmp/interval2regions.py.42525.lo'
     df = pd.read_table(liftover_file, header=None, index_col=3)
     for r in regions:
         if r.id in df.index:
