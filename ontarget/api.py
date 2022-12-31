@@ -9,6 +9,7 @@ from interval2regions import get_regions
 import os, string, random, distutils
 from distutils import util
 import shutil
+from datetime import datetime
 
 
 
@@ -31,21 +32,40 @@ def id_generator(size=6, chars=string.ascii_uppercase):
     return ''.join(random.choice(chars) for _ in range(size))
 
 @app.route('/getminipromoters', methods=["POST"])
-def get_mini_promoters():
+def get_minipromoters_request():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
-        json = request.json
-        size = int(json["size"])
-        selectedEnzymes = set(json["selectedEnzymes"])
-        selectedTFs = set(json["selectedTFs"])
-        regions = json["regions"]
-        minipromoters = get_minipromoters(regions, size=size, enzymes=selectedEnzymes, tfs= selectedTFs)
-        return jsonify(minipromoters)
+        json                = request.json
+        requestCode         = str(json["requestCode"]) 
+        size                = int(json["size"])                        # put this default on the server side
+        selectedEnzymes     = set(json["selectedEnzymes"])
+        selectedTFs         = set(json["selectedTFs"])
+        regions             = json["regions"]
+        designs             = int(json["designs"])                  # put this default on the server side
+
+        # get minipromoters 
+        minipromoters = get_minipromoters(regions, designs, selectedEnzymes, size, selectedTFs)
+
+        # make folder for these minimaps 
+        currentDateAndTime= datetime.now().strftime("%Y%m%d%H%M%S")
+        folder = "minipromoters" + currentDateAndTime
+        path = os.path.join(app.config['UPLOAD_FOLDER'], requestCode, folder)
+        os.mkdir(path)
+        # save the fastas 
+        for minip in minipromoters:
+            fasta_file = os.path.join(path,
+                                      "%s.fa" % "+".join(minip["ids"]))
+            OnTargetUtils.write_fasta([minip], fasta_file)
+        # download the folder 
+        shutil.make_archive(path, 'zip', path)
+        zippath = os.path.join(app.config['UPLOAD_FOLDER'], requestCode, (folder +".zip"))
+
+        return send_file(zippath)
     else:
         return {"error":'Content-Type not supported!'}
 
 @app.route('/getminipromoter', methods=["POST"])
-def get_mini_promoter():
+def get_minipromoter_request():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         json = request.json
@@ -154,6 +174,8 @@ def get_enzymes_tfs():
     enzymes = list(rest_enzymes)
     return {"tfs": tf,
          "enzymes": enzymes}
+
+
 
 #this downloads the whole session
 @app.route('/download_session', methods=['POST'])
