@@ -19,5 +19,7 @@ margin-bottom: 10px;
     display:flex;
   }
 .centre {
+    padding: 20px;
     text-align: center;
   }
+.info{align-self: center;}

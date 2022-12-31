@@ -1,5 +1,7 @@
 #
 data/uploads/
+data/liftover/hg*
+data/liftover/mm*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

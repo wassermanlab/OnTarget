@@ -1,9 +1,9 @@
 import React from 'react';
 import Select from 'react-select'
 
+
 function SelectRegion(props) {
     // props
-    // page
     // regionType
     // plusMinusGene
     // customCoordinateStart
@@ -13,6 +13,13 @@ function SelectRegion(props) {
     // hg19Genes
     // mm10Genes
     // geneName
+    // region_length : int , min. regulatory region length (default = 100; min = 0; max = 1000)
+    // region_score : float , min. regulatory region score (default = 0.5; min = 0.0; max = 1.0)
+    // cons_length : int , min. conserved region length (default = 10; min = 0; max = 1000)
+    // cons_score : float , min. conserved region score (default = 0.6; min = 0.0; max = 1.0)
+    // use_conservation : bool , whether or not to use conservation (default = True)
+    // mask_exons : bool , whether or not to mask exons (default = True)
+    // mask_repeats : bool , whether or not to mask repeats (default = False)
 
     let chroms = <option></option>
     if (props.genome === "hg19" && props.loadedResources) {
@@ -75,7 +82,7 @@ function SelectRegion(props) {
                 </div>
                 <div className="form-check form-check-inline">
                     <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="customCoordinates" onChange={props.handleRegionChange} />
-                    <label className="form-check-label" htmlFor="inlineRadio3">Custom coordinates around gene</label>
+                    <label className="form-check-label" htmlFor="inlineRadio3">Custom Coordinates</label>
                 </div>
 
                 {/* gene name */}
@@ -121,6 +128,7 @@ function SelectRegion(props) {
                         </div>
                     </div>
                 }
+                <hr />
             </div>
             <div className="row-margin">
                 <form onSubmit={props.onSubmit}>
@@ -138,8 +146,73 @@ function SelectRegion(props) {
 
                 {/* requestCode */}
                 {/* uploadedFiles */}
-
+                <hr />
             </div>
+            {/* Advanced paramters */}
+
+            {/* // region_length : int , min. regulatory region length (default = 100; min = 0; max = 1000) */}
+    {/* // region_score : float , min. regulatory region score (default = 0.5; min = 0.0; max = 1.0) */}
+    {/* // cons_length : int , min. conserved region length (default = 10; min = 0; max = 1000) */}
+    {/* // cons_score : float , min. conserved region score (default = 0.6; min = 0.0; max = 1.0) */}
+
+
+
+            <h3>Advanced Parameters</h3>
+            <div className="row-margin">
+                <div className="row advanceParam">
+                    <label className="col-sm-4 col-form-label">Region length (0-1000)</label>
+                    <div className="col-sm-4">
+                        <input type="number" className="form-control" min="0" name="region_length"
+                            value={props.region_length} onChange={props.handleChange} />
+                    </div>
+                </div>
+                <div className="row advanceParam">
+                    <label className="col-sm-4 col-form-label">Region score (0-1)</label>
+                    <div className="col-sm-4">
+                        <input type="number" className="form-control" min="0" name="region_score"
+                            value={props.region_score} onChange={props.handleChange} />
+                    </div>
+                </div>
+                <div className="row advanceParam">
+                    <label className="col-sm-4 col-form-label"> Conserved region length (0-1000)</label>
+                    <div className="col-sm-4">
+                        <input type="number" className="form-control" min="0" name="cons_length"
+                            value={props.cons_length} onChange={props.handleChange} />
+                    </div>
+                </div>
+                <div className="row advanceParam">
+                    <label className="col-sm-4 col-form-label">Conserved region score (0-1)</label>
+                    <div className="col-sm-4">
+                        <input type="number" className="form-control" min="0" name="cons_score"
+                            value={props.cons_score} onChange={props.handleChange} />
+                    </div>
+                </div>
+                <div className="row advanceParam">
+                    <label className="col-sm-3 col-form-label">Use conservation</label>
+                    <div className="col-sm-8">
+                        <input type="checkbox" checked={props.use_conservation} className="form-check-input" min="0" name="use_conservation"
+                            value={props.use_conservation} onChange={props.handleChange} />
+                    </div>
+                </div>
+                <div className="row advanceParam">
+                    <label className="col-sm-3 col-form-label">Mask Exons</label>
+                    <div className="col-sm-8">
+                        <input type="checkbox" checked={props.mask_exons} className="form-check-input" min="0" name="mask_exons"
+                            value={props.mask_exons} onChange={props.handleChange} />
+                    </div>
+                </div>
+                <div className="row advanceParam">
+                    <label className="col-sm-3 col-form-label">Mask Repeats</label>
+                    <div className="col-sm-8">
+                        <input type="checkbox" checked={props.mask_repeats} className="form-check-input" min="0" name="mask_repeats"
+                            value={props.mask_repeats} onChange={props.handleChange} />
+                    </div>
+                </div>
+                <button className="btn btn-primary ontarget-button" onClick={props.resetAdvancedParameters}>Reset Advanced Parameters</button>
+                <hr />
+            </div>
+
+
         </div>
 
     )

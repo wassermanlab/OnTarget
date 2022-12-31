@@ -27,6 +27,14 @@ class Design extends React.Component {
       customCoordinateEnd: 0,
       liftover: false,
       evidenceList: '',
+      // advanced params
+      region_length: 100,
+      region_score: 0.5,
+      cons_length: 10,
+      cons_score: 0.6,
+      use_conservation: true,
+      mask_exons: true,
+      mask_repeats: false,
       //request_code
       requestCode: "",
       uploadedFiles: null,
@@ -37,12 +45,11 @@ class Design extends React.Component {
 
     this.onSubmit = this.onSubmit.bind(this);
     this.onFileChange = this.onFileChange.bind(this);
-    this.next = this.next.bind(this);
-    this.back = this.back.bind(this);
     this.handleRegionChange = this.handleRegionChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.getRegulatoryRegions = this.getRegulatoryRegions.bind(this);
+    this.resetAdvancedParameters = this.resetAdvancedParameters.bind(this);
     this.handleGenomeChange = this.handleGenomeChange.bind(this);
     this.handleLiftoverChange = this.handleLiftoverChange.bind(this);
   };
@@ -75,7 +82,18 @@ class Design extends React.Component {
   }
 
   // events
-
+  // reset advanced parameters
+  resetAdvancedParameters(){
+    this.setState({
+      region_length: 100,
+      region_score: 0.5,
+      cons_length: 10,
+      cons_score: 0.6,
+      use_conservation: true,
+      mask_exons: true,
+      mask_repeats: false,
+    });
+  }
   //handleGenomeChange
   handleGenomeChange(event) {
     this.setState({ genome: event.target.value });
@@ -184,24 +202,7 @@ class Design extends React.Component {
     }
     return errors;
   }
-  // sets page to page+1
-  next() {
-    // todo: add error checking
-    const errors = this.check_errors()
-    if (errors.length !== 0) {
-      this.setState({ errors: errors });
-      return null;
-    }
-    let currentPage = this.state.page;
-    currentPage = currentPage + 1;
-    this.setState({ page: currentPage, errors: [] });
-  }
-  // sets page to page-1
-  back() {
-    let currentPage = this.state.page;
-    currentPage = currentPage - 1;
-    this.setState({ page: currentPage });
-  }
+
   render() {
     return (
       <div className="container-fluid">
@@ -213,7 +214,15 @@ class Design extends React.Component {
               {/* Select Gene */}
               <Loading loadedResources={this.state.loadedResources}></Loading>
               {/* Select Regions */}
-              <SelectRegion page={this.state.page}
+              <SelectRegion
+                region_length={this.state.region_length}
+                region_score={this.state.region_score}
+                cons_length={this.state.cons_length}
+                cons_score={this.state.cons_score}
+                use_conservation={this.state.use_conservation}
+                mask_exons={this.state.mask_exons}
+                mask_repeats={this.state.mask_repeats}
+                resetAdvancedParameters={this.resetAdvancedParameters}
                 loadedResources={this.state.loadedResources}
                 handleGenomeChange={this.handleGenomeChange}
                 hg19Chrom={this.state.hg19Chrom}
