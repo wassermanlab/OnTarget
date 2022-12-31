@@ -1,12 +1,17 @@
-from flask import Flask, flash, request, redirect, url_for, jsonify
+from flask import Flask, flash, request, redirect, url_for, jsonify, send_file
 from flask_restful import Resource, Api
 from flask_cors import CORS, cross_origin # figure this out on the production server
-import os
 from werkzeug.utils import secure_filename
-import string
-import random
-from ontarget import hg19, mm10, rest_enzymes, TFs
+from ontarget import hg19, mm10, rest_enzymes, TFs, OnTargetUtils
 from ontarget.regions2minips import get_minipromoters, get_minipromoter
+from gene2interval import get_intervals_limit_by_gene, get_intervals_limit_by_distance
+from interval2regions import get_regions
+import os, string, random, distutils
+from distutils import util
+import shutil
+
+
+
 
 UPLOAD_FOLDER = '/home/tamar/Desktop/OnTarget/data/uploads' #change this 
 
@@ -51,28 +56,65 @@ def get_mini_promoter():
     else:
         return {"error":'Content-Type not supported!'}
 
-@app.route('/getregions', methods=["POST"])
-def get_regions():
-    content_type = request.headers.get('Content-Type')
-    if (content_type == 'application/json'):
-        json = request.json
-        ## keys in json for this 
-        # genome
-        # liftover
-        # plusMinusGene
-        # customCoordinateStart
-        # customCoordinateEnd
-        # requestCode
-        # regionType
-        # geneName
-
-        return {"TODO": "TODO"}
-    else:
-        return {"error":'Content-Type not supported!'}
-
+@app.route('/getregions', methods=["GET"])
+def get_regions_request():
+    #get args
+    regionType          = request.args.get('regionType')            #geneToGene,plusMinusBP,customCoordinates
+    genome              = request.args.get('genome')                #hg19 or mm10
+    geneName            = request.args.get('geneName')              #name of gene if geneToGene or plusMinusBP
+    plusMinusGene       = float(request.args.get('plusMinusGene'))    #how many KB away from gene for plusMinusBP 
+    chrom               = request.args.get('chromosome')            #chrom 
+    start               = int(request.args.get('customCoordinateStart')) #custom start but then is used for regular start 
+    end                 = int(request.args.get('customCoordinateEnd')) #custom end but then is used for regular end 
+    requestCode         = request.args.get('requestCode')           #code to directory with evidence
+    region_length       = float(request.args.get('region_length'))     #either default or some custom length
+    region_score        = float(request.args.get('region_score'))      #either default or some custom score
+    cons_score          = float(request.args.get('cons_score'))        #either default or some custom score
+    cons_length         = float(request.args.get('cons_length'))       #either default or some custom length
+    use_conservation    = bool(distutils.util.strtobool(request.args.get('use_conservation'))) #true or false
+    mask_exons          = bool(distutils.util.strtobool(request.args.get('mask_exons')))       #true or false
+    mask_repeats        = bool(distutils.util.strtobool(request.args.get('mask_repeats')))     #true or false
+    liftover            = request.args.get('liftover') #true or nothing
+    
+    #fix liftover
+    if liftover == "true":
+        liftover="hg19"
+    #make session
+    session =  OnTargetUtils.get_gud_session(genome)
+    # get interval if geneToGene or plusMinusBP
+    if regionType=="geneToGene":
+        interval = get_intervals_limit_by_gene(session, geneName) 
+        chrom=interval[0]["chrom"]
+        start=interval[0]["start"]
+        end=interval[0]["end"]
+    elif regionType=="plusMinusBP":
+        interval = get_intervals_limit_by_distance(session, geneName, plusMinusGene)
+        chrom=interval[0]["chrom"]
+        start=interval[0]["start"]
+        end=interval[0]["end"]
+    # get list of evidence from request code 
+    path = os.path.join(app.config['UPLOAD_FOLDER'], requestCode)
+    uploadedfiles=os.listdir(path)
+    evidence = []
+    for i in uploadedfiles:
+        evidence.append([os.path.join(app.config['UPLOAD_FOLDER'], requestCode, i), 1.0])
+    #get regions
+    regions = get_regions(session, chrom, start, end, genome, evidence,
+                liftover, region_length,
+                region_score,
+                use_conservation,
+                cons_score,
+                cons_length,
+                mask_exons, mask_repeats)
+    # Write
+    bed_file = os.path.join(path, "regions.bed")
+    OnTargetUtils.write_bed(regions, bed_file)
+    session.close()
+    return jsonify(regions)
+    
 @app.route('/uploadevidence', methods=['POST'])
 def upload_file():
-    # TODO: check that this is legit!
+    # TODO: check that this is legit! need to accept all bed files under 4MB only save those files that are readable 
     print(request.files)
     if request.method == 'POST':
         if 'files' not in request.files:
@@ -112,6 +154,18 @@ def get_enzymes_tfs():
     enzymes = list(rest_enzymes)
     return {"tfs": tf,
          "enzymes": enzymes}
+
+#this downloads the whole session
+@app.route('/download_session', methods=['POST'])
+def download_session():
+    sessioncode = request.args.get('sessioncode')
+    
+    path = os.path.join(app.config['UPLOAD_FOLDER'], sessioncode)
+    shutil.make_archive(path, 'zip', path)
+    zippath = os.path.join(app.config['UPLOAD_FOLDER'], (sessioncode +".zip"))
+
+    return send_file(zippath)
+
 
 if __name__ == '__main__':
     app.run(debug=True) #remove debug mode for production

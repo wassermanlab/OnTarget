@@ -97,6 +97,16 @@ class Design extends React.Component {
       });
       return null;
     }
+    // Args to send 
+    // ##   regionType // geneToGene,plusMinusBP,customCoordinates
+    // ##   genome
+    // ##   plusMinusGene
+    // ##   chromosome
+    // ##   customCoordinateStart
+    // ##   customCoordinateEnd
+    // ##   liftover // true,false 
+    // ##   requestCode
+    // ##   geneName
   }
   onFileChange(e) {
     this.setState({ evidenceList: e.target.files })
