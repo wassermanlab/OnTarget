@@ -1,19 +1,27 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
-    return (
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col">
-          </div>
-          <div className="col-8">
-            <p><b>OnTarget</b> allows users to input cell specific gene expression data and identifies regions that can be used to design mini-promoters.</p>
-          </div>
-          <div className="col">
-          </div>
+
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `design`; 
+    navigate(path);
+  }
+  
+
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <img src="/ontarget_infographic.svg" width="100%" className="d-inline-block align-top" alt="" />
+      </div>
+      <div className="row">
+        <div className="centre">
+          <img onClick={routeChange} src="/onTargetButton.svg" width="30%" className="d-inline-block align-top" alt="" />
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
-  export default Home
+export default Home
