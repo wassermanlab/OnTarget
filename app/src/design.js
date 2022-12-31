@@ -39,7 +39,9 @@ class Design extends React.Component {
       requestCode: "",
       uploadedFiles: null,
       //
-      //componenet did mount error , 
+      loadedRegions: false,
+      regions: [],
+      //componenet did mount error 
       error: null
     };
 
@@ -110,21 +112,26 @@ class Design extends React.Component {
       this.setState({ errors: errors });
       return null;
     } else {
-      this.setState({ errors: errors,
-        page:2 
-      });
+      // TODO: change this address
+      fetch(`http://127.0.0.1:5000/getregions?regionType=${this.state.regionType}&genome=${this.state.genome}&geneName=${this.state.geneName}&plusMinusGene=${this.state.plusMinusGene}&chromosome=${this.state.chromosome}&customCoordinateStart=${this.state.customCoordinateStart}&customCoordinateEnd=${this.state.customCoordinateEnd}&requestCode=${this.state.requestCode}&region_length=${this.state.region_length}&region_score=${this.state.region_score}&cons_score=${this.state.cons_score}&cons_length=${this.state.cons_length}&use_conservation=${this.state.use_conservation}&mask_exons=${this.state.mask_exons}&mask_repeats=${this.state.mask_repeats}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            loadedRegions: true,
+            regions: result,
+            page:2
+          });
+        },
+        (error) => { //TODO add error handling 
+          this.setState({
+            loadedRegions: false,
+            errors: ["Error in fetching regions, try again."]
+          });
+        }
+      )
       return null;
     }
-    // Args to send 
-    // ##   regionType // geneToGene,plusMinusBP,customCoordinates
-    // ##   genome
-    // ##   plusMinusGene
-    // ##   chromosome
-    // ##   customCoordinateStart
-    // ##   customCoordinateEnd
-    // ##   liftover // true,false 
-    // ##   requestCode
-    // ##   geneName
   }
   onFileChange(e) {
     this.setState({ evidenceList: e.target.files })
@@ -200,6 +207,18 @@ class Design extends React.Component {
     if (this.state.requestCode === "" || (this.state.uploadedFiles.length === 0)) {
       errors.push("User must upload at least 1 bed file of evidence.")
     }
+    if (this.state.region_length>1000 ||this.state.region_length<0 ){
+      errors.push("Region length must be between 0 and 1000")
+    }
+    if (this.state.cons_length>1000 ||this.state.cons_length<0 ){
+      errors.push("Conservation region length must be between 0 and 1000")
+    }
+    if (this.state.region_score>1 ||this.state.region_score<0 ){
+      errors.push("Region score must be between 0 and 1")
+    }
+    if (this.state.cons_score>1 ||this.state.cons_score<0 ){
+      errors.push("Conservation region score must be between 0 and 1")
+    }
     return errors;
   }
 
@@ -255,7 +274,7 @@ class Design extends React.Component {
             </div>
           </div>}
         {this.state.page === 2 &&
-          <GetRegions requestCode={this.state.requestCode}></GetRegions>}
+          <GetRegions requestCode={this.state.requestCode} regions={this.state.regions}></GetRegions>}
       </div>
     );
   };

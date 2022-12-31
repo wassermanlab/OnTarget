@@ -35,6 +35,8 @@ def id_generator(size=6, chars=string.ascii_uppercase):
 def get_minipromoters_request():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
+        # designs : int , max. number of MiniPromoters to design per promoter region (default = 5; min = 1; max = 100)
+        # size : int , max. MiniPromoter size (in bp; default = 1900; min = 100; max = 4500) 
         json                = request.json
         requestCode         = str(json["requestCode"]) 
         size                = int(json["size"])                        # put this default on the server side
