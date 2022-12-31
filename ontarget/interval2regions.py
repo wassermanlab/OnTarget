@@ -784,7 +784,8 @@ def _liftover_regions(regions, from_genome, to_genome, dummy_dir="/tmp/"):
     unmapped_file = os.path.join(dummy_dir, "%s.%s.unmap" % (base_name, pid))
     cmd = f"liftOver -minMatch={minMatch} " + \
           f"{bed_file} {chain_file} {liftover_file} {unmapped_file}"
-    _ = sp.call(cmd, stdout=sp.DEVNULL, stderr=sp.DEVNULL, shell=True)
+    p = sp.Popen([cmd], stdout=sp.DEVNULL, stderr=sp.DEVNULL, shell=True)
+    p.wait() # wait for child process to terminate
 
     # Get liftOver regions
     df = pd.read_table(liftover_file, header=None, index_col=3)
