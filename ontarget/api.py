@@ -1,4 +1,4 @@
-from flask import Flask, flash, request, redirect, url_for, jsonify
+from flask import Flask, flash, request, redirect, url_for, jsonify, send_file
 from flask_restful import Resource, Api
 from flask_cors import CORS, cross_origin # figure this out on the production server
 from werkzeug.utils import secure_filename
@@ -8,6 +8,8 @@ from gene2interval import get_intervals_limit_by_gene, get_intervals_limit_by_di
 from interval2regions import get_regions
 import os, string, random, distutils
 from distutils import util
+import shutil
+
 
 
 
@@ -152,6 +154,18 @@ def get_enzymes_tfs():
     enzymes = list(rest_enzymes)
     return {"tfs": tf,
          "enzymes": enzymes}
+
+#this downloads the whole session
+@app.route('/download_session', methods=['POST'])
+def download_session():
+    sessioncode = request.args.get('sessioncode')
+    
+    path = os.path.join(app.config['UPLOAD_FOLDER'], sessioncode)
+    shutil.make_archive(path, 'zip', path)
+    zippath = os.path.join(app.config['UPLOAD_FOLDER'], (sessioncode +".zip"))
+
+    return send_file(zippath)
+
 
 if __name__ == '__main__':
     app.run(debug=True) #remove debug mode for production
