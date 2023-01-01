@@ -133,7 +133,7 @@ function SelectRegion(props) {
             <div className="row-margin">
                 <form onSubmit={props.onSubmit}>
                     <h3>Upload Evidence</h3>
-                    <p>Only gzipped bed files accepted</p>
+                    <p>Only .bed.gz or .bed files less than 4 MB accepted. Successfully uploaded files will be displyed after pressing the "upload" button.</p>
                     <div className="form-group">
                         <input type="file" name="evidenceList" onChange={props.onFileChange} multiple />
                     </div>

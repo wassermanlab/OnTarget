@@ -3,7 +3,9 @@ import RegionList from './regionList';
 import SelectedRegionList from './selectedRegionList';
 import Errors from './errors';
 import Select from 'react-select'
-import axios, { Axios } from 'axios';
+import axios from 'axios';
+import { host } from './host'
+
 
 class GetRegions extends React.Component {
     constructor(props) {
@@ -18,8 +20,6 @@ class GetRegions extends React.Component {
             designs: 5, // (default = 5; min = 1; max = 100)
             selectedEnzymes: [],
             selectedTFs: [],
-            selectedTFs: [],
-            selectedEnzymes: [],
             //selected regions to make mini promoter
             selectionError: [],
             selectedRegions: [],
@@ -37,7 +37,7 @@ class GetRegions extends React.Component {
 
     //set genes, TFs, restrictionEnzymes
     componentDidMount() {
-        fetch("http://127.0.0.1:5000/enzymes_tfs") // TODO: change this address
+        fetch(host+"enzymes_tfs") // TODO: change this address
             .then(res => res.json())
             .then(
                 (result) => {
@@ -49,8 +49,7 @@ class GetRegions extends React.Component {
                         loadedResources: true,
                         enzymes: enzymes,
                         tfs: tfs
-                    },
-                        () => { console.log(this.state); });
+                    });
                 },
                 (error) => {
                     this.setState({
@@ -86,7 +85,7 @@ class GetRegions extends React.Component {
 
             const config = {
                 method: 'post',
-                url: 'http://127.0.0.1:5000/getminipromoters',  //todo change url
+                url: host+'getminipromoters',  //todo change url
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -133,7 +132,6 @@ class GetRegions extends React.Component {
         this.setState({ selectedRegions: [], selectionError: [] })
     }
     downloadDesignedPromoter() {
-        let selectionError = [];
         const selectedRegions = this.state.selectedRegions;
         let enhancers = []
         let promoter = 0;
@@ -145,7 +143,7 @@ class GetRegions extends React.Component {
                 enhancers.push(reg);
             }
         });
-        if (enhancers.length == 0 || promoter == 0){
+        if (enhancers.length === 0 || promoter === 0){
             this.setState({
                 selectionError: ["MiniPromoter designs must have at least one promoter and one or more enhancers."]
             });
@@ -161,7 +159,7 @@ class GetRegions extends React.Component {
 
             const config = {
                 method: 'post',
-                url: 'http://127.0.0.1:5000/getminipromoter',  //todo change url
+                url: host+'getminipromoter',  //todo change url
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -186,7 +184,7 @@ class GetRegions extends React.Component {
     }
     handleMultiSelectChange(event, name) {
         const values = event.map((item) => { return item.value });
-        this.setState({ [name]: values }, () => { console.log(this.state); });
+        this.setState({ [name]: values });
     }
 
     render() {

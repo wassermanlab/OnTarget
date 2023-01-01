@@ -3,6 +3,7 @@ import Errors from './errors';
 import SelectRegion from './design_components/selectRegion';
 import Loading from './design_components/loading';
 import axios from 'axios';
+import { host } from './host'
 import GetRegions from "./getRegions";
 
 class Design extends React.Component {
@@ -58,7 +59,7 @@ class Design extends React.Component {
 
   //set genes, TFs, restrictionEnzymes
   componentDidMount() {
-    fetch("http://127.0.0.1:5000/genes") // TODO: change this address
+    fetch(host+"genes") // TODO: change this address
       .then(res => res.json())
       .then(
         (result) => {
@@ -113,7 +114,7 @@ class Design extends React.Component {
       return null;
     } else {
       // TODO: change this address
-      fetch(`http://127.0.0.1:5000/getregions?regionType=${this.state.regionType}&genome=${this.state.genome}&geneName=${this.state.geneName}&plusMinusGene=${this.state.plusMinusGene}&chromosome=${this.state.chromosome}&customCoordinateStart=${this.state.customCoordinateStart}&customCoordinateEnd=${this.state.customCoordinateEnd}&requestCode=${this.state.requestCode}&region_length=${this.state.region_length}&region_score=${this.state.region_score}&cons_score=${this.state.cons_score}&cons_length=${this.state.cons_length}&use_conservation=${this.state.use_conservation}&mask_exons=${this.state.mask_exons}&mask_repeats=${this.state.mask_repeats}`)
+      fetch(host+`/getregions?regionType=${this.state.regionType}&liftover=${this.state.liftover}&genome=${this.state.genome}&geneName=${this.state.geneName}&plusMinusGene=${this.state.plusMinusGene}&chromosome=${this.state.chromosome}&customCoordinateStart=${this.state.customCoordinateStart}&customCoordinateEnd=${this.state.customCoordinateEnd}&requestCode=${this.state.requestCode}&region_length=${this.state.region_length}&region_score=${this.state.region_score}&cons_score=${this.state.cons_score}&cons_length=${this.state.cons_length}&use_conservation=${this.state.use_conservation}&mask_exons=${this.state.mask_exons}&mask_repeats=${this.state.mask_repeats}`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -142,11 +143,15 @@ class Design extends React.Component {
     for (const key of Object.keys(this.state.evidenceList)) {
       formData.append('files', this.state.evidenceList[key])
     }
-    axios.post("http://127.0.0.1:5000/uploadevidence", formData, { // TODO change this 
+    axios.post(host+"uploadevidence", formData, { // TODO change this 
     }).then(res => {
       this.setState({
         requestCode: res.data.request_code,
         uploadedFiles: res.data.uploaded_files
+      })
+    }).catch((res)=>{
+      this.setState({
+        errors: ["The file you are trying to upload is likely too large."]
       })
     })
   }

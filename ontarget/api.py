@@ -10,22 +10,25 @@ import os, string, random, distutils
 from distutils import util
 import shutil
 from datetime import datetime
-
-
-
-
-UPLOAD_FOLDER = '/home/tamar/Desktop/OnTarget/data/uploads' #change this 
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from pybedtools import BedTool
 
 app = Flask(__name__)
-CORS(app) # figure out the CORS
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = 'abcd2435' # TODO change this 
-# app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+app.config.from_pyfile('config.py')
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    default_limits=["500 per day", "5 per second"]
+)
+
+cors = CORS(app, resources={r"/*": 
+{"origins": ["http://localhost:3000", "http://gud.cmmt.ubc.ca:8080"]}}) # remove localhost from this on the server 
 api = Api(app)
 
 def allowed_file(filename):
     print(filename)
-    return '.' in filename and filename.endswith(".bed.gz")
+    return '.' in filename and (filename.endswith(".bed.gz") or filename.endswith(".bed"))
 
 
 def id_generator(size=6, chars=string.ascii_uppercase):
@@ -94,7 +97,7 @@ def get_regions_request():
     regionType          = request.args.get('regionType')            #geneToGene,plusMinusBP,customCoordinates
     genome              = request.args.get('genome')                #hg19 or mm10
     geneName            = request.args.get('geneName')              #name of gene if geneToGene or plusMinusBP
-    plusMinusGene       = float(request.args.get('plusMinusGene'))    #how many KB away from gene for plusMinusBP 
+    plusMinusGene       = int(request.args.get('plusMinusGene'))    #how many KB away from gene for plusMinusBP 
     chrom               = request.args.get('chromosome')            #chrom 
     start               = int(request.args.get('customCoordinateStart')) #custom start but then is used for regular start 
     end                 = int(request.args.get('customCoordinateEnd')) #custom end but then is used for regular end 
@@ -107,7 +110,6 @@ def get_regions_request():
     mask_exons          = bool(distutils.util.strtobool(request.args.get('mask_exons')))       #true or false
     mask_repeats        = bool(distutils.util.strtobool(request.args.get('mask_repeats')))     #true or false
     liftover            = request.args.get('liftover') #true or nothing
-    
     #fix liftover
     if liftover == "true":
         liftover="hg19"
@@ -120,7 +122,7 @@ def get_regions_request():
         start=interval[0]["start"]
         end=interval[0]["end"]
     elif regionType=="plusMinusBP":
-        interval = get_intervals_limit_by_distance(session, geneName, plusMinusGene)
+        interval = get_intervals_limit_by_distance(session, geneName, (plusMinusGene * 1000))
         chrom=interval[0]["chrom"]
         start=interval[0]["start"]
         end=interval[0]["end"]
@@ -131,6 +133,7 @@ def get_regions_request():
     for i in uploadedfiles:
         evidence.append([os.path.join(app.config['UPLOAD_FOLDER'], requestCode, i), 1.0])
     #get regions
+
     regions = get_regions(session, chrom, start, end, genome, evidence,
                 liftover, region_length,
                 region_score,
@@ -143,11 +146,26 @@ def get_regions_request():
     OnTargetUtils.write_bed(regions, bed_file)
     session.close()
     return jsonify(regions)
-    
+
+def get_size(fobj):
+    if fobj.content_length:
+        return fobj.content_length
+
+    try:
+        pos = fobj.tell()
+        fobj.seek(0, 2)  #seek to end
+        size = fobj.tell()
+        fobj.seek(pos)  # back to original position
+        return size
+    except (AttributeError, IOError):
+        pass
+
+    # in-memory file object that doesn't support seeking or tell
+    return 0  #assume small enough
+
 @app.route('/uploadevidence', methods=['POST'])
 def upload_file():
     # TODO: check that this is legit! need to accept all bed files under 4MB only save those files that are readable 
-    print(request.files)
     if request.method == 'POST':
         if 'files' not in request.files:
             return {"message": "failed"}
@@ -163,8 +181,15 @@ def upload_file():
         files = request.files.getlist('files')
         for file in files:
             if file and allowed_file(file.filename):
+                if get_size(file) > 4 * (1024 * 1024): # TODO: change this to 4 after this is just to test ADORA2
+                    abort(413)
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(path, filename))
+                # try to read in file if its not a bed file delete the files
+                try:
+                    BedTool(os.path.join(path, filename))
+                except:
+                    os.remove(os.path.join(path, filename))
         uploadedfiles=os.listdir(path)
         return {"message": "passed", 
                 "request_code": code, 
