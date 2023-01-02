@@ -1,2 +1,2 @@
-SECRET_KEY='abcd2435' 
-UPLOAD_FOLDER='/home/tamar/Desktop/OnTarget/data/uploads'
+SECRET_KEY='0ARqYcACZ1' 
+UPLOAD_FOLDER='/space/www/tmp'

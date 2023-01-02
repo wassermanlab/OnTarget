@@ -1,25 +1,35 @@
 #!/usr/bin/env bash
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Download hg19ToMm10, mm9ToMm10, mm10Tohg19, and mm10Tohg38 chains from UCSC
+# Download liftOver tool and the following chain files from UCSC:
+# hg19ToMm10, mm9ToMm10, mm10Tohg19, and mm10Tohg38
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-CHAIN="hg19ToMm10.over.chain.gz"
-if [ ! -f ${CHAIN} ]; then
-    curl -O https://hgdownload.cse.ucsc.edu/goldenpath/hg19/liftOver/${CHAIN}
+if [ ! -f liftOver ]; then
+    curl -O https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/liftOver
+    chmod u+x liftOver
 fi
 
-CHAIN="mm9ToMm10.over.chain.gz"
+CHAIN="hg19ToMm10.over.chain"
 if [ ! -f ${CHAIN} ]; then
-    curl -O https://hgdownload.cse.ucsc.edu/goldenpath/mm9/liftOver/${CHAIN}
+    curl -O https://hgdownload.cse.ucsc.edu/goldenpath/hg19/liftOver/${CHAIN}.gz
+    gunzip ${CHAIN}.gz
 fi
 
-CHAIN="mm10ToHg19.over.chain.gz"
+CHAIN="mm9ToMm10.over.chain"
 if [ ! -f ${CHAIN} ]; then
-    curl -O https://hgdownload.cse.ucsc.edu/goldenpath/mm10/liftOver/${CHAIN}
+    curl -O https://hgdownload.cse.ucsc.edu/goldenpath/mm9/liftOver/${CHAIN}.gz
+    gunzip ${CHAIN}.gz
 fi
 
-CHAIN="mm10ToHg38.over.chain.gz"
+CHAIN="mm10ToHg19.over.chain"
 if [ ! -f ${CHAIN} ]; then
-    curl -O https://hgdownload.cse.ucsc.edu/goldenpath/mm10/liftOver/${CHAIN}
+    curl -O https://hgdownload.cse.ucsc.edu/goldenpath/mm10/liftOver/${CHAIN}.gz
+    gunzip ${CHAIN}.gz
+fi
+
+CHAIN="mm10ToHg38.over.chain"
+if [ ! -f ${CHAIN} ]; then
+    curl -O https://hgdownload.cse.ucsc.edu/goldenpath/mm10/liftOver/${CHAIN}.gz
+    gunzip ${CHAIN}.gz
 fi
