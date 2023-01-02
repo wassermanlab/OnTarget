@@ -1,2 +1,2 @@
-SECRET_KEY='0ARqYcACZ1' 
-UPLOAD_FOLDER='/space/www/tmp'
+SECRET_KEY='AbCd1234' 
+UPLOAD_FOLDER='/tmp'
