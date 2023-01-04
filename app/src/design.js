@@ -114,7 +114,7 @@ class Design extends React.Component {
       return null;
     } else {
       // TODO: change this address
-      fetch(host+`/getregions?regionType=${this.state.regionType}&liftover=${this.state.liftover}&genome=${this.state.genome}&geneName=${this.state.geneName}&plusMinusGene=${this.state.plusMinusGene}&chromosome=${this.state.chromosome}&customCoordinateStart=${this.state.customCoordinateStart}&customCoordinateEnd=${this.state.customCoordinateEnd}&requestCode=${this.state.requestCode}&region_length=${this.state.region_length}&region_score=${this.state.region_score}&cons_score=${this.state.cons_score}&cons_length=${this.state.cons_length}&use_conservation=${this.state.use_conservation}&mask_exons=${this.state.mask_exons}&mask_repeats=${this.state.mask_repeats}`)
+      fetch(host+`getregions?regionType=${this.state.regionType}&liftover=${this.state.liftover}&genome=${this.state.genome}&geneName=${this.state.geneName}&plusMinusGene=${this.state.plusMinusGene}&chromosome=${this.state.chromosome}&customCoordinateStart=${this.state.customCoordinateStart}&customCoordinateEnd=${this.state.customCoordinateEnd}&requestCode=${this.state.requestCode}&region_length=${this.state.region_length}&region_score=${this.state.region_score}&cons_score=${this.state.cons_score}&cons_length=${this.state.cons_length}&use_conservation=${this.state.use_conservation}&mask_exons=${this.state.mask_exons}&mask_repeats=${this.state.mask_repeats}`)
       .then(res => res.json())
       .then(
         (result) => {

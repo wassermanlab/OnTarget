@@ -113,6 +113,8 @@ def get_regions_request():
     #fix liftover
     if liftover == "true":
         liftover="hg19"
+    else: 
+        liftover=None
     #make session
     session =  OnTargetUtils.get_gud_session(genome)
     # get interval if geneToGene or plusMinusBP
@@ -165,7 +167,6 @@ def get_size(fobj):
 
 @app.route('/uploadevidence', methods=['POST'])
 def upload_file():
-    # TODO: check that this is legit! need to accept all bed files under 4MB only save those files that are readable 
     if request.method == 'POST':
         if 'files' not in request.files:
             return {"message": "failed"}
