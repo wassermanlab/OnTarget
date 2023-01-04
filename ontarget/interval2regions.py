@@ -14,7 +14,8 @@ import re
 import requests
 from sklearn.preprocessing import MinMaxScaler
 import subprocess as sp
-import sys 
+import sys
+ 
 from GUD import GUDUtils
 from GUD.ORM import Conservation, Gene, Region, RepeatMask
 from GUD.ORM.genomic_feature import GenomicFeature
@@ -760,14 +761,11 @@ def _liftover_regions(regions, from_genome, to_genome, dummy_dir="/tmp/"):
     """
 
     # Initialize
-    regexp = r"chr(\S{1,2})$"
-    regions_lo = []
     base_name = os.path.basename(__file__)
     pid = os.getpid()
-
-    # Get liftOver chain file
-    chain_file = os.path.join(OnTargetUtils.liftover_dir,
-        f"{from_genome}To{to_genome.capitalize()}.over.chain.gz")
+    regexp = r"chr(\S{1,2})$"
+    regions_lo = []
+    status = None
 
     # BED file
     bed_file = os.path.join(dummy_dir, "%s.%s.bed" % (base_name, pid))
@@ -776,14 +774,19 @@ def _liftover_regions(regions, from_genome, to_genome, dummy_dir="/tmp/"):
         handle.write(f"chr{r.chrom}\t{r.start}\t{r.end}\t{r.id}\n")
     handle.close()
 
+    # Get liftOver executable and chain file
+    liftover_exe = os.path.join(OnTargetUtils.liftover_dir, "liftOver")
+    chain_file = os.path.join(OnTargetUtils.liftover_dir,
+        f"{from_genome}To{to_genome.capitalize()}.over.chain")
+
     # LiftOver
     minMatch = 0.1 if from_genome[:2] != to_genome[:2] else 0.95
     liftover_file = os.path.join(dummy_dir, "%s.%s.lo" % (base_name, pid))
     unmapped_file = os.path.join(dummy_dir, "%s.%s.unmap" % (base_name, pid))
-    cmd = f"liftOver -minMatch={minMatch} " + \
-          f"{bed_file} {chain_file} {liftover_file} {unmapped_file}"
-    p = sp.Popen([cmd], stdout=sp.DEVNULL, stderr=sp.DEVNULL, shell=True)
-    p.wait() # wait for child process to terminate
+    cmd = [liftover_exe, f"-minMatch={minMatch}", bed_file, chain_file,
+           liftover_file, unmapped_file]
+    p = sp.Popen(cmd, stdout=sp.DEVNULL, stderr=sp.DEVNULL)
+    p.wait()
 
     # Get liftOver regions
     df = pd.read_table(liftover_file, header=None, index_col=3)
@@ -805,6 +808,7 @@ def _liftover_regions(regions, from_genome, to_genome, dummy_dir="/tmp/"):
             feat.qualifiers.setdefault("original coordinate", coord)
             feat.qualifiers.setdefault("liftOver genome", to_genome)
             regions_lo.append(feat)
+
     # Remove
     os.remove(bed_file)
     os.remove(liftover_file)

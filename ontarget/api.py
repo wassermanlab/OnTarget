@@ -4,8 +4,8 @@ from flask_cors import CORS, cross_origin # figure this out on the production se
 from werkzeug.utils import secure_filename
 from ontarget import hg19, mm10, rest_enzymes, TFs, OnTargetUtils
 from ontarget.regions2minips import get_minipromoters, get_minipromoter
-from gene2interval import get_intervals_limit_by_gene, get_intervals_limit_by_distance
-from interval2regions import get_regions
+from ontarget.gene2interval import get_intervals_limit_by_gene, get_intervals_limit_by_distance
+from ontarget.interval2regions import get_regions
 import os, string, random, distutils
 from distutils import util
 import shutil
@@ -16,18 +16,18 @@ from pybedtools import BedTool
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
-limiter = Limiter(
-    app,
-    key_func=get_remote_address,
-    default_limits=["500 per day", "5 per second"]
-)
+#limiter = Limiter(
+#    app,
+#    key_func=get_remote_address,
+#    default_limits=["500 per day", "5 per second"]
+#)
 
 cors = CORS(app, resources={r"/*": 
 {"origins": ["http://localhost:3000", "http://gud.cmmt.ubc.ca:8080"]}}) # remove localhost from this on the server 
 api = Api(app)
 
 def allowed_file(filename):
-    print(filename)
+    #print(filename)
     return '.' in filename and (filename.endswith(".bed.gz") or filename.endswith(".bed"))
 
 
@@ -91,6 +91,22 @@ def get_minipromoter_request():
     else:
         return {"error":'Content-Type not supported!'}
 
+def print_regions(chrom, start, end, genome, evidence,
+                liftover, region_length,
+                region_score,
+                use_conservation,
+                cons_score,
+                cons_length,
+                mask_exons, mask_repeats):
+    print(chrom)
+    print(start)
+    print(end)
+    print(genome)
+    print(liftover)
+    print(region_length)
+    print(region_score)
+
+
 @app.route('/getregions', methods=["GET"])
 def get_regions_request():
     #get args
@@ -113,7 +129,7 @@ def get_regions_request():
     #fix liftover
     if liftover == "true":
         liftover="hg19"
-    else: 
+    else:
         liftover=None
     #make session
     session =  OnTargetUtils.get_gud_session(genome)
@@ -135,6 +151,15 @@ def get_regions_request():
     for i in uploadedfiles:
         evidence.append([os.path.join(app.config['UPLOAD_FOLDER'], requestCode, i), 1.0])
     #get regions
+
+    print_regions(chrom, start, end, genome, evidence,
+                liftover, region_length,
+                region_score,
+                use_conservation,
+                cons_score,
+                cons_length,
+                mask_exons, mask_repeats)
+
 
     regions = get_regions(session, chrom, start, end, genome, evidence,
                 liftover, region_length,
@@ -167,7 +192,10 @@ def get_size(fobj):
 
 @app.route('/uploadevidence', methods=['POST'])
 def upload_file():
+    # TODO: check that this is legit! need to accept all bed files under 4MB only save those files that are readable 
+    print("before post\n")
     if request.method == 'POST':
+        print("i am inside of post")
         if 'files' not in request.files:
             return {"message": "failed"}
         # get existing directories
@@ -181,6 +209,7 @@ def upload_file():
         os.mkdir(path)
         files = request.files.getlist('files')
         for file in files:
+            print(file)
             if file and allowed_file(file.filename):
                 if get_size(file) > 4 * (1024 * 1024): # TODO: change this to 4 after this is just to test ADORA2
                     abort(413)
@@ -228,4 +257,4 @@ def download_session():
 
 
 if __name__ == '__main__':
-    app.run(debug=True) #remove debug mode for production
+    app.run(debug=False) #remove debug mode for production

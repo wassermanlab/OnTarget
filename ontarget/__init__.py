@@ -42,8 +42,8 @@ class OnTargetUtilities:
 
         # i.e. defaults
         self._dummy_dir = "/tmp/"
-        self._genomes_dir = "/home/oriol/OnTarget/data/genomes/"
-        self._liftover_dir = "/home/oriol/OnTarget/data/liftover/"
+        self._genomes_dir = "/space/www/OnTarget/data/genomes/"
+        self._liftover_dir = "/space/www/OnTarget/data/liftover/"
         self._max_interval_extension = 125000
         self._max_minip_designs = 5
         self._max_minip_size = 1900
