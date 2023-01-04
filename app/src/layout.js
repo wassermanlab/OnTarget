@@ -19,6 +19,9 @@ function Layout() {
             <li className="nav-item">
               <a className="nav-link" href="/design">Design</a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/example">Example</a>
+            </li>
           </ul>
         </div>
       </nav>

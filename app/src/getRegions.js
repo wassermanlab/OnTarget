@@ -198,6 +198,11 @@ class GetRegions extends React.Component {
                         <p>Instructions: To get suggested minipromoters indicate the maximum size of your mini promoter and
                             how many suggested MiniPromoters you would like
                             to design and click "Download Suggested Mini Promoters". </p>
+                        {this.props.requestCode==="example" &&
+                            <p>
+                                For this example we recommend selecting the TFs: <b>NR4A2 & PITX3</b> and the Enzymes: <b>AscI & FseI</b> 
+                            </p>
+                        }
                         <div className="row" id="numDesigns">
                             <label className="col-sm-4 col-form-label">Number of MiniPromoter Designs (1-100)</label>
                             <div className="col-sm-4">

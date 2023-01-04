@@ -272,7 +272,7 @@ class Design extends React.Component {
               ></SelectRegion>
               {/* error handeling */}
               <Errors errors={this.state.errors} />
-              <button to="/getregions" onClick={this.getRegulatoryRegions} className="btn btn-primary ontarget-button">Get Regulatory Regions</button>
+              <button onClick={this.getRegulatoryRegions} className="btn btn-primary ontarget-button">Get Regulatory Regions</button>
 
             </div>
             <div className="col">

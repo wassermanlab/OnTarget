@@ -27,7 +27,6 @@ cors = CORS(app, resources={r"/*":
 api = Api(app)
 
 def allowed_file(filename):
-    #print(filename)
     return '.' in filename and (filename.endswith(".bed.gz") or filename.endswith(".bed"))
 
 
@@ -54,8 +53,14 @@ def get_minipromoters_request():
         # make folder for these minimaps 
         currentDateAndTime= datetime.now().strftime("%Y%m%d%H%M%S")
         folder = "minipromoters" + currentDateAndTime
+
+        #check if its for the example
+        path = os.path.join(app.config['UPLOAD_FOLDER'], requestCode)
+        pathExists = os.path.exists(path)
+        if requestCode == "example" and not pathExists: 
+            os.makedirs(path)
         path = os.path.join(app.config['UPLOAD_FOLDER'], requestCode, folder)
-        os.mkdir(path)
+        os.makedirs(path)
         # save the fastas 
         for minip in minipromoters:
             fasta_file = os.path.join(path,
@@ -80,6 +85,12 @@ def get_minipromoter_request():
         minipromoter = get_minipromoter(promoter, enhancers)
         minipromoter = minipromoter.serialize()
 
+        #check if its for the example
+        path = os.path.join(app.config['UPLOAD_FOLDER'], requestCode)
+        pathExists = os.path.exists(path)
+        if requestCode == "example" and not pathExists: 
+            os.makedirs(path)
+        
         currentDateAndTime= datetime.now().strftime("%Y%m%d%H%M%S")
         filename = "minipromoter" + currentDateAndTime
         path = os.path.join(app.config['UPLOAD_FOLDER'], requestCode)
@@ -90,22 +101,6 @@ def get_minipromoter_request():
         return send_file(fasta_file)
     else:
         return {"error":'Content-Type not supported!'}
-
-def print_regions(chrom, start, end, genome, evidence,
-                liftover, region_length,
-                region_score,
-                use_conservation,
-                cons_score,
-                cons_length,
-                mask_exons, mask_repeats):
-    print(chrom)
-    print(start)
-    print(end)
-    print(genome)
-    print(liftover)
-    print(region_length)
-    print(region_score)
-
 
 @app.route('/getregions', methods=["GET"])
 def get_regions_request():
@@ -150,16 +145,6 @@ def get_regions_request():
     evidence = []
     for i in uploadedfiles:
         evidence.append([os.path.join(app.config['UPLOAD_FOLDER'], requestCode, i), 1.0])
-    #get regions
-
-    print_regions(chrom, start, end, genome, evidence,
-                liftover, region_length,
-                region_score,
-                use_conservation,
-                cons_score,
-                cons_length,
-                mask_exons, mask_repeats)
-
 
     regions = get_regions(session, chrom, start, end, genome, evidence,
                 liftover, region_length,
@@ -190,12 +175,20 @@ def get_size(fobj):
     # in-memory file object that doesn't support seeking or tell
     return 0  #assume small enough
 
+@app.route('/getpitx3evidence', methods=["POST"])
+def get_pitx3_evidence():
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        zippath = os.path.join(app.config['PITX3_EVIDENCE'], "PITX3.zip") 
+        return send_file(zippath)
+    else:
+        return {"error":'Content-Type not supported!'}
+
+
 @app.route('/uploadevidence', methods=['POST'])
 def upload_file():
     # TODO: check that this is legit! need to accept all bed files under 4MB only save those files that are readable 
-    print("before post\n")
     if request.method == 'POST':
-        print("i am inside of post")
         if 'files' not in request.files:
             return {"message": "failed"}
         # get existing directories
@@ -209,7 +202,6 @@ def upload_file():
         os.mkdir(path)
         files = request.files.getlist('files')
         for file in files:
-            print(file)
             if file and allowed_file(file.filename):
                 if get_size(file) > 4 * (1024 * 1024): # TODO: change this to 4 after this is just to test ADORA2
                     abort(413)
