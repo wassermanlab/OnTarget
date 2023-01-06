@@ -9,7 +9,7 @@
 ## Requirements
 OnTarget requires the following dependencies:
 * [`GUD`](https://github.com/wassermanlab/GUD) with [`FuzzyWuzzy`](https://github.com/seatgeek/fuzzywuzzy), [`interval-binning`](https://interval-binning.readthedocs.io/en/latest/), [`PyMySQL`](https://pymysql.readthedocs.io/en/latest/), [`SQLAlchemy`](https://www.sqlalchemy.org/), [`SQLAlchemy-FullText-Search`](https://github.com/mengzhuo/sqlalchemy-fulltext-search), [`SQLAlchemy-Utils`](https://sqlalchemy-utils.readthedocs.io/en/latest/) 
-* [`liftOver`](https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/)
+<!-- * [`liftOver`](https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/) -->
 * [`Python 3.x`](https://www.python.org) with:
     - [`Biopython`](https://biopython.org)
     - [`Click`](https://click.palletsprojects.com/en/8.1.x/) with [`click-option-group`](https://click-option-group.readthedocs.io/en/latest/)
@@ -36,18 +36,20 @@ conda create -n ontarget -c bioconda -c conda-forge \
     fuzzywuzzy=0.18.0 \
     genomepy=0.14.0 \
     interval-binning=1.0.0 \
+    nodejs=17.8.0 \
     numpy=1.23.5 \
     pandas=1.5.2 \
     pybedtools=0.9.0 \
     pymysql=1.0.2 \
-    python=3 \
+    python=3.9.15 \
+    python-levenshtein=0.20.9 \
     requests=2.28.1 \
     scikit-learn=1.2.0 \
-    sqlalchemy=1.4.45  sqlalchemy-utils=0.38.3 \
-    ucsc-liftover=377 \
+    sqlalchemy=1.4.45 sqlalchemy-utils=0.38.3 \
+    uwsgi=2.0.20 \
     werkzeug=2.2.2
 
-pip install SQLAlchemy-FullText-Search
+pip install Flask-Limiter SQLAlchemy-FullText-Search
 ```
 
 ```python
