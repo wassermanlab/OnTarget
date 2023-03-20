@@ -52,6 +52,11 @@ conda create -n ontarget -c bioconda -c conda-forge \
 pip install Flask-Limiter SQLAlchemy-FullText-Search
 ```
 
+To download LiftOver and the necessary chain files for OnTarget, execute the following command:
+```
+bash ./data/liftover/get-liftover-and-chains.sh
+```
+
 ```python
 import json
 from GUD import GUDUtils
