@@ -9,7 +9,7 @@
 ## Requirements
 OnTarget requires the following dependencies:
 * [`GUD`](https://github.com/wassermanlab/GUD) with [`FuzzyWuzzy`](https://github.com/seatgeek/fuzzywuzzy), [`interval-binning`](https://interval-binning.readthedocs.io/en/latest/), [`PyMySQL`](https://pymysql.readthedocs.io/en/latest/), [`SQLAlchemy`](https://www.sqlalchemy.org/), [`SQLAlchemy-FullText-Search`](https://github.com/mengzhuo/sqlalchemy-fulltext-search), [`SQLAlchemy-Utils`](https://sqlalchemy-utils.readthedocs.io/en/latest/) 
-<!-- * [`liftOver`](https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/) -->
+[`LiftOver`](https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/)
 * [`Python 3.x`](https://www.python.org) with:
     - [`Biopython`](https://biopython.org)
     - [`Click`](https://click.palletsprojects.com/en/8.1.x/) with [`click-option-group`](https://click-option-group.readthedocs.io/en/latest/)

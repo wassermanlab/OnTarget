@@ -731,7 +731,7 @@ def _get_consecutive_numbers(arr):
 
 def _get_interval_tfs(chrom, start, end, genome):
     """
-    Function to get the JASPAR TFBSs of an interval from UCSC
+    Function to get the JASPAR 2020 TFBSs of an interval from UCSC
     :param chrom: str, chromosome name
     :param start: int, start coordinate (0-based)
     :param end: int, end coordinate
@@ -741,14 +741,14 @@ def _get_interval_tfs(chrom, start, end, genome):
 
     # Get URL
     url = "https://api.genome.ucsc.edu/getData/" + \
-          "track?track=jaspar2022;maxItemsOutput=-1;" + \
+          "track?track=jaspar2020;maxItemsOutput=-1;" + \
          f"genome={genome};chrom=chr{chrom};start={start};end={end}"
 
     # Get response
     response = requests.get(url)
 
-    return set([tf.upper() for r in response.json()["jaspar2022"] \
-                for tf in r["TFName"].split("::")])
+    return set([tf.upper() for r in response.json()["jaspar2020"] \
+                for tf in r["name"].split("::")])
 
 
 def _liftover_regions(regions, from_genome, to_genome, dummy_dir="/tmp/"):

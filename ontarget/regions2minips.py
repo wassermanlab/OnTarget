@@ -158,6 +158,12 @@ CONTEXT_SETTINGS = {
     multiple=True,
 )
 @optgroup.option(
+    "--rr",
+    help="Regulatory regions to include.",
+    type=str,
+    multiple=True,
+)
+@optgroup.option(
     "--size",
     help="Max. size of MiniPromoters (in bp).",
     type=int,
@@ -196,6 +202,10 @@ def cli(**args):
     handle = ParseUtils._get_file_handle(args["json_file"])
     regions = json.load(handle)
     handle.close()
+
+    # Filter regulatory regions
+    if len(args["rr"]) > 0:
+        regions = [r for r in regions if r["id"] in args["rr"]]
 
     # Get MiniPromoters
     minips = get_minipromoters(regions, args["designs"],
