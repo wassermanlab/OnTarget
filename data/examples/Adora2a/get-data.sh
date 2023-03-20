@@ -164,8 +164,10 @@ fi
 
 if [ ! -f ./${DIR}-${HIST_MARK}.bed.gz ]; then
     less ./${DIR}/${HIST_MARK}/rep*.bed | sort -k1,1 -k2,2n | \
-        awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' | \
-        mergeBed -c 4 -o collapse -delim "|" > ./${DIR}/${HIST_MARK}/mm9.bed
+        # awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' | \
+        # mergeBed -c 4 -o collapse -delim "|" > ./${DIR}/${HIST_MARK}/mm9.bed
+        awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' \
+        > ./${DIR}/${HIST_MARK}/mm9.bed
     ../../chains/liftOver ./${DIR}/${HIST_MARK}/mm9.bed \
         ../../chains/mm9ToMm10.over.chain.gz \
         ./${DIR}-${HIST_MARK}.bed ./${DIR}/${HIST_MARK}/unMapped
@@ -227,8 +229,10 @@ fi
 
 if [ ! -f ./${DIR}-${HIST_MARK}.bed.gz ]; then
     less ./${DIR}/${HIST_MARK}/rep*.bed | sort -k1,1 -k2,2n | \
-        awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' | \
-        mergeBed -c 4 -o collapse -delim "|" > ./${DIR}/${HIST_MARK}/mm9.bed
+        # awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' | \
+        # mergeBed -c 4 -o collapse -delim "|" > ./${DIR}/${HIST_MARK}/mm9.bed
+        awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' \
+        > ./${DIR}/${HIST_MARK}/mm9.bed
     ../../chains/liftOver ./${DIR}/${HIST_MARK}/mm9.bed \
         ../../chains/mm9ToMm10.over.chain.gz \
         ./${DIR}-${HIST_MARK}.bed ./${DIR}/${HIST_MARK}/unMapped
@@ -290,8 +294,10 @@ fi
 
 if [ ! -f ./${DIR}-${HIST_MARK}.bed.gz ]; then
     less ./${DIR}/${HIST_MARK}/rep*.bed | sort -k1,1 -k2,2n | \
-        awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' | \
-        mergeBed -c 4 -o collapse -delim "|" > ./${DIR}/${HIST_MARK}/mm9.bed
+        # awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' | \
+        # mergeBed -c 4 -o collapse -delim "|" > ./${DIR}/${HIST_MARK}/mm9.bed
+        awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' \
+        > ./${DIR}/${HIST_MARK}/mm9.bed
     ../../chains/liftOver ./${DIR}/${HIST_MARK}/mm9.bed \
         ../../chains/mm9ToMm10.over.chain.gz \
         ./${DIR}-${HIST_MARK}.bed ./${DIR}/${HIST_MARK}/unMapped
@@ -355,8 +361,9 @@ fi
 
 if [ ! -f ./${DIR}-${TF}.bed.gz ]; then
     less ./${DIR}/${TF}/rep*.bed | sort -k1,1 -k2,2n | \
-        awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' | \
-        mergeBed -c 4 -o collapse -delim "|" > ./${DIR}/${TF}/mm9.bed
+        # awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' | \
+        # mergeBed -c 4 -o collapse -delim "|" > ./${DIR}/${TF}/mm9.bed
+        awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' > ./${DIR}/${TF}/mm9.bed
     ../../chains/liftOver ./${DIR}/${HIST_MARK}/mm9.bed \
         ../../chains/mm9ToMm10.over.chain.gz \
         ./${DIR}-${HIST_MARK}.bed ./${DIR}/${HIST_MARK}/unMapped

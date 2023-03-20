@@ -22,8 +22,9 @@ fi
 
 if [ ! -f ./${DIR}.bed.gz ]; then
     zless ${DIR}/*.bed.gz | sort -k1,1 -k2,2n | \
-        awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' | \
-        mergeBed -c 4 -o collapse -delim "|" | gzip - > ./${DIR}.bed.gz
+        # awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' | \
+        # mergeBed -c 4 -o collapse -delim "|" | gzip - > ./${DIR}.bed.gz
+        awk '{print $1"\t"$2"\t"$3"\t"$1":"$2"-"$3;}' > ./${DIR}.bed.gz
 fi
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -9,7 +9,7 @@
 ## Requirements
 OnTarget requires the following dependencies:
 * [`GUD`](https://github.com/wassermanlab/GUD) with [`FuzzyWuzzy`](https://github.com/seatgeek/fuzzywuzzy), [`interval-binning`](https://interval-binning.readthedocs.io/en/latest/), [`PyMySQL`](https://pymysql.readthedocs.io/en/latest/), [`SQLAlchemy`](https://www.sqlalchemy.org/), [`SQLAlchemy-FullText-Search`](https://github.com/mengzhuo/sqlalchemy-fulltext-search), [`SQLAlchemy-Utils`](https://sqlalchemy-utils.readthedocs.io/en/latest/) 
-[`LiftOver`](https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/)
+* [`LiftOver`](https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/)
 * [`Python 3.x`](https://www.python.org) with:
     - [`Biopython`](https://biopython.org)
     - [`Click`](https://click.palletsprojects.com/en/8.1.x/) with [`click-option-group`](https://click-option-group.readthedocs.io/en/latest/)
@@ -20,6 +20,7 @@ OnTarget requires the following dependencies:
     - [`pybedtools`](https://daler.github.io/pybedtools/)
     - [`requests`](https://requests.readthedocs.io/en/master/)
     - [`scikit-learn`](https://scikit-learn.org/stable/install.html)
+    - [uwsgi](https://uwsgi-docs.readthedocs.io/en/latest/)
     - [`werkzeug`](https://werkzeug.palletsprojects.com/en/2.2.x/)
 
 Additionally, to generate the example data, it requires:
@@ -27,6 +28,8 @@ Additionally, to generate the example data, it requires:
 * [`MACS2`](https://github.com/macs3-project/MACS)
 
 ## Configuration
+
+To install OnTarget's dependencies, we highly recommend using the [`conda`](https://docs.conda.io/en/latest/) package and environment management system:
 
 ```
 conda create -n ontarget -c bioconda -c conda-forge \
@@ -48,12 +51,19 @@ conda create -n ontarget -c bioconda -c conda-forge \
     sqlalchemy=1.4.45 sqlalchemy-utils=0.38.3 \
     uwsgi=2.0.20 \
     werkzeug=2.2.2
+```
 
+Then, activate the `ontarget` conda environment and install the following Python dependencies using [`pip`](https://pip.pypa.io/en/stable/):
+
+```
+conda activate ontarget
 pip install Flask-Limiter SQLAlchemy-FullText-Search
 ```
 
-To download LiftOver and the necessary chain files for OnTarget, execute the following command:
+OnTarget additionally requires the installation of several genomes and chain files for LiftOver:
+
 ```
+bash ./data/genomes/get-genomes.sh
 bash ./data/liftover/get-liftover-and-chains.sh
 ```
 
