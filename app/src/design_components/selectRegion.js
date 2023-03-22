@@ -155,9 +155,12 @@ function SelectRegion(props) {
     {/* // cons_length : int , min. conserved region length (default = 10; min = 0; max = 1000) */}
     {/* // cons_score : float , min. conserved region score (default = 0.6; min = 0.0; max = 1.0) */}
 
+ 
 
-
-            <h3>Advanced Parameters</h3>
+    {props.advancedParam === true 
+    ?
+            <div>
+            <h3 onClick={props.toggleChange} name="advancedParam">- Advanced Parameters</h3>
             <div className="row-margin">
                 <div className="row advanceParam">
                     <label className="col-sm-4 col-form-label">Region length (0-1000)</label>
@@ -211,6 +214,9 @@ function SelectRegion(props) {
                 <button className="btn btn-primary ontarget-button" onClick={props.resetAdvancedParameters}>Reset Advanced Parameters</button>
                 <hr />
             </div>
+            </div>
+            :
+            <h3 onClick={props.toggleChange} name="advancedParam">+ Advanced Parameters</h3>}
 
 
         </div>
