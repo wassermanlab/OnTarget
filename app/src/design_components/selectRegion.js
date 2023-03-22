@@ -212,13 +212,14 @@ function SelectRegion(props) {
                     </div>
                 </div>
                 <button className="btn btn-primary ontarget-button" onClick={props.resetAdvancedParameters}>Reset Advanced Parameters</button>
-                <hr />
             </div>
+            <h6>Parameter Descriptions</h6>
+            <p></p>
             </div>
             :
             <h3 onClick={props.toggleChange} name="advancedParam">+ Advanced Parameters</h3>}
 
-
+            <hr />
         </div>
 
     )

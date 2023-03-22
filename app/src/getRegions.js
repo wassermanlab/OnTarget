@@ -143,9 +143,9 @@ class GetRegions extends React.Component {
                 enhancers.push(reg);
             }
         });
-        if (enhancers.length === 0 || promoter === 0){
+        if (promoter === 0){
             this.setState({
-                selectionError: ["MiniPromoter designs must have at least one promoter and one or more enhancers."]
+                selectionError: ["MiniPromoter designs must have at least one promoter"]
             });
         } else{
             // TODO: change address
