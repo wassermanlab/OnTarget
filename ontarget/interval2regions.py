@@ -269,7 +269,7 @@ def get_regions(session, chrom, start, end, genome, evidence=[],
                           region_score / 100)
         region_score = max([sorted_profile[top_pct_pos],
                             min(sorted_profile[sorted_profile > 0])])
-    
+
     # Compute regulatory regions
     reg_regions = profile_to_regions(chrom, start, end, genome,
                                      reg_profile_norm, region_score,
@@ -584,6 +584,10 @@ def profile_to_regions(chrom, start, end, genome, profile, min_score,
 
     # For each set of consecutive bp...
     for i, arr in enumerate(consecutive):
+
+        # Skip empty arrays
+        if arr.size == 0:
+            continue
 
         # Get genomic feature
         feat = GenomicFeature(
