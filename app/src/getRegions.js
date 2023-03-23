@@ -203,6 +203,11 @@ class GetRegions extends React.Component {
                                 For this example we recommend selecting the TFs: <b>NR4A2 & PITX3</b> and the Enzymes: <b>AscI & FseI</b> 
                             </p>
                         }
+                        {this.props.requestCode==="adora2example" &&
+                            <p>
+                                For this example we recommend selecting the TFs: <b>RARB & SP9</b> and the Enzymes: <b>AscI & FseI</b> 
+                            </p>
+                        }
                         <div className="row" id="numDesigns">
                             <label className="col-sm-4 col-form-label">Number of MiniPromoter Designs (1-100)</label>
                             <div className="col-sm-4">
