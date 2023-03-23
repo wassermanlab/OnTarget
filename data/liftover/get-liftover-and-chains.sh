@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+# Get script directory
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-# Go to script directory
+# Go to that directory
 cd ${SCRIPT_DIR}
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
