@@ -74,12 +74,14 @@ function SelectRegion(props) {
                 <p>Type of region</p>
                 <div className="form-check form-check-inline row-margin">
                     <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="geneToGene" onChange={props.handleRegionChange} />
-                    <label className="form-check-label" htmlFor="inlineRadio1">Gene to Gene</label>
+                    <label className="form-check-label" htmlFor="inlineRadio1">Gene to Gene (from the end of the upstream gene to the start of the downstream gene)</label>
                 </div>
+                <br/>
                 <div className="form-check form-check-inline">
                     <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="plusMinusBP" onChange={props.handleRegionChange} />
                     <label className="form-check-label" htmlFor="inlineRadio2">+/- n kB from Gene </label>
                 </div>
+                <br/>
                 <div className="form-check form-check-inline">
                     <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="customCoordinates" onChange={props.handleRegionChange} />
                     <label className="form-check-label" htmlFor="inlineRadio3">Custom Coordinates</label>
@@ -133,7 +135,8 @@ function SelectRegion(props) {
             <div className="row-margin">
                 <form onSubmit={props.onSubmit}>
                     <h3>Upload Evidence</h3>
-                    <p>Only .bed.gz or .bed files less than 4 MB accepted. Successfully uploaded files will be displyed after pressing the "upload" button.</p>
+                    <p>As part of the process of identifying regulatory regions, OnTarget uses genomic evidence provided by the user. Some examples of genomic evidence include: nascent transcription (e.g. CAGE and GRO-seq), chromatin accessibility (e.g. DNase-seq and ATAC-seq), histone modifications and transcription factor binding sites (i.e. ChIP-seq), or computational predictions of promoters and enhancers.
+                        <br/><br/> Only .bed.gz or .bed files less than 4 MB accepted. Successfully uploaded files will be displyed after pressing the "upload" button.</p>
                     <div className="form-group">
                         <input type="file" name="evidenceList" onChange={props.onFileChange} multiple />
                     </div>
@@ -155,9 +158,12 @@ function SelectRegion(props) {
     {/* // cons_length : int , min. conserved region length (default = 10; min = 0; max = 1000) */}
     {/* // cons_score : float , min. conserved region score (default = 0.6; min = 0.0; max = 1.0) */}
 
+ 
 
-
-            <h3>Advanced Parameters</h3>
+    {props.advancedParam === true 
+    ?
+            <div>
+            <h3 onClick={props.toggleChange} name="advancedParam">- Advanced Parameters</h3>
             <div className="row-margin">
                 <div className="row advanceParam">
                     <label className="col-sm-4 col-form-label">Region length (0-1000)</label>
@@ -209,10 +215,28 @@ function SelectRegion(props) {
                     </div>
                 </div>
                 <button className="btn btn-primary ontarget-button" onClick={props.resetAdvancedParameters}>Reset Advanced Parameters</button>
-                <hr />
             </div>
+            <h6>Parameter Descriptions</h6>
+            <p>
+            Region length: This option sets the length of the regulatory regions identified by OnTarget to be at least of the specified value.
+            <br/><br/>
+            Region score: This option sets the score of the regulatory regions identified by OnTarget to be at least of the specified value.
+            <br/><br/>
+            Use conservation: If specified, as part of the process of identifying regulatory regions, OnTarget will also use conservation values from the Vertebrate Multiz Alignment and Conservation track at the UCSC Genome Browser (https://genome.ucsc.edu/cgi-bin/hgTrackUi?db=hg19&g=multiz100way).
+            <br/><br/>
+            Conserved region length: If "Use conservation" is specified, this option sets the length of the conserved elements, which are created by OnTarget during the identification of regulatory regions, to be at least of the specified value.
+            <br/><br/>
+            Conserved region score: If "Use conservation" is specified, this option sets the score of the conserved elements, which are created by OnTarget during the identification of regulatory regions, to be at least of the specified value.
+            <br/><br/>
+            Mask exons: If specified, the regulatory regions identified by OnTarget will not include any nucleotides overlapping with coding exons of genes from NCBI RefSeq (https://www.ncbi.nlm.nih.gov/refseq/refseq/).
+            <br/><br/>
+            Mask repeats: If specified, the regulatory regions identified by OnTarget will not include any nucleotides overlapping with repeating elements from the RepeatMasker track at the UCSC Genome Browser (https://genome.ucsc.edu/cgi-bin/hgTrackUi?g=rmsk).
+            </p>
+            </div>
+            :
+            <h3 onClick={props.toggleChange} name="advancedParam">+ Advanced Parameters</h3>}
 
-
+            <hr />
         </div>
 
     )

@@ -143,9 +143,9 @@ class GetRegions extends React.Component {
                 enhancers.push(reg);
             }
         });
-        if (enhancers.length === 0 || promoter === 0){
+        if (promoter === 0){
             this.setState({
-                selectionError: ["MiniPromoter designs must have at least one promoter and one or more enhancers."]
+                selectionError: ["MiniPromoter designs must have at least one promoter"]
             });
         } else{
             // TODO: change address
@@ -201,6 +201,11 @@ class GetRegions extends React.Component {
                         {this.props.requestCode==="example" &&
                             <p>
                                 For this example we recommend selecting the TFs: <b>NR4A2 & PITX3</b> and the Enzymes: <b>AscI & FseI</b> 
+                            </p>
+                        }
+                        {this.props.requestCode==="adora2example" &&
+                            <p>
+                                For this example we recommend selecting the TFs: <b>RARB & SP9</b> and the Enzymes: <b>AscI & FseI</b> 
                             </p>
                         }
                         <div className="row" id="numDesigns">

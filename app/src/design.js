@@ -43,7 +43,9 @@ class Design extends React.Component {
       loadedRegions: false,
       regions: [],
       //componenet did mount error 
-      error: null
+      error: null,
+      // info toggles 
+      advancedParam: false
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -55,6 +57,7 @@ class Design extends React.Component {
     this.resetAdvancedParameters = this.resetAdvancedParameters.bind(this);
     this.handleGenomeChange = this.handleGenomeChange.bind(this);
     this.handleLiftoverChange = this.handleLiftoverChange.bind(this);
+    this.toggleChange = this.toggleChange.bind(this);
   };
 
   //set genes, TFs, restrictionEnzymes
@@ -100,6 +103,16 @@ class Design extends React.Component {
   //handleGenomeChange
   handleGenomeChange(event) {
     this.setState({ genome: event.target.value });
+  }
+  //toggleChangeHandler
+  toggleChange(event){
+    const target = event.target;
+    const name = target.attributes['name'].value;
+    const value = this.state[name];
+
+    this.setState({
+      [name]: !value
+    }, () => console.log(value));
   }
 
   //handleLiftoverChange
@@ -269,6 +282,8 @@ class Design extends React.Component {
                 evidenceList={this.state.evidenceList}
                 requestCode={this.state.requestCode}
                 uploadedFiles={this.state.uploadedFiles}
+                advancedParam={this.state.advancedParam}
+                toggleChange={this.toggleChange}
               ></SelectRegion>
               {/* error handeling */}
               <Errors errors={this.state.errors} />
