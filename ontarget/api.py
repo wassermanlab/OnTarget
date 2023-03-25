@@ -183,7 +183,15 @@ def get_pitx3_evidence():
         return send_file(zippath)
     else:
         return {"error":'Content-Type not supported!'}
-
+    
+@app.route('/getadora2evidence', methods=["POST"])
+def get_adora2_evidence():
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        zippath = os.path.join(app.config['PITX3_EVIDENCE'], "ADORA2.zip") 
+        return send_file(zippath)
+    else:
+        return {"error":'Content-Type not supported!'}
 
 @app.route('/uploadevidence', methods=['POST'])
 def upload_file():

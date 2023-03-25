@@ -2,16 +2,20 @@ import React from 'react';
 import axios from 'axios';
 import { host } from './host'
 import GetRegions from "./getRegions";
-import pitx3JSON from './pitx3.json'
+import adora2JSON from './adora2.json'
 
 class Design extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            regions: pitx3JSON,
-            requestCode: "example",
-            uploadedFilesList: ["dna_accessibility.bed.gz", "histone_modification-H3K36me3.bed.gz", "histone_modification-H3K4me3.bed.gz",
-                "histone_modification-H3K27ac.bed.gz", "histone_modification-H3K4me1.bed.gz", "histone_modification-H3K9ac.bed.gz"],
+            regions: adora2JSON,
+            requestCode: "adora2example",
+            uploadedFilesList: ["dna_accessibility.bed.gz",
+            "histone_modification-H3K27ac.bed.gz",
+            "histone_modification-H3K36me3.bed.gz",
+            "histone_modification-H3K4me1.bed.gz",
+            "histone_modification-H3K4me3.bed.gz",
+            "tf_binding-POL2.bed.gz"],
         };
 
         this.downloadEvidence = this.downloadEvidence.bind(this);
@@ -26,7 +30,7 @@ class Design extends React.Component {
 
         const config = {
             method: 'post',
-            url: host + 'getpitx3evidence',
+            url: host + 'getadora2evidence',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -36,7 +40,7 @@ class Design extends React.Component {
 
         axios(config)
             .then((response) => {
-                FileDownload(response.data, 'pitx3evidence.zip');
+                FileDownload(response.data, 'adora2evidence.zip');
             });
     }
 
@@ -87,11 +91,11 @@ class Design extends React.Component {
                         </div>
                         <div className="form-group row-margin">
                             <label htmlFor="selectGene">Gene name</label>
-                            <input type="text" className="form-control" placeholder="PITX3" disabled />
+                            <input type="text" className="form-control" placeholder="ADORA2" disabled />
                         </div>
                         <div className="form-group row-margin">
                             <label htmlFor="inputBP">n kb from gene</label>
-                            <input type="number" className="form-control" defaultValue="50" disabled />
+                            <input type="number" className="form-control" defaultValue="100" disabled />
                         </div>
                         <hr />
                         <div className="row-margin">
@@ -118,7 +122,7 @@ class Design extends React.Component {
                                 <label className="col-sm-4 col-form-label">Region score (0-1)</label>
                                 <div className="col-sm-4">
                                     <input type="number" className="form-control" min="0" name="region_score"
-                                        value="0.41415827439529823" disabled/>
+                                        value="0.5546155574351114" disabled/>
                                 </div>
                             </div>
                             <div className="row advanceParam">
