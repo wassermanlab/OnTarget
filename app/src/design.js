@@ -222,9 +222,9 @@ class Design extends React.Component {
     if (this.state.genome === "") {
       errors.push("User must select genome")
     }
-    if (this.state.requestCode === "" || (this.state.uploadedFiles.length === 0)) {
-      errors.push("User must upload at least 1 bed file of evidence.")
-    }
+    // if (this.state.requestCode === "" || (this.state.uploadedFiles.length === 0)) {
+    //   errors.push("User must upload at least 1 bed file of evidence.")
+    // }
     if (this.state.region_length>1000 ||this.state.region_length<0 ){
       errors.push("Region length must be between 0 and 1000")
     }

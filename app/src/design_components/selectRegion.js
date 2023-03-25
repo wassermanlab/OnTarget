@@ -93,6 +93,7 @@ function SelectRegion(props) {
                         <label htmlFor="selectGene">Gene name</label>
                         <Select onChange={props.handleSelectChange} name="geneName"
                             className="basic-single" classNamePrefix="select" options={props.hg19Genes} />
+                            <small className="form-text text-muted">Searching for genes may take some time.</small>
                     </div>
                 }
                 {(props.regionType === "plusMinusBP" || props.regionType === "geneToGene") && props.genome === "mm10" &&
@@ -100,6 +101,7 @@ function SelectRegion(props) {
                         <label htmlFor="selectGene">Gene name</label>
                         <Select onChange={props.handleSelectChange} name="geneName"
                             className="basic-single" classNamePrefix="select" options={props.mm10Genes} />
+                            <small className="form-text text-muted">Searching for genes may take some time.</small>
                     </div>
                 }
                 {/* TODO check with oriol what the max is */}

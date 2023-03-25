@@ -140,7 +140,16 @@ def get_regions_request():
         start=interval[0]["start"]
         end=interval[0]["end"]
     # get list of evidence from request code 
-    path = os.path.join(app.config['UPLOAD_FOLDER'], requestCode)
+    if requestCode == "":
+        existing_dir = os.listdir(app.config['UPLOAD_FOLDER'])
+        # make directory code
+        code = ''.join(random.choice(string.ascii_uppercase) for _ in range(6))
+        # get random code that doesnt exist
+        while (code in existing_dir): 
+            code = ''.join(random.choice(string.ascii_uppercase) for _ in range(6))
+        path = os.path.join(app.config['UPLOAD_FOLDER'], code)
+    else:
+        path = os.path.join(app.config['UPLOAD_FOLDER'], requestCode)
     uploadedfiles=os.listdir(path)
     evidence = []
     for i in uploadedfiles:
