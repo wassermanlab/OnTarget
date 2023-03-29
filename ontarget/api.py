@@ -22,8 +22,12 @@ app.config.from_pyfile('config.py')
 #    default_limits=["500 per day", "5 per second"]
 #)
 
-cors = CORS(app, resources={r"/*": 
-{"origins": ["http://localhost:3000", "http://gud.cmmt.ubc.ca:8080"]}}) # remove localhost from this on the server 
+cors = CORS(app, resources={r"/*": {"origins": ["http://localhost:3000",
+						"http://gud.cmmt.ubc.ca",
+						"http://gud.cmmt.ubc.ca:8080",
+						"http://ontarget.cmmt.ubc.ca",
+						"http://ontarget.cmmt.ubc.ca:8080"]}})
+#app.config["CORS_HEADERS"] = "Content-Type"
 api = Api(app)
 
 def allowed_file(filename):
@@ -34,6 +38,7 @@ def id_generator(size=6, chars=string.ascii_uppercase):
     return ''.join(random.choice(chars) for _ in range(size))
 
 @app.route('/getminipromoters', methods=["POST"])
+#@cross_origin(origin="*",headers=["Content-Type", "Authorization"])
 def get_minipromoters_request():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
@@ -75,6 +80,7 @@ def get_minipromoters_request():
         return {"error":'Content-Type not supported!'}
 
 @app.route('/getminipromoter', methods=["POST"])
+#@cross_origin(origin="*",headers=["Content-Type", "Authorization"])
 def get_minipromoter_request():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
@@ -103,6 +109,7 @@ def get_minipromoter_request():
         return {"error":'Content-Type not supported!'}
 
 @app.route('/getregions', methods=["GET"])
+#@cross_origin(origin="*",headers=["Content-Type", "Authorization"])
 def get_regions_request():
     #get args
     regionType          = request.args.get('regionType')            #geneToGene,plusMinusBP,customCoordinates
@@ -130,7 +137,7 @@ def get_regions_request():
     session =  OnTargetUtils.get_gud_session(genome)
     # get interval if geneToGene or plusMinusBP
     if regionType=="geneToGene":
-        interval = get_intervals_limit_by_gene(session, geneName) 
+        interval = get_intervals_limit_by_gene(session, geneName, genome) 
         chrom=interval[0]["chrom"]
         start=interval[0]["start"]
         end=interval[0]["end"]
@@ -148,6 +155,7 @@ def get_regions_request():
         while (code in existing_dir): 
             code = ''.join(random.choice(string.ascii_uppercase) for _ in range(6))
         path = os.path.join(app.config['UPLOAD_FOLDER'], code)
+        os.mkdir(path)
     else:
         path = os.path.join(app.config['UPLOAD_FOLDER'], requestCode)
     uploadedfiles=os.listdir(path)
@@ -185,6 +193,7 @@ def get_size(fobj):
     return 0  #assume small enough
 
 @app.route('/getpitx3evidence', methods=["POST"])
+#@cross_origin(origin="*",headers=["Content-Type", "Authorization"])
 def get_pitx3_evidence():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
@@ -194,6 +203,7 @@ def get_pitx3_evidence():
         return {"error":'Content-Type not supported!'}
     
 @app.route('/getadora2evidence', methods=["POST"])
+#@cross_origin(origin="*",headers=["Content-Type", "Authorization"])
 def get_adora2_evidence():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
@@ -203,6 +213,7 @@ def get_adora2_evidence():
         return {"error":'Content-Type not supported!'}
 
 @app.route('/uploadevidence', methods=['POST'])
+#@cross_origin(origin="*",headers=["Content-Type", "Authorization"])
 def upload_file():
     # TODO: check that this is legit! need to accept all bed files under 4MB only save those files that are readable 
     if request.method == 'POST':
@@ -236,15 +247,24 @@ def upload_file():
 
 
 @app.route('/genes', methods=['GET'])
+#@cross_origin(origin="*",headers=["Content-Type", "Authorization"])
 def get_genes():
     return {"hg19Chroms": hg19["chroms"],
             "mm10Chroms": mm10["chroms"],
             "hg19Genes": list(hg19["genes"]),
             "mm10Genes": list(mm10["genes"])}
+    #response = jsonify({"hijo": "perra",
+    #                    "hg19Chroms": hg19["chroms"],
+    #                    "mm10Chroms": mm10["chroms"],
+    #                    "hg19Genes": list(hg19["genes"]),
+    #                    mm10Genes": list(mm10["genes"])})
+    #response.headers.add("Access-Control-Allow-Origin", "*")
+    #return response
 
 
 # hg19, mm10, rest_enzymes, TFs
 @app.route('/enzymes_tfs', methods=['GET'])
+#@cross_origin(origin="*",headers=["Content-Type", "Authorization"])
 def get_enzymes_tfs():
     tf = list(TFs)
     enzymes = list(rest_enzymes)
@@ -255,6 +275,7 @@ def get_enzymes_tfs():
 
 #this downloads the whole session
 @app.route('/download_session', methods=['POST'])
+#@cross_origin(origin="*",headers=["Content-Type", "Authorization"])
 def download_session():
     sessioncode = request.args.get('sessioncode')
     
