@@ -290,7 +290,7 @@ def get_regions(session, chrom, start, end, genome, evidence=[],
                 reg_regions[i].qualifiers["TSS"]]
 
     # LiftOver
-    if liftover and genome != liftover:
+    if reg_regions and liftover and genome != liftover:
         reg_regions = _liftover_regions(reg_regions, genome, liftover,
                                         dummy_dir)
         genome = liftover
