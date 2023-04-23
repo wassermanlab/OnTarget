@@ -23,3 +23,16 @@ margin-bottom: 10px;
     text-align: center;
   }
 .info{align-self: center;}
+.designbutton:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.increased-bottom-margin{
+  margin-bottom: 25px;}
+
+.increase-bottom-right-margin{
+  margin-bottom: 25px;
+  margin-right: 10px;
+}
+.flexdisplay{
+  display: flex;
+}

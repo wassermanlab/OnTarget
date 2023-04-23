@@ -17,7 +17,7 @@ function Home() {
       </div>
       <div className="row">
         <div className="centre">
-          <img onClick={routeChange} src="/onTargetButton.svg" width="30%" className="d-inline-block align-top" alt="" />
+          <img onClick={routeChange} src="/onTargetButton.svg" width="30%" className="designbutton d-inline-block align-top" alt="" />
         </div>
       </div>
     </div>

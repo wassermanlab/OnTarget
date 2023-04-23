@@ -45,7 +45,9 @@ class Design extends React.Component {
       //componenet did mount error 
       error: null,
       // info toggles 
-      advancedParam: false
+      advancedParam: false,
+      //
+      loadingRegions: false
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -62,7 +64,7 @@ class Design extends React.Component {
 
   //set genes, TFs, restrictionEnzymes
   componentDidMount() {
-    fetch(host+"genes") // TODO: change this address
+    fetch(host + "genes") // TODO: change this address
       .then(res => res.json())
       .then(
         (result) => {
@@ -89,7 +91,7 @@ class Design extends React.Component {
 
   // events
   // reset advanced parameters
-  resetAdvancedParameters(){
+  resetAdvancedParameters() {
     this.setState({
       region_length: 100,
       region_score: 0.5,
@@ -105,7 +107,7 @@ class Design extends React.Component {
     this.setState({ genome: event.target.value });
   }
   //toggleChangeHandler
-  toggleChange(event){
+  toggleChange(event) {
     const target = event.target;
     const name = target.attributes['name'].value;
     const value = this.state[name];
@@ -127,23 +129,29 @@ class Design extends React.Component {
       return null;
     } else {
       // TODO: change this address
-      fetch(host+`getregions?regionType=${this.state.regionType}&liftover=${this.state.liftover}&genome=${this.state.genome}&geneName=${this.state.geneName}&plusMinusGene=${this.state.plusMinusGene}&chromosome=${this.state.chromosome}&customCoordinateStart=${this.state.customCoordinateStart}&customCoordinateEnd=${this.state.customCoordinateEnd}&requestCode=${this.state.requestCode}&region_length=${this.state.region_length}&region_score=${this.state.region_score}&cons_score=${this.state.cons_score}&cons_length=${this.state.cons_length}&use_conservation=${this.state.use_conservation}&mask_exons=${this.state.mask_exons}&mask_repeats=${this.state.mask_repeats}`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            loadedRegions: true,
-            regions: result,
-            page:2
-          });
-        },
-        (error) => { //TODO add error handling 
-          this.setState({
-            loadedRegions: false,
-            errors: ["Error in fetching regions, try again."]
-          });
-        }
-      )
+      this.setState({
+        loadingRegions: true,
+      }, () => {
+        fetch(host + `getregions?regionType=${this.state.regionType}&liftover=${this.state.liftover}&genome=${this.state.genome}&geneName=${this.state.geneName}&plusMinusGene=${this.state.plusMinusGene}&chromosome=${this.state.chromosome}&customCoordinateStart=${this.state.customCoordinateStart}&customCoordinateEnd=${this.state.customCoordinateEnd}&requestCode=${this.state.requestCode}&region_length=${this.state.region_length}&region_score=${this.state.region_score}&cons_score=${this.state.cons_score}&cons_length=${this.state.cons_length}&use_conservation=${this.state.use_conservation}&mask_exons=${this.state.mask_exons}&mask_repeats=${this.state.mask_repeats}`)
+          .then(res => res.json())
+          .then(
+            (result) => {
+              this.setState({
+                loadedRegions: true,
+                regions: result,
+                page: 2,
+                loadingRegions: false
+              });
+            },
+            (error) => { //TODO add error handling 
+              this.setState({
+                loadedRegions: false,
+                errors: ["Error in fetching regions, try again."],
+                loadingRegions: true
+              });
+            }
+          )
+      })
       return null;
     }
   }
@@ -156,13 +164,13 @@ class Design extends React.Component {
     for (const key of Object.keys(this.state.evidenceList)) {
       formData.append('files', this.state.evidenceList[key])
     }
-    axios.post(host+"uploadevidence", formData, { // TODO change this 
+    axios.post(host + "uploadevidence", formData, { // TODO change this 
     }).then(res => {
       this.setState({
         requestCode: res.data.request_code,
         uploadedFiles: res.data.uploaded_files
       })
-    }).catch((res)=>{
+    }).catch((res) => {
       this.setState({
         errors: ["The file you are trying to upload is likely too large."]
       })
@@ -208,7 +216,7 @@ class Design extends React.Component {
         this.state.mm10Chrom[this.state.chromosome];
       if (parseInt(this.state.customCoordinateEnd) > parseInt(chromSize)) {
         errors.push("End coordinate must be valid for selected chromosome")
-      } 
+      }
       if ((parseInt(this.state.customCoordinateEnd) - parseInt(this.state.customCoordinateStart)) > 200000) {
         errors.push("End coordinate cannot be more than 200000bp away from start coordinate")
       }
@@ -225,16 +233,16 @@ class Design extends React.Component {
     // if (this.state.requestCode === "" || (this.state.uploadedFiles.length === 0)) {
     //   errors.push("User must upload at least 1 bed file of evidence.")
     // }
-    if (this.state.region_length>1000 ||this.state.region_length<0 ){
+    if (this.state.region_length > 1000 || this.state.region_length < 0) {
       errors.push("Region length must be between 0 and 1000")
     }
-    if (this.state.cons_length>1000 ||this.state.cons_length<0 ){
+    if (this.state.cons_length > 1000 || this.state.cons_length < 0) {
       errors.push("Conservation region length must be between 0 and 1000")
     }
-    if (this.state.region_score>1 ||this.state.region_score<0 ){
+    if (this.state.region_score > 1 || this.state.region_score < 0) {
       errors.push("Region score must be between 0 and 1")
     }
-    if (this.state.cons_score>1 ||this.state.cons_score<0 ){
+    if (this.state.cons_score > 1 || this.state.cons_score < 0) {
       errors.push("Conservation region score must be between 0 and 1")
     }
     return errors;
@@ -287,12 +295,25 @@ class Design extends React.Component {
               ></SelectRegion>
               {/* error handeling */}
               <Errors errors={this.state.errors} />
-              <button onClick={this.getRegulatoryRegions} className="btn btn-primary ontarget-button">Get Regulatory Regions</button>
-
+              <button onClick={this.getRegulatoryRegions} className="increased-bottom-margin btn btn-primary ontarget-button">Get Regulatory Regions</button>
             </div>
             <div className="col">
             </div>
           </div>}
+        {this.state.loadingRegions === true &&
+          <div className="row">
+            <div className="col">
+            </div>
+            <div className="col-8 flexdisplay">
+              <div className="increase-bottom-right-margin spinner-border" role="status">
+                <span className="sr-only"></span>
+              </div>
+              <div>loading please wait...</div>
+            </div>
+            <div className="col">
+            </div>
+          </div>
+        }
         {this.state.page === 2 &&
           <GetRegions requestCode={this.state.requestCode} regions={this.state.regions}></GetRegions>}
       </div>

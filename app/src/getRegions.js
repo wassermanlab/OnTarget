@@ -293,8 +293,8 @@ class GetRegions extends React.Component {
 
 
                         <Errors errors={this.state.selectionError} />
-                        <button type="button" onClick={this.downloadDesignedPromoter} className="btn btn-primary ontarget-button" >Download Mini Promoter</button>
-                        <button type="button" onClick={this.clearDesignedPromoter} className="btn btn-primary ontarget-button" >Clear Mini Promoter</button>
+                        <button type="button" onClick={this.downloadDesignedPromoter} className="btn btn-primary ontarget-button increase-bottom-right-margin" >Download Mini Promoter</button>
+                        <button type="button" onClick={this.clearDesignedPromoter} className="btn btn-primary ontarget-button increase-bottom-right-margin" >Clear Mini Promoter</button>
 
 
 

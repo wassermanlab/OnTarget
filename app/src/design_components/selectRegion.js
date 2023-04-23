@@ -136,7 +136,7 @@ function SelectRegion(props) {
             </div>
             <div className="row-margin">
                 <form onSubmit={props.onSubmit}>
-                    <h3>Upload Evidence</h3>
+                    <h3>Upload Evidence (Optional)</h3>
                     <p>As part of the process of identifying regulatory regions, OnTarget uses genomic evidence provided by the user. Some examples of genomic evidence include: nascent transcription (e.g. CAGE and GRO-seq), chromatin accessibility (e.g. DNase-seq and ATAC-seq), histone modifications and transcription factor binding sites (i.e. ChIP-seq), or computational predictions of promoters and enhancers.
                         <br/><br/> Only .bed.gz or .bed files less than 4 MB accepted. Successfully uploaded files will be displyed after pressing the "upload" button.</p>
                     <div className="form-group">

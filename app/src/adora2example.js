@@ -91,7 +91,7 @@ class Design extends React.Component {
                         </div>
                         <div className="form-group row-margin">
                             <label htmlFor="selectGene">Gene name</label>
-                            <input type="text" className="form-control" placeholder="ADORA2" disabled />
+                            <input type="text" className="form-control" placeholder="ADORA2A" disabled />
                         </div>
                         <div className="form-group row-margin">
                             <label htmlFor="inputBP">n kb from gene</label>
