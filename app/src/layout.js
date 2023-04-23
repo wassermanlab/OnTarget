@@ -20,7 +20,7 @@ function Layout() {
               <a className="nav-link" href="/design">Design</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/pitx3example">PITX3 Examples</a>
+              <a className="nav-link" href="/pitx3example">PITX3 Example</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/adora2example">ADORA2A Example</a>
