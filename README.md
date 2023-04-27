@@ -1,4 +1,6 @@
 # OnTarget
+[![DOI](https://zenodo.org/badge/274745985.svg)](https://zenodo.org/badge/latestdoi/274745985)
+
 > This is a webserver to design promoters with "on target" expression patterns.
 
 ## Manifest
