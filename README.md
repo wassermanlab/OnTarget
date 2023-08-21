@@ -22,7 +22,7 @@ OnTarget requires the following dependencies:
     - [`pybedtools`](https://daler.github.io/pybedtools/)
     - [`requests`](https://requests.readthedocs.io/en/master/)
     - [`scikit-learn`](https://scikit-learn.org/stable/install.html)
-    - [uwsgi](https://uwsgi-docs.readthedocs.io/en/latest/)
+    - [`uwsgi`](https://uwsgi-docs.readthedocs.io/en/latest/)
     - [`werkzeug`](https://werkzeug.palletsprojects.com/en/2.2.x/)
 
 Additionally, to generate the example data, it requires:
@@ -34,7 +34,7 @@ Additionally, to generate the example data, it requires:
 To install OnTarget's dependencies, we highly recommend using the [`conda`](https://docs.conda.io/en/latest/) package and environment management system:
 
 ```
-conda create -n ontarget -c bioconda -c conda-forge \
+conda create -n ontarget -c conda-forge -c bioconda \
     biopython=1.79 \
     click=8.1.3 click-option-group=0.5.3 \
     flask=2.2.2 flask-cors=3.0.10 flask-restful=0.3.9 \
