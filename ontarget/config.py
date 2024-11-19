@@ -1,2 +1,3 @@
 SECRET_KEY='AbCd1234' 
 UPLOAD_FOLDER='/tmp'
+PITX3_EVIDENCE='../data/examples'
