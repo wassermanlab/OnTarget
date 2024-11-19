@@ -1,0 +1,47 @@
+[project]
+name = "ontarget"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "bradwbradw", email = "braddjwinter@gmail.com" }
+]
+dependencies = [
+    "flask==2.2.2",
+    "flask-cors==3.0.10",
+    "flask-restful==0.3.9",
+    "biopython>=1.84",
+    "click>=8.1.7",
+    "click-option-group>=0.5.6",
+    "fuzzywuzzy>=0.18.0",
+    "genomepy>=0.16.1",
+    "interval-binning>=1.0.0",
+    "numpy>=2.0.2",
+    "pandas>=2.2.3",
+    "pybedtools>=0.10.0",
+    "pymysql>=1.1.1",
+    "python-levenshtein>=0.26.1",
+    "requests>=2.32.3",
+    "scikit-learn>=1.5.2",
+    "sqlalchemy>=2.0.36",
+    "sqlalchemy-utils>=0.41.2",
+    "werkzeug==2.2.2",
+    "flask-limiter>=3.8.0",
+    "sqlalchemy-fulltext-search>=0.3.0",
+    "gud @ git+https://github.com/wassermanlab/GUD@9c835ed3bb4b351a2cd346574c8ac9904345eae2",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ontarget"]

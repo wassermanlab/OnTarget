@@ -245,3 +245,11 @@ print(json.dumps(minips, indent=4))
     ...
 ]
 ```
+
+
+## 2024 migration notes
+
+### run:
+```
+FLASK_APP=ontarget.api python -m flask run
+```
