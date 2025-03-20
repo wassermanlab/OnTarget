@@ -222,6 +222,9 @@ def upload_file():
         if 'files' not in request.files:
             return {"message": "failed"}
         # get existing directories
+        # make directory code if not exists
+        if not os.path.exists(app.config['UPLOAD_FOLDER']):
+            os.mkdir(app.config['UPLOAD_FOLDER'])
         existing_dir = os.listdir(app.config['UPLOAD_FOLDER'])
         # make directory code
         code = ''.join(random.choice(string.ascii_uppercase) for _ in range(6))
@@ -241,11 +244,13 @@ def upload_file():
             else:
                 try:
                     file_contents = file.read().decode("utf-8")
+                    file.seek(0)
                 except UnicodeDecodeError:
                     if file.filename.endswith(".bed.gz"):
                         try:
                             with gzip.open(file.stream, 'rt', encoding='utf-8') as f:
                                 file_contents = f.read()
+                                file.seek(0)
                         except Exception as e:
                             raise Exception("Error reading gzipped file: {e}")
                     else:
@@ -278,6 +283,7 @@ def upload_file():
                     if re.search(pattern, file_contents):
                         raise Exception(f"Suspicious content found: '{pattern}'") #abort(400)
                 filename = secure_filename(file.filename)
+                file.seek(0)
                 file.save(os.path.join(path, filename))
                 # try to read in file if its not a bed file delete the files
                 try:

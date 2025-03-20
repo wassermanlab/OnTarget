@@ -160,4 +160,7 @@ yarn-error.log*
 ontarget-env
 
 data/genomes/hardcopy.0
+data/genomes/hg19
+data/genomes/hg38
+data/genomes/mm10
 data/liftover/liftOver
