@@ -253,3 +253,10 @@ print(json.dumps(minips, indent=4))
 ```
 FLASK_APP=ontarget.api python -m flask run
 ```
+
+### run frontend:
+
+```
+cd build2023
+npx serve -s
+```
