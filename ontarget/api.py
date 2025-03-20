@@ -13,6 +13,8 @@ from datetime import datetime
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from pybedtools import BedTool
+import gzip
+import re
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
@@ -230,16 +232,67 @@ def upload_file():
         os.mkdir(path)
         files = request.files.getlist('files')
         for file in files:
-            if file and allowed_file(file.filename):
-                if get_size(file) > 4 * (1024 * 1024): # TODO: change this to 4 after this is just to test ADORA2
-                    abort(413)
+            
+            if not allowed_file(file.filename):
+                raise Exception("not allowed extension: "+file.filename)
+            elif get_size(file) > 4 * (1024 * 1024):
+                print("bed file too big: "+file.filename)
+                raise Exception("file too big: "+file.filename)
+            else:
+                try:
+                    file_contents = file.read().decode("utf-8")
+                except UnicodeDecodeError:
+                    if file.filename.endswith(".bed.gz"):
+                        try:
+                            with gzip.open(file.stream, 'rt', encoding='utf-8') as f:
+                                file_contents = f.read()
+                        except Exception as e:
+                            raise Exception("Error reading gzipped file: {e}")
+                    else:
+                        raise Exception("Error reading file: {e}")
+                except Exception as e:
+                    raise Exception("Error reading file: {e}")
+                suspicious_patterns = [
+                    r"#!",
+                    r"\bscript\b", 
+                    r"\beval\b",
+                    r"\bexec\b",
+                    r"rm\s+-rf",
+                    r"\bbash\b",  
+                    r"\bimport\b",
+                    r"\bpython\b",
+                    r"\bshell\b",
+                    r"\bssh\b",
+                    r"\bscp\b",
+                    r"\bwget\b",
+                    r"\bcurl\b",
+                    r"\bnc\b",
+                    r"\btelnet\b",
+                    r"\bncat\b",
+                    r"\bngrok\b",
+                    r"\bexecvp\b",
+                    r"\bfork\b",
+                ]
+
+                for pattern in suspicious_patterns:
+                    if re.search(pattern, file_contents):
+                        raise Exception(f"Suspicious content found: '{pattern}'") #abort(400)
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(path, filename))
                 # try to read in file if its not a bed file delete the files
                 try:
-                    BedTool(os.path.join(path, filename))
+                    b = BedTool(os.path.join(path, filename))
+                    #print("file will be validated: ", filename)
+                    #print("count----", b.count())
+                    #print("head----", b.head())
+                    # if b[0].chrom and b[0].chromStart and b[0].chromEnd:
+                    #     print("file is readable as bed: ", filename)
+                    # else:
+                    #     raise Exception("file not readable as bed")
                 except:
                     os.remove(os.path.join(path, filename))
+                    print("file not readable as bed: ", filename)
+                    raise Exception("file not readable as bed")
         uploadedfiles=os.listdir(path)
         return {"message": "passed", 
                 "request_code": code, 
