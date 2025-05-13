@@ -24,6 +24,8 @@ app.config.from_pyfile('config.py')
 #    default_limits=["500 per day", "5 per second"]
 #)
 
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
 cors = CORS(app, resources={r"/*": {"origins": ["http://localhost:3000",
 						"http://gud.cmmt.ubc.ca",
 						"http://gud.cmmt.ubc.ca:8080",
